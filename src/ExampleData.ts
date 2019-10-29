@@ -1,13 +1,50 @@
 export default {
-  brand: { name: "NavbarScroller", to: "/" },
-  links: [
-    { name: "Item 1", to: "/" },
-    { name: "Item 2", to: "/" },
-    { name: "Item 3", to: "/" },
-    { name: "Item 4", to: "/" },
-    { name: "Item 5", to: "/" },
-    { name: "Item 6", to: "/" },
-    { name: "Item 7", to: "/" },
-    { name: "Item 8", to: "/" },
-  ]
-}
+	test: [
+		{
+			title: 'Vetraráskorun Crean',
+			dateTo: 'date',
+			dateFrom: '',
+			description:
+				'Bandalag íslenskra skáta (BÍS) ) auglýsir eftir umsóknum um þátttöku í Vetraráskorun Crean árið 2019-2020. Tveggja vikna útivistarævintýri og áskorun fyrir ungt fólk á aldrinum 14-15 ára (fæddir 2004-2005). Crean vetraráskorun hefur verið haldin síðustu átta ár. Verkefnið hefur verið gríðar vel sótt og þátttakendur sammála um að það sé bæði spennandi og skemmtilegur viðburður.',
+			pic: 'https://www.skatamal.is/wp-content/uploads/2019/10/Crean-9-324x160.jpg',
+			host: '',
+			ageGroups: [],
+		},
+		{
+			title: 'Tetta er vidburdur 2',
+			dateTo: 'date',
+			dateFrom: '',
+			description: '',
+			pic: 'pic',
+			host: '',
+			ageGroups: [],
+		},
+		{
+			title: 'Tetta er vidburdur 3',
+			dateTo: 'date',
+			dateFrom: '',
+			description: '',
+			pic: 'pic',
+			host: '',
+			ageGroups: [],
+		},
+		{
+			title: 'Tetta er vidburdur 4',
+			dateTo: 'date',
+			dateFrom: '',
+			description: '',
+			pic: 'pic',
+			host: '',
+			ageGroups: [],
+		},
+		{
+			title: 'Tetta er vidburdur 5',
+			dateTo: 'date',
+			dateFrom: '',
+			description: '',
+			pic: 'pic',
+			host: '',
+			ageGroups: [],
+		},
+	],
+};
