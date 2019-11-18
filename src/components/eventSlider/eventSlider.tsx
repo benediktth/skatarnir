@@ -5,7 +5,6 @@ import * as StyledEventSlider from './eventSlider.styles';
 interface Props {}
 
 const EventSlider: FC<Props> = () => {
-	console.log(Data.test);
 	return (
 		<StyledEventSlider.Wrapper>
 			<StyledEventSlider.Icons>
@@ -14,7 +13,7 @@ const EventSlider: FC<Props> = () => {
 				</svg>
 			</StyledEventSlider.Icons>
 			<StyledEventSlider.Slider>
-				{Data.test.map(item => {
+				{Data.events.map(item => {
 					return (
 						<StyledEventSlider.SliderItem>
 							<StyledEventSlider.ContentWrapper>

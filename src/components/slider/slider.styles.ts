@@ -21,12 +21,26 @@ export const SliderItem = styled.div`
 	margin: 0 0 2rem 0;
 `;
 
+export const AgeGroupOverlayContainer = styled.div`
+	height: 10px;
+	display: flex;
+`;
+
+export const AgeGroupOverlayItem = styled.div`
+	background-color: red;
+`;
+
+export const Date = styled.div`
+	color: gray;
+`;
+
 export const PictureWrapper = styled.div``;
 
 export const ContentWrapper = styled.div`
 	margin: 0 auto;
 	width: 15rem;
 	background-color: #f2f6f9;
+	cursor: pointer;
 `;
 export const Icons = styled.div``;
 

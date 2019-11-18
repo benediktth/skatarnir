@@ -1,73 +1,67 @@
-import React, { FC } from 'react';
+import axios from 'axios';
+import Interweave from 'interweave';
+import React, { FC, useState } from 'react';
 import Slide from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
 import Data from '../../ExampleData';
+import { ageGroupColorMapper, monthMapper, widthMapper } from './helpers';
+import { settings } from './settings';
 import * as StyledSlider from './slider.styles';
-import { sliderSettings } from './sliderSettings';
 
 interface Props {}
 
+const defaultLogo = 'https://testing.skatarnir.is/wp-content/uploads/skatarnirLogo.png';
+// const url = '/wp-json/tribe/events/v1/events';
+const url = 'http://testing.skatarnir.is/wp-json/tribe/events/v1/events';
 const Slider: FC<Props> = () => {
-	var settings = {
-		dots: false,
-		infinite: true,
-		speed: 500,
-		slidesToShow: 3,
-		slidesToScroll: 1,
-		draggable: false,
-		responsive: [
-			{
-				breakpoint: 1023,
-				settings: {
-					draggable: true,
-					slidesToShow: 3,
-					arrows: true,
-				},
-			},
-			{
-				breakpoint: 850,
-				settings: {
-					draggable: true,
-					slidesToShow: 2,
-					arrows: true,
-				},
-			},
-			{
-				breakpoint: 630,
-				settings: {
-					draggable: true,
-					slidesToShow: 1,
-					arrows: true,
-				},
-			},
-			{
-				breakpoint: 420,
-				settings: {
-					draggable: true,
-					slidesToShow: 1,
-					arrows: true,
-				},
-			},
-		],
+	const redirectToEvent = url => {
+		window.location.href = url;
 	};
-	console.log(sliderSettings);
+	const [data, setData] = useState(null);
+	axios(url).then(res => {
+		setData(res.data);
+	});
+	if (!data) return <h1>Loading</h1>;
+
 	return (
 		<StyledSlider.Wrapper>
 			<StyledSlider.Title>Viðburðir</StyledSlider.Title>
 			<Slide {...settings}>
-				{Data.test.map((item, index) => {
+				{Data.events.map((item, index) => {
+					const startMonth = monthMapper(item.start_date_details.month);
+					const endMonth = monthMapper(item.end_date_details.month);
+					let imgUrl = '';
+					if (item.image) {
+						// @ts-ignore
+						imgUrl = item.image.sizes.thumbnail.url;
+					} else {
+						imgUrl = defaultLogo;
+					}
 					return (
 						<StyledSlider.SliderItem key={index}>
-							<StyledSlider.ContentWrapper>
+							<StyledSlider.ContentWrapper onClick={() => redirectToEvent(item.url)}>
 								<StyledSlider.PictureWrapper>
-									<StyledSlider.Picture src="https://www.skatamal.is/wp-content/uploads/2019/10/Crean-9-324x160.jpg" />
+									<StyledSlider.Picture src={imgUrl} />
+									<StyledSlider.AgeGroupOverlayContainer>
+										{item.categories.map((ageGroup, ind) => {
+											const color = ageGroupColorMapper(ageGroup.slug);
+											const width = widthMapper(item.categories.length);
+											return (
+												<StyledSlider.AgeGroupOverlayItem
+													style={{ backgroundColor: color, width: width }}
+													key={ind}
+												/>
+											);
+										})}
+									</StyledSlider.AgeGroupOverlayContainer>
 								</StyledSlider.PictureWrapper>
 								<StyledSlider.TextWrapper>
 									<StyledSlider.EventTitle>{item.title}</StyledSlider.EventTitle>
+									<StyledSlider.Date>{`${item.start_date_details.day}. ${startMonth} - ${item.start_date_details.day}. ${endMonth}`}</StyledSlider.Date>
 									{item.description.length > 0 && (
 										<StyledSlider.DescriptionWrapper>
-											{item.description.slice(0, 100) + '...'}
+											<Interweave content={item.description.slice(0, 100)} />
 										</StyledSlider.DescriptionWrapper>
 									)}
 								</StyledSlider.TextWrapper>
