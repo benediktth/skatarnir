@@ -12,6 +12,7 @@ import * as StyledSlider from './slider.styles';
 interface Props {}
 
 const defaultLogo = 'https://testing.skatarnir.is/wp-content/uploads/skatarnirLogo.png';
+
 const url = '/wp-json/tribe/events/v1/events';
 // const url = 'http://testing.skatarnir.is/wp-json/tribe/events/v1/events';
 const Slider: FC<Props> = () => {
@@ -32,12 +33,20 @@ const Slider: FC<Props> = () => {
 					const startMonth = monthMapper(item.start_date_details.month);
 					const endMonth = monthMapper(item.end_date_details.month);
 					let imgUrl = '';
+					let showOneDate = false;
+					if (
+						item.start_date_details.day === item.end_date_details.day &&
+						item.start_date_details.month === item.end_date_details.month
+					) {
+						showOneDate = true;
+					}
 					if (item.image) {
 						// @ts-ignore
 						imgUrl = item.image.sizes.thumbnail.url;
 					} else {
 						imgUrl = defaultLogo;
 					}
+
 					return (
 						<StyledSlider.SliderItem key={index}>
 							<StyledSlider.ContentWrapper onClick={() => redirectToEvent(item.url)}>
@@ -58,7 +67,10 @@ const Slider: FC<Props> = () => {
 								</StyledSlider.PictureWrapper>
 								<StyledSlider.TextWrapper>
 									<StyledSlider.EventTitle>{item.title}</StyledSlider.EventTitle>
-									<StyledSlider.Date>{`${item.start_date_details.day}. ${startMonth} - ${item.end_date_details.day}. ${endMonth}`}</StyledSlider.Date>
+									<StyledSlider.Date>
+										{`${item.start_date_details.day}. ${startMonth}`}
+										{!showOneDate && ` - ${item.end_date_details.day}. ${endMonth}`}
+									</StyledSlider.Date>
 									{item.description.length > 0 && (
 										<StyledSlider.DescriptionWrapper>
 											<Interweave content={item.description.slice(0, 100)} />
