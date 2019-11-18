@@ -41,6 +41,7 @@ export const ContentWrapper = styled.div`
 	width: 15rem;
 	background-color: #f2f6f9;
 	cursor: pointer;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 `;
 export const Icons = styled.div``;
 
@@ -58,4 +59,9 @@ export const TextWrapper = styled.div`
 
 export const Picture = styled.img`
 	width: 100%;
+`;
+
+export const Loading = styled.h2`
+	text-align: center;
+	padding-top: 2rem;
 `;

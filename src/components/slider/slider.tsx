@@ -12,8 +12,8 @@ import * as StyledSlider from './slider.styles';
 interface Props {}
 
 const defaultLogo = 'https://testing.skatarnir.is/wp-content/uploads/skatarnirLogo.png';
-// const url = '/wp-json/tribe/events/v1/events';
-const url = 'http://testing.skatarnir.is/wp-json/tribe/events/v1/events';
+const url = '/wp-json/tribe/events/v1/events';
+// const url = 'http://testing.skatarnir.is/wp-json/tribe/events/v1/events';
 const Slider: FC<Props> = () => {
 	const redirectToEvent = url => {
 		window.location.href = url;
@@ -22,7 +22,7 @@ const Slider: FC<Props> = () => {
 	axios(url).then(res => {
 		setData(res.data);
 	});
-	if (!data) return <h1>Loading</h1>;
+	if (!data) return <StyledSlider.Loading>Loading</StyledSlider.Loading>;
 
 	return (
 		<StyledSlider.Wrapper>
@@ -58,7 +58,7 @@ const Slider: FC<Props> = () => {
 								</StyledSlider.PictureWrapper>
 								<StyledSlider.TextWrapper>
 									<StyledSlider.EventTitle>{item.title}</StyledSlider.EventTitle>
-									<StyledSlider.Date>{`${item.start_date_details.day}. ${startMonth} - ${item.start_date_details.day}. ${endMonth}`}</StyledSlider.Date>
+									<StyledSlider.Date>{`${item.start_date_details.day}. ${startMonth} - ${item.end_date_details.day}. ${endMonth}`}</StyledSlider.Date>
 									{item.description.length > 0 && (
 										<StyledSlider.DescriptionWrapper>
 											<Interweave content={item.description.slice(0, 100)} />
