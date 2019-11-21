@@ -1,35 +1,72 @@
+import { faCalendar, faChevronLeft, faChevronRight, faMapMarker } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
-import Interweave from 'interweave';
 import React, { FC, useState } from 'react';
 import Slide from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import Data from '../../ExampleData';
 import { ageGroupColorMapper, monthMapper, widthMapper } from './helpers';
 import { settings } from './settings';
 import * as StyledSlider from './slider.styles';
 
 interface Props {}
 
-const defaultLogo = 'https://testing.skatarnir.is/wp-content/uploads/skatarnirLogo.png';
+const defaultLogo =
+	process.env.NODE_ENV === 'development'
+		? 'https://testing.skatarnir.is/wp-content/uploads/Untitled-design-33.png'
+		: '/wp-content/uploads/Untitled-design-33.png';
 
-const url = '/wp-json/tribe/events/v1/events';
-// const url = 'http://testing.skatarnir.is/wp-json/tribe/events/v1/events';
+const url =
+	process.env.NODE_ENV === 'development'
+		? 'http://testing.skatarnir.is/wp-json/tribe/events/v1/events'
+		: '/wp-json/tribe/events/v1/events';
+
 const Slider: FC<Props> = () => {
-	const redirectToEvent = url => {
-		window.location.href = url;
+	const redirectToEvent = (url, event) => {
+		if (event.ctrlKey) {
+			window.open(url);
+		} else {
+			window.location.href = url;
+		}
 	};
 	const [data, setData] = useState(null);
-	axios(url).then(res => {
-		setData(res.data);
-	});
-	if (!data) return <StyledSlider.Loading>Loading</StyledSlider.Loading>;
+	if (!data) {
+		axios(url).then(res => {
+			setData(res.data);
+		});
+	}
+	if (!data) return <StyledSlider.Loading>Sæki....</StyledSlider.Loading>;
 
+	function PrevArrow(props) {
+		const { className, style, onClick } = props;
+		return (
+			<FontAwesomeIcon
+				icon={faChevronLeft}
+				className={className}
+				style={{ ...style, color: '#3C50FF', fontSize: '18rem', height: '7rem', left: '-140px' }}
+				onClick={onClick}
+			/>
+		);
+	}
+
+	function NextArrow(props) {
+		const { className, style, onClick } = props;
+		return (
+			<FontAwesomeIcon
+				icon={faChevronRight}
+				className={className}
+				style={{ ...style, color: '#3C50FF', fontSize: '18rem', height: '7rem', right: '-140px' }}
+				onClick={onClick}
+			/>
+		);
+	}
+	settings.nextArrow = <NextArrow />;
+	settings.prevArrow = <PrevArrow />;
 	return (
 		<StyledSlider.Wrapper>
 			<StyledSlider.Title>Viðburðir</StyledSlider.Title>
 			<Slide {...settings}>
-				{Data.events.map((item, index) => {
+				{data.events.map((item, index) => {
 					const startMonth = monthMapper(item.start_date_details.month);
 					const endMonth = monthMapper(item.end_date_details.month);
 					let imgUrl = '';
@@ -40,16 +77,15 @@ const Slider: FC<Props> = () => {
 					) {
 						showOneDate = true;
 					}
-					if (item.image) {
-						// @ts-ignore
-						imgUrl = item.image.sizes.thumbnail.url;
+					if (item.image && item.image.sizes && item.image.sizes.large) {
+						imgUrl = item.image.sizes.large.url;
 					} else {
 						imgUrl = defaultLogo;
 					}
 
 					return (
 						<StyledSlider.SliderItem key={index}>
-							<StyledSlider.ContentWrapper onClick={() => redirectToEvent(item.url)}>
+							<StyledSlider.ContentWrapper onClick={e => redirectToEvent(item.url, e)}>
 								<StyledSlider.PictureWrapper>
 									<StyledSlider.Picture src={imgUrl} />
 									<StyledSlider.AgeGroupOverlayContainer>
@@ -68,12 +104,14 @@ const Slider: FC<Props> = () => {
 								<StyledSlider.TextWrapper>
 									<StyledSlider.EventTitle>{item.title}</StyledSlider.EventTitle>
 									<StyledSlider.Date>
+										<FontAwesomeIcon icon={faCalendar} />
 										{`${item.start_date_details.day}. ${startMonth}`}
 										{!showOneDate && ` - ${item.end_date_details.day}. ${endMonth}`}
 									</StyledSlider.Date>
-									{item.description.length > 0 && (
+									{item.venue && (
 										<StyledSlider.DescriptionWrapper>
-											<Interweave content={item.description.slice(0, 100)} />
+											<FontAwesomeIcon icon={faMapMarker} />
+											{item.venue.venue ? item.venue.venue : 'Staðsetning tilkynnt síðar'}
 										</StyledSlider.DescriptionWrapper>
 									)}
 								</StyledSlider.TextWrapper>

@@ -1,20 +1,35 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-	max-width: 1200px;
-	width: 90%;
+	max-width: 1800px;
+	width: 100%;
 	margin: auto;
-	@media (max-width: 768px) {
+	padding: 2rem 0;
+
+	@media (max-width: 1900px) {
 		width: 80%;
+	}
+	@media (max-width: 1200px) {
+		width: 60%;
+	}
+	@media (max-width: 768px) {
+		width: 50%;
+	}
+	div {
+		outline: none;
 	}
 `;
 
 export const Title = styled.h1`
 	margin: 0 auto;
 	text-align: center;
-	font-weight: 700;
+	font-family: Gotham-Book;
+	font-weight: 400;
 	font-size: -webkit-xxx-large;
 	padding: 2rem;
+	@media (max-width: 768px) {
+		padding: 2rem 0;
+	}
 `;
 
 export const SliderItem = styled.div`
@@ -31,30 +46,58 @@ export const AgeGroupOverlayItem = styled.div`
 `;
 
 export const Date = styled.div`
-	color: gray;
+	margin: 1rem 0;
+	font-family: Gotham-Book;
 `;
 
 export const PictureWrapper = styled.div``;
 
 export const ContentWrapper = styled.div`
 	margin: 0 auto;
-	width: 15rem;
+	width: 25rem;
 	background-color: #f2f6f9;
 	cursor: pointer;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	min-height: 25rem;
+	/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+	&:hover {
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+	}
+	@media (max-width: 1200px) {
+		width: 18rem;
+		min-height: 19rem;
+	}
+	@media (max-width: 956px) {
+		width: 20rem;
+	}
+	@media (max-width: 475px) {
+		width: 12rem;
+		min-height: 10rem;
+	}
 `;
+
 export const Icons = styled.div``;
 
 export const EventTitle = styled.h2`
-	font-size: x-large;
+	font-family: Gotham-Book;
+	font-size: 30px;
+	@media (max-width: 768px) {
+		font-size: 22px !important;
+	}
 `;
 
 export const DescriptionWrapper = styled.div`
+	font-family: Gotham-Book;
 	margin: 1rem 0;
 `;
 
 export const TextWrapper = styled.div`
 	padding: 1rem;
+	svg {
+		color: gray;
+		margin-right: 1rem;
+	}
 `;
 
 export const Picture = styled.img`

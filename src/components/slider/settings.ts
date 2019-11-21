@@ -5,17 +5,11 @@ export const settings = {
 	slidesToShow: 3,
 	slidesToScroll: 1,
 	draggable: false,
+	nextArrow: null,
+	prevArrow: null,
 	responsive: [
 		{
-			breakpoint: 1023,
-			settings: {
-				draggable: true,
-				slidesToShow: 3,
-				arrows: true,
-			},
-		},
-		{
-			breakpoint: 850,
+			breakpoint: 1900,
 			settings: {
 				draggable: true,
 				slidesToShow: 2,
@@ -23,15 +17,15 @@ export const settings = {
 			},
 		},
 		{
-			breakpoint: 630,
+			breakpoint: 1023,
 			settings: {
 				draggable: true,
-				slidesToShow: 1,
+				slidesToShow: 2,
 				arrows: true,
 			},
 		},
 		{
-			breakpoint: 420,
+			breakpoint: 956,
 			settings: {
 				draggable: true,
 				slidesToShow: 1,
