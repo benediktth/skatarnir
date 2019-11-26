@@ -17,15 +17,7 @@ export const settings = {
 			},
 		},
 		{
-			breakpoint: 1023,
-			settings: {
-				draggable: true,
-				slidesToShow: 2,
-				arrows: true,
-			},
-		},
-		{
-			breakpoint: 956,
+			breakpoint: 1300,
 			settings: {
 				draggable: true,
 				slidesToShow: 1,

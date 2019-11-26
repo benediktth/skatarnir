@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
 		width: 60%;
 	}
 	@media (max-width: 768px) {
-		width: 50%;
+		width: 80%;
 	}
 	div {
 		outline: none;
@@ -27,6 +27,11 @@ export const Title = styled.h1`
 	font-weight: 400;
 	font-size: -webkit-xxx-large;
 	padding: 2rem;
+	a {
+		color: inherit;
+		text-decoration: none;
+		cursor: pointer;
+	}
 	@media (max-width: 768px) {
 		padding: 2rem 0;
 	}
@@ -48,6 +53,14 @@ export const AgeGroupOverlayItem = styled.div`
 export const Date = styled.div`
 	margin: 1rem 0;
 	font-family: Gotham-Book;
+	position: relative;
+	p {
+		padding-left: 1.5rem;
+		font-size: 18px;
+	}
+	svg {
+		position: absolute;
+	}
 `;
 
 export const PictureWrapper = styled.div``;
@@ -57,7 +70,7 @@ export const ContentWrapper = styled.div`
 	width: 25rem;
 	background-color: #f2f6f9;
 	cursor: pointer;
-	min-height: 25rem;
+	min-height: 20rem;
 	/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -72,8 +85,31 @@ export const ContentWrapper = styled.div`
 		width: 20rem;
 	}
 	@media (max-width: 475px) {
-		width: 12rem;
+		width: 10rem;
 		min-height: 10rem;
+	}
+`;
+
+export const ArrowWrapperLeft = styled.div`
+	svg {
+		font-size: 18rem;
+		height: 7rem;
+		left: -80px;
+		@media (max-width: 768px) {
+			left: -130px;
+			height: 3rem;
+		}
+	}
+`;
+export const ArrowWrapperRight = styled.div`
+	svg {
+		font-size: 18rem;
+		height: 7rem;
+		right: -80px;
+		@media (max-width: 768px) {
+			right: -130px;
+			height: 3rem;
+		}
 	}
 `;
 
@@ -83,13 +119,21 @@ export const EventTitle = styled.h2`
 	font-family: Gotham-Book;
 	font-size: 30px;
 	@media (max-width: 768px) {
-		font-size: 22px !important;
+		font-size: 18px !important;
 	}
 `;
 
 export const DescriptionWrapper = styled.div`
 	font-family: Gotham-Book;
 	margin: 1rem 0;
+	position: relative;
+	p {
+		padding-left: 1.5rem;
+		font-size: 18px;
+	}
+	svg {
+		position: absolute;
+	}
 `;
 
 export const TextWrapper = styled.div`
@@ -107,4 +151,8 @@ export const Picture = styled.img`
 export const Loading = styled.h2`
 	text-align: center;
 	padding-top: 2rem;
+`;
+
+export const BreakpointWrapper = styled.span`
+	display: inline-block;
 `;

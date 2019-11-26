@@ -40,31 +40,37 @@ const Slider: FC<Props> = () => {
 	function PrevArrow(props) {
 		const { className, style, onClick } = props;
 		return (
-			<FontAwesomeIcon
-				icon={faChevronLeft}
-				className={className}
-				style={{ ...style, color: '#3C50FF', fontSize: '18rem', height: '7rem', left: '-140px' }}
-				onClick={onClick}
-			/>
+			<StyledSlider.ArrowWrapperLeft>
+				<FontAwesomeIcon
+					icon={faChevronLeft}
+					className={className}
+					style={{ ...style, color: '#3C50FF' }}
+					onClick={onClick}
+				/>
+			</StyledSlider.ArrowWrapperLeft>
 		);
 	}
 
 	function NextArrow(props) {
 		const { className, style, onClick } = props;
 		return (
-			<FontAwesomeIcon
-				icon={faChevronRight}
-				className={className}
-				style={{ ...style, color: '#3C50FF', fontSize: '18rem', height: '7rem', right: '-140px' }}
-				onClick={onClick}
-			/>
+			<StyledSlider.ArrowWrapperRight>
+				<FontAwesomeIcon
+					icon={faChevronRight}
+					className={className}
+					style={{ ...style, color: '#3C50FF' }}
+					onClick={onClick}
+				/>
+			</StyledSlider.ArrowWrapperRight>
 		);
 	}
 	settings.nextArrow = <NextArrow />;
 	settings.prevArrow = <PrevArrow />;
 	return (
 		<StyledSlider.Wrapper>
-			<StyledSlider.Title>Viðburðir</StyledSlider.Title>
+			<StyledSlider.Title>
+				<a href="/vidburdir">Viðburðir</a>
+			</StyledSlider.Title>
 			<Slide {...settings}>
 				{data.events.map((item, index) => {
 					const startMonth = monthMapper(item.start_date_details.month);
@@ -82,7 +88,7 @@ const Slider: FC<Props> = () => {
 					} else {
 						imgUrl = defaultLogo;
 					}
-
+					console.log(showOneDate);
 					return (
 						<StyledSlider.SliderItem key={index}>
 							<StyledSlider.ContentWrapper onClick={e => redirectToEvent(item.url, e)}>
@@ -105,13 +111,22 @@ const Slider: FC<Props> = () => {
 									<StyledSlider.EventTitle>{item.title}</StyledSlider.EventTitle>
 									<StyledSlider.Date>
 										<FontAwesomeIcon icon={faCalendar} />
-										{`${item.start_date_details.day}. ${startMonth}`}
-										{!showOneDate && ` - ${item.end_date_details.day}. ${endMonth}`}
+										<p>
+											<StyledSlider.BreakpointWrapper>
+												{`${item.start_date_details.day}. ${startMonth}${
+													showOneDate ? '' : ' -'
+												}`}
+												&nbsp;
+											</StyledSlider.BreakpointWrapper>
+											<StyledSlider.BreakpointWrapper>
+												{!showOneDate && `${item.end_date_details.day}. ${endMonth}`}
+											</StyledSlider.BreakpointWrapper>
+										</p>
 									</StyledSlider.Date>
 									{item.venue && (
 										<StyledSlider.DescriptionWrapper>
 											<FontAwesomeIcon icon={faMapMarker} />
-											{item.venue.venue ? item.venue.venue : 'Staðsetning tilkynnt síðar'}
+											<p>{item.venue.venue ? item.venue.venue : 'Staðsetning tilkynnt síðar'}</p>
 										</StyledSlider.DescriptionWrapper>
 									)}
 								</StyledSlider.TextWrapper>
