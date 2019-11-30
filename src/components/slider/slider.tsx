@@ -22,13 +22,13 @@ const url =
 		: '/wp-json/tribe/events/v1/events';
 
 const Slider: FC<Props> = () => {
-	const redirectToEvent = (url, event) => {
-		if (event.ctrlKey) {
-			window.open(url);
-		} else {
-			window.location.href = url;
-		}
-	};
+	// const redirectToEvent = (url, event) => {
+	// 	if (event.ctrlKey) {
+	// 		window.open(url);
+	// 	} else {
+	// 		window.location.href = url;
+	// 	}
+	// };
 	const [data, setData] = useState(null);
 	if (!data) {
 		axios(url).then(res => {
@@ -91,46 +91,50 @@ const Slider: FC<Props> = () => {
 					console.log(showOneDate);
 					return (
 						<StyledSlider.SliderItem key={index}>
-							<StyledSlider.ContentWrapper onClick={e => redirectToEvent(item.url, e)}>
-								<StyledSlider.PictureWrapper>
-									<StyledSlider.Picture src={imgUrl} />
-									<StyledSlider.AgeGroupOverlayContainer>
-										{item.categories.map((ageGroup, ind) => {
-											const color = ageGroupColorMapper(ageGroup.slug);
-											const width = widthMapper(item.categories.length);
-											return (
-												<StyledSlider.AgeGroupOverlayItem
-													style={{ backgroundColor: color, width: width }}
-													key={ind}
-												/>
-											);
-										})}
-									</StyledSlider.AgeGroupOverlayContainer>
-								</StyledSlider.PictureWrapper>
-								<StyledSlider.TextWrapper>
-									<StyledSlider.EventTitle>{item.title}</StyledSlider.EventTitle>
-									<StyledSlider.Date>
-										<FontAwesomeIcon icon={faCalendar} />
-										<p>
-											<StyledSlider.BreakpointWrapper>
-												{`${item.start_date_details.day}. ${startMonth}${
-													showOneDate ? '' : ' -'
-												}`}
-												&nbsp;
-											</StyledSlider.BreakpointWrapper>
-											<StyledSlider.BreakpointWrapper>
-												{!showOneDate && `${item.end_date_details.day}. ${endMonth}`}
-											</StyledSlider.BreakpointWrapper>
-										</p>
-									</StyledSlider.Date>
-									{item.venue && (
-										<StyledSlider.DescriptionWrapper>
-											<FontAwesomeIcon icon={faMapMarker} />
-											<p>{item.venue.venue ? item.venue.venue : 'Staðsetning tilkynnt síðar'}</p>
-										</StyledSlider.DescriptionWrapper>
-									)}
-								</StyledSlider.TextWrapper>
-							</StyledSlider.ContentWrapper>
+							<StyledSlider.ClickableContainer href={item.url}>
+								<StyledSlider.ContentWrapper>
+									<StyledSlider.PictureWrapper>
+										<StyledSlider.Picture src={imgUrl} />
+										<StyledSlider.AgeGroupOverlayContainer>
+											{item.categories.map((ageGroup, ind) => {
+												const color = ageGroupColorMapper(ageGroup.slug);
+												const width = widthMapper(item.categories.length);
+												return (
+													<StyledSlider.AgeGroupOverlayItem
+														style={{ backgroundColor: color, width: width }}
+														key={ind}
+													/>
+												);
+											})}
+										</StyledSlider.AgeGroupOverlayContainer>
+									</StyledSlider.PictureWrapper>
+									<StyledSlider.TextWrapper>
+										<StyledSlider.EventTitle>{item.title}</StyledSlider.EventTitle>
+										<StyledSlider.Date>
+											<FontAwesomeIcon icon={faCalendar} />
+											<p>
+												<StyledSlider.BreakpointWrapper>
+													{`${item.start_date_details.day}. ${startMonth}${
+														showOneDate ? '' : ' -'
+													}`}
+													&nbsp;
+												</StyledSlider.BreakpointWrapper>
+												<StyledSlider.BreakpointWrapper>
+													{!showOneDate && `${item.end_date_details.day}. ${endMonth}`}
+												</StyledSlider.BreakpointWrapper>
+											</p>
+										</StyledSlider.Date>
+										{item.venue && (
+											<StyledSlider.DescriptionWrapper>
+												<FontAwesomeIcon icon={faMapMarker} />
+												<p>
+													{item.venue.venue ? item.venue.venue : 'Staðsetning tilkynnt síðar'}
+												</p>
+											</StyledSlider.DescriptionWrapper>
+										)}
+									</StyledSlider.TextWrapper>
+								</StyledSlider.ContentWrapper>
+							</StyledSlider.ClickableContainer>
 						</StyledSlider.SliderItem>
 					);
 				})}
