@@ -65,11 +65,16 @@ export const Date = styled.div`
 
 export const PictureWrapper = styled.div``;
 
+export const ClickableContainer = styled.a`
+	color: inherit;
+	text-decoration: none;
+`;
+
 export const ContentWrapper = styled.div`
 	margin: 0 auto;
 	width: 25rem;
 	background-color: #f2f6f9;
-	cursor: pointer;
+	/* cursor: pointer; */
 	min-height: 20rem;
 	/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
