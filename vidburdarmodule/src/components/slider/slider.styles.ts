@@ -90,7 +90,7 @@ export const ContentWrapper = styled.div`
 		width: 20rem;
 	}
 	@media (max-width: 475px) {
-		width: 10rem;
+		width: 11rem;
 		min-height: 10rem;
 	}
 `;
@@ -146,6 +146,10 @@ export const TextWrapper = styled.div`
 	svg {
 		color: gray;
 		margin-right: 1rem;
+	}
+
+	@media (max-width: 575px) {
+		padding: 0.5rem;
 	}
 `;
 
