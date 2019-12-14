@@ -72,72 +72,74 @@ const Slider: FC<Props> = () => {
 				<a href="/vidburdir">Viðburðir</a>
 			</StyledSlider.Title>
 			<Slide {...settings}>
-				{data.events.map((item, index) => {
-					const startMonth = monthMapper(item.start_date_details.month);
-					const endMonth = monthMapper(item.end_date_details.month);
-					let imgUrl = '';
-					let showOneDate = false;
-					if (
-						item.start_date_details.day === item.end_date_details.day &&
-						item.start_date_details.month === item.end_date_details.month
-					) {
-						showOneDate = true;
-					}
-					if (item.image && item.image.sizes && item.image.sizes.large) {
-						imgUrl = item.image.sizes.large.url;
-					} else {
-						imgUrl = defaultLogo;
-					}
-					console.log(showOneDate);
-					return (
-						<StyledSlider.SliderItem key={index}>
-							<StyledSlider.ClickableContainer href={item.url}>
+				{data.events &&
+					data.events.map((item, index) => {
+						const startMonth = monthMapper(item.start_date_details.month);
+						const endMonth = monthMapper(item.end_date_details.month);
+						let imgUrl = '';
+						let showOneDate = false;
+						if (
+							item.start_date_details.day === item.end_date_details.day &&
+							item.start_date_details.month === item.end_date_details.month
+						) {
+							showOneDate = true;
+						}
+						if (item.image && item.image.sizes && item.image.sizes.large) {
+							imgUrl = item.image.sizes.large.url;
+						} else {
+							imgUrl = defaultLogo;
+						}
+						return (
+							<StyledSlider.SliderItem key={index}>
 								<StyledSlider.ContentWrapper>
-									<StyledSlider.PictureWrapper>
-										<StyledSlider.Picture src={imgUrl} />
-										<StyledSlider.AgeGroupOverlayContainer>
-											{item.categories.map((ageGroup, ind) => {
-												const color = ageGroupColorMapper(ageGroup.slug);
-												const width = widthMapper(item.categories.length);
-												return (
-													<StyledSlider.AgeGroupOverlayItem
-														style={{ backgroundColor: color, width: width }}
-														key={ind}
-													/>
-												);
-											})}
-										</StyledSlider.AgeGroupOverlayContainer>
-									</StyledSlider.PictureWrapper>
-									<StyledSlider.TextWrapper>
-										<StyledSlider.EventTitle>{item.title}</StyledSlider.EventTitle>
-										<StyledSlider.Date>
-											<FontAwesomeIcon icon={faCalendar} />
-											<p>
-												<StyledSlider.BreakpointWrapper>
-													{`${item.start_date_details.day}. ${startMonth}${
-														showOneDate ? '' : ' -'
-													}`}
-													&nbsp;
-												</StyledSlider.BreakpointWrapper>
-												<StyledSlider.BreakpointWrapper>
-													{!showOneDate && `${item.end_date_details.day}. ${endMonth}`}
-												</StyledSlider.BreakpointWrapper>
-											</p>
-										</StyledSlider.Date>
-										{item.venue && (
-											<StyledSlider.DescriptionWrapper>
-												<FontAwesomeIcon icon={faMapMarker} />
+									<StyledSlider.ClickableContainer href={item.url}>
+										<StyledSlider.PictureWrapper>
+											<StyledSlider.Picture src={imgUrl} />
+											<StyledSlider.AgeGroupOverlayContainer>
+												{item.categories.map((ageGroup, ind) => {
+													const color = ageGroupColorMapper(ageGroup.slug);
+													const width = widthMapper(item.categories.length);
+													return (
+														<StyledSlider.AgeGroupOverlayItem
+															style={{ backgroundColor: color, width: width }}
+															key={ind}
+														/>
+													);
+												})}
+											</StyledSlider.AgeGroupOverlayContainer>
+										</StyledSlider.PictureWrapper>
+										<StyledSlider.TextWrapper>
+											<StyledSlider.EventTitle>{item.title}</StyledSlider.EventTitle>
+											<StyledSlider.Date>
+												<FontAwesomeIcon icon={faCalendar} />
 												<p>
-													{item.venue.venue ? item.venue.venue : 'Staðsetning tilkynnt síðar'}
+													<StyledSlider.BreakpointWrapper>
+														{`${item.start_date_details.day}. ${startMonth}${
+															showOneDate ? '' : ' -'
+														}`}
+														&nbsp;
+													</StyledSlider.BreakpointWrapper>
+													<StyledSlider.BreakpointWrapper>
+														{!showOneDate && `${item.end_date_details.day}. ${endMonth}`}
+													</StyledSlider.BreakpointWrapper>
 												</p>
-											</StyledSlider.DescriptionWrapper>
-										)}
-									</StyledSlider.TextWrapper>
+											</StyledSlider.Date>
+											{item.venue && (
+												<StyledSlider.DescriptionWrapper>
+													<FontAwesomeIcon icon={faMapMarker} />
+													<p>
+														{item.venue.venue
+															? item.venue.venue
+															: 'Staðsetning tilkynnt síðar'}
+													</p>
+												</StyledSlider.DescriptionWrapper>
+											)}
+										</StyledSlider.TextWrapper>
+									</StyledSlider.ClickableContainer>
 								</StyledSlider.ContentWrapper>
-							</StyledSlider.ClickableContainer>
-						</StyledSlider.SliderItem>
-					);
-				})}
+							</StyledSlider.SliderItem>
+						);
+					})}
 			</Slide>
 		</StyledSlider.Wrapper>
 	);

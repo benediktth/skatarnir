@@ -37,7 +37,7 @@ export const Title = styled.h1`
 	}
 `;
 
-export const SliderItem = styled.a`
+export const SliderItem = styled.div`
 	margin: 0 0 2rem 0;
 `;
 
