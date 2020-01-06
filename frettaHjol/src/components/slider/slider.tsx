@@ -9,6 +9,7 @@ import { monthNumberMapper } from './helpers';
 import { settings } from './settings';
 import * as StyledSlider from './slider.styles';
 
+// TODO: order frettum by date
 interface Props {}
 
 const defaultLogo =
@@ -99,16 +100,18 @@ const Slider: FC<Props> = () => {
 						let itemDate = '';
 						if (item.date) {
 							let date = new Date(item.date);
-							itemDate = date.getDate() + '. ' + monthNumberMapper(date.getMonth());
+							itemDate = date.getDate() + '. ' + monthNumberMapper(date.getMonth()) + ' ' + date.getFullYear();
 						}
 						// Get the item excerpt
 						let itemExcerpt = '';
 						if(item.excerpt && item.excerpt.rendered) {
 							itemExcerpt = item.excerpt.rendered;
+							// Remove some HTLM tags that come with the post
 							itemExcerpt = itemExcerpt.replace('<p>', '');
 							itemExcerpt = itemExcerpt.replace('</p>', '');
 							itemExcerpt = itemExcerpt.replace('</ p>', '');
-							itemExcerpt = itemExcerpt.substring(0, 100);
+							// Take only the first 115 letters
+							itemExcerpt = itemExcerpt.substring(0, 115);
 							itemExcerpt = itemExcerpt + ' ...';
 						}		
 						return (
