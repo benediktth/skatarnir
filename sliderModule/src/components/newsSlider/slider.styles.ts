@@ -1,5 +1,10 @@
 import styled from 'styled-components';
 
+export const SuperWrapper = styled.div`
+	width: 100%;
+	background-color: whitesmoke
+`;
+
 export const Wrapper = styled.div`
 	max-width: 1800px;
 	width: 100%;

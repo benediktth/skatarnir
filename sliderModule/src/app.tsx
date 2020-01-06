@@ -1,14 +1,16 @@
 import React, { FC } from 'react';
 import 'reset-css';
 import * as StyledApp from './app.styles';
-import Slider from './components/slider';
+import NewsSlider from './components/newsSlider';
+import EventsSlider from './components/eventsSlider';
 
 interface Props {}
 
 const App: FC<Props> = () => {
 	return (
 		<StyledApp.Wrapper>
-			<Slider />
+			<EventsSlider />
+			<NewsSlider />
 		</StyledApp.Wrapper>
 	);
 };
