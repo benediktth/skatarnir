@@ -89,6 +89,11 @@ const Slider: FC<Props> = () => {
 							// use default image if we don't find the image
 							imgUrl = defaultLogo;
 						}
+
+						let itemTitle = '';
+						if (item.title && item.title.rendered) {
+							itemTitle = item.title.rendered;
+						}
 						
 						// Get the date of the post
 						let itemDate = '';
@@ -114,7 +119,7 @@ const Slider: FC<Props> = () => {
 											<StyledSlider.Picture src={imgUrl} />
 										</StyledSlider.PictureWrapper>
 										<StyledSlider.TextWrapper>
-											<StyledSlider.EventTitle>{item.title.rendered}</StyledSlider.EventTitle>
+											<StyledSlider.EventTitle>{itemTitle}</StyledSlider.EventTitle>
 											<StyledSlider.Date>
 												<FontAwesomeIcon icon={faCalendar} />
 												<p>
