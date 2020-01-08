@@ -85,7 +85,7 @@ const NewsSlider: FC<Props> = () => {
 							}
 							// Get the url to the image
 							let imgUrl = '';
-							if (item._embedded['wp:featuredmedia'][0] && item._embedded['wp:featuredmedia'][0].media_details && item._embedded['wp:featuredmedia'][0].media_details.sizes && item._embedded['wp:featuredmedia'][0].media_details.sizes.large) {
+							if (item._embedded && item._embedded['wp:featuredmedia'] && item._embedded['wp:featuredmedia'][0] && item._embedded['wp:featuredmedia'][0].media_details && item._embedded['wp:featuredmedia'][0].media_details.sizes && item._embedded['wp:featuredmedia'][0].media_details.sizes.large) {
 								imgUrl = item._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url;
 							} else {
 								// use default image if we don't find the image
