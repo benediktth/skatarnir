@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const SuperWrapper = styled.div`
 	width: 100%;
-	background-color: whitesmoke
+	background-color: whitesmoke;
 `;
 
 export const Wrapper = styled.div`
@@ -80,7 +80,7 @@ export const ContentWrapper = styled.div`
 	width: 25rem;
 	background-color: #f2f6f9;
 	/* cursor: pointer; */
-	min-height: 27rem;
+	min-height: 34rem;
 	/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -105,6 +105,7 @@ export const ArrowWrapperLeft = styled.div`
 		font-size: 18rem;
 		height: 7rem;
 		left: -80px;
+		z-index: 3;
 		@media (max-width: 768px) {
 			left: -130px;
 			height: 3rem;
@@ -116,6 +117,7 @@ export const ArrowWrapperRight = styled.div`
 		font-size: 18rem;
 		height: 7rem;
 		right: -80px;
+		z-index: 3;
 		@media (max-width: 768px) {
 			right: -130px;
 			height: 3rem;

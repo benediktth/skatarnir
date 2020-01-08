@@ -100,6 +100,7 @@ export const ArrowWrapperLeft = styled.div`
 		font-size: 18rem;
 		height: 7rem;
 		left: -80px;
+		z-index: 3;
 		@media (max-width: 768px) {
 			left: -130px;
 			height: 3rem;
@@ -111,6 +112,7 @@ export const ArrowWrapperRight = styled.div`
 		font-size: 18rem;
 		height: 7rem;
 		right: -80px;
+		z-index: 3;
 		@media (max-width: 768px) {
 			right: -130px;
 			height: 3rem;
