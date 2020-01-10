@@ -1,4 +1,4 @@
-import { faCalendar, faChevronLeft, faChevronRight, faMapMarker } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import React, { FC, useState } from 'react';
@@ -17,10 +17,11 @@ const defaultLogo =
 		? 'https://testing.skatarnir.is/wp-content/uploads/Untitled-design-33.png'
 		: '/wp-content/uploads/Untitled-design-33.png';
 
+// Category 148 is frettir
 let url =
 	process.env.NODE_ENV === 'development'
-		? 'http://testing.skatarnir.is/wp-json/wp/v2/posts?_embed'
-		: '/wp-json/wp/v2/posts?_embed';
+		? 'http://testing.skatarnir.is/wp-json/wp/v2/posts?_embed&categories=148'
+		: '/wp-json/wp/v2/posts?_embed&categories=148';
 
 
 
@@ -103,6 +104,8 @@ const NewsSlider: FC<Props> = () => {
 								let date = new Date(item.date);
 								itemDate = date.getDate() + '. ' + monthNumberMapper(date.getMonth()) + ' ' + date.getFullYear();
 							}
+							/*
+							They did not want this, should be removed in the future.
 							// Get the item excerpt
 							let itemExcerpt = '';
 							if (item.excerpt && item.excerpt.rendered) {
@@ -115,6 +118,14 @@ const NewsSlider: FC<Props> = () => {
 								itemExcerpt = itemExcerpt.substring(0, 115);
 								itemExcerpt = itemExcerpt + ' ...';
 							}
+							*/
+
+							// Get the posts author
+							let itemAuthor = '';
+							if (item._embedded && item._embedded.author && item._embedded.author[0] && item._embedded.author[0].name) {
+								itemAuthor = item._embedded.author[0].name;
+							}
+
 							return (
 								<StyledSlider.SliderItem key={index}>
 									<StyledSlider.ContentWrapper>
@@ -125,7 +136,7 @@ const NewsSlider: FC<Props> = () => {
 											<StyledSlider.TextWrapper>
 												<StyledSlider.EventTitle>{itemTitle}</StyledSlider.EventTitle>
 												<StyledSlider.Date>
-													<FontAwesomeIcon icon={faCalendar} />
+													<div className="published">Birt:</div>
 													<p>
 														<StyledSlider.BreakpointWrapper>
 															{itemDate}
@@ -133,9 +144,9 @@ const NewsSlider: FC<Props> = () => {
 													</p>
 												</StyledSlider.Date>
 												<StyledSlider.DescriptionWrapper>
-													<FontAwesomeIcon icon={faMapMarker} />
+													<FontAwesomeIcon icon={faUser} />
 													<p>
-														{itemExcerpt}
+														{itemAuthor}
 													</p>
 												</StyledSlider.DescriptionWrapper>
 											</StyledSlider.TextWrapper>
