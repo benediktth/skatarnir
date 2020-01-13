@@ -123,7 +123,19 @@ const NewsSlider: FC<Props> = () => {
 
 							// Get the posts author
 							let itemAuthor = '';
-							if (item._embedded && item._embedded.author && item._embedded.author[0] && item._embedded.author[0].name) {
+							// Check if there came a hofundur(icelandic for author), else we try to get the default author
+							// We need to make sure that the code below is in function.php in the current wp theme
+							/*
+								register_rest_field( 'post', 'hofundur', array(
+									'get_callback' => function ( $data ) {
+									return get_post_meta( $data['id'], 'hofundur', true );
+								}, ));
+							*/
+
+							if(item.hofundur) {
+								itemAuthor = item.hofundur;
+							}
+							else if (item._embedded && item._embedded.author && item._embedded.author[0] && item._embedded.author[0].name) {
 								itemAuthor = item._embedded.author[0].name;
 							}
 

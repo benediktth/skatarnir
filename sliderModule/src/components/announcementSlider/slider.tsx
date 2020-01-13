@@ -123,7 +123,11 @@ const AnnouncementSlider: FC<Props> = () => {
 
 							// Get the posts author
 							let itemAuthor = '';
-							if (item._embedded && item._embedded.author && item._embedded.author[0] && item._embedded.author[0].name) {
+							// Check if there came a hofundur(icelandic for author), else we try to get the default author
+							if(item.hofundur) {
+								itemAuthor = item.hofundur;
+							}
+							else if (item._embedded && item._embedded.author && item._embedded.author[0] && item._embedded.author[0].name) {
 								itemAuthor = item._embedded.author[0].name;
 							}
 
