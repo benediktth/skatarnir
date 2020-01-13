@@ -1,5 +1,6 @@
-import { faUser, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faClock } from '@fortawesome/free-regular-svg-icons';
 import axios from 'axios';
 import React, { FC, useState } from 'react';
 import Slide from 'react-slick';
@@ -39,7 +40,7 @@ const AnnouncementSlider: FC<Props> = () => {
 			setData(res.data);
 		});
 	}
-	if (!data) return <StyledSlider.Loading>Sæki....</StyledSlider.Loading>;
+	if (!data) return <StyledSlider.Loading>Sæki tilkynningar....</StyledSlider.Loading>;
 
 	function PrevArrow(props) {
 		const { className, style, onClick } = props;
@@ -71,7 +72,7 @@ const AnnouncementSlider: FC<Props> = () => {
 	settings.nextArrow = <NextArrow />;
 	settings.prevArrow = <PrevArrow />;
 	return (
-		<StyledSlider.SuperWrapper background-colour="whitesmoke">
+		<StyledSlider.SuperWrapper>
 			<StyledSlider.Wrapper>
 				<StyledSlider.Title>
 					<a href="/frettir">Tilkynningar</a>
@@ -104,7 +105,7 @@ const AnnouncementSlider: FC<Props> = () => {
 								let date = new Date(item.date);
 								itemDate = date.getDate() + '. ' + monthNumberMapper(date.getMonth()) + ' ' + date.getFullYear();
 							}
-														/*
+							/*
 							They did not want this, should be removed in the future.
 							// Get the item excerpt
 							let itemExcerpt = '';
@@ -126,6 +127,11 @@ const AnnouncementSlider: FC<Props> = () => {
 								itemAuthor = item._embedded.author[0].name;
 							}
 
+							// Typescript refuses to let me use regular icons so we have to ignore it
+							//@ts-ignore
+							let date = <li><span className="fa-li"><FontAwesomeIcon icon={faClock} /></span>{itemDate}</li>;
+							let author = <li><span className="fa-li"><FontAwesomeIcon icon={faUser} /></span>{itemAuthor}</li>;
+
 							return (
 								<StyledSlider.SliderItem key={index}>
 									<StyledSlider.ContentWrapper>
@@ -135,20 +141,10 @@ const AnnouncementSlider: FC<Props> = () => {
 											</StyledSlider.PictureWrapper>
 											<StyledSlider.TextWrapper>
 												<StyledSlider.EventTitle>{itemTitle}</StyledSlider.EventTitle>
-												<StyledSlider.Date>
-													<div className="published">Birt:</div>
-													<p>
-														<StyledSlider.BreakpointWrapper>
-															{itemDate}
-														</StyledSlider.BreakpointWrapper>
-													</p>
-												</StyledSlider.Date>
-												<StyledSlider.DescriptionWrapper>
-													<FontAwesomeIcon icon={faUser} />
-													<p>
-														{itemAuthor}
-													</p>
-												</StyledSlider.DescriptionWrapper>
+												<StyledSlider.ItemList className="fa-ul">
+													{date}
+													{author}
+												</StyledSlider.ItemList>
 											</StyledSlider.TextWrapper>
 										</StyledSlider.ClickableContainer>
 									</StyledSlider.ContentWrapper>
