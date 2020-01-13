@@ -35,7 +35,7 @@ const EventsSlider: FC<Props> = () => {
 			setData(res.data);
 		});
 	}
-	if (!data) return <StyledSlider.Loading>Sæki....</StyledSlider.Loading>;
+	if (!data) return <StyledSlider.Loading>Sæki viðburði....</StyledSlider.Loading>;
 
 	function PrevArrow(props) {
 		const { className, style, onClick } = props;
@@ -92,7 +92,7 @@ const EventsSlider: FC<Props> = () => {
 
 						let itemDate = '';
 						itemDate = `${item.start_date_details.day}. ${startMonth}${ showOneDate ? '' : ' -' }` + 
-						`${item.end_date_details.day}. ${endMonth}`;
+						` ${item.end_date_details.day}. ${endMonth}`;
 						let date = <li><span className="fa-li"><FontAwesomeIcon icon={faCalendar} /></span>{itemDate}</li>;
 						
 						let itemVenue = '';

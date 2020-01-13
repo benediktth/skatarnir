@@ -40,7 +40,7 @@ const NewsSlider: FC<Props> = () => {
 			setData(res.data);
 		});
 	}
-	if (!data) return <StyledSlider.Loading>Sæki....</StyledSlider.Loading>;
+	if (!data) return <StyledSlider.Loading>Sæki fréttir....</StyledSlider.Loading>;
 
 	function PrevArrow(props) {
 		const { className, style, onClick } = props;

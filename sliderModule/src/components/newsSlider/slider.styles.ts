@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const SuperWrapper = styled.div`
 	width: 100%;
-	background-color: moccasin;
+	background-color: #ffaf3c;
 `;
 
 export const Wrapper = styled.div`
