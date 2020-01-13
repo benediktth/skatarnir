@@ -89,6 +89,18 @@ const EventsSlider: FC<Props> = () => {
 						} else {
 							imgUrl = defaultLogo;
 						}
+
+						let itemDate = '';
+						itemDate = `${item.start_date_details.day}. ${startMonth}${ showOneDate ? '' : ' -' }` + 
+						`${item.end_date_details.day}. ${endMonth}`;
+						let date = <li><span className="fa-li"><FontAwesomeIcon icon={faCalendar} /></span>{itemDate}</li>;
+						
+						let itemVenue = '';
+						if (item.venue) {
+							itemVenue = item.venue.venue ? item.venue.venue : 'Staðsetning tilkynnt síðar';
+						}
+						let venue = <li><span className="fa-li"><FontAwesomeIcon icon={faMapMarker} /></span>{itemVenue}</li>;
+
 						return (
 							<StyledSlider.SliderItem key={index}>
 								<StyledSlider.ContentWrapper>
@@ -110,30 +122,10 @@ const EventsSlider: FC<Props> = () => {
 										</StyledSlider.PictureWrapper>
 										<StyledSlider.TextWrapper>
 											<StyledSlider.EventTitle>{item.title}</StyledSlider.EventTitle>
-											<StyledSlider.Date>
-												<FontAwesomeIcon icon={faCalendar} />
-												<p>
-													<StyledSlider.BreakpointWrapper>
-														{`${item.start_date_details.day}. ${startMonth}${
-															showOneDate ? '' : ' -'
-														}`}
-														&nbsp;
-													</StyledSlider.BreakpointWrapper>
-													<StyledSlider.BreakpointWrapper>
-														{!showOneDate && `${item.end_date_details.day}. ${endMonth}`}
-													</StyledSlider.BreakpointWrapper>
-												</p>
-											</StyledSlider.Date>
-											{item.venue && (
-												<StyledSlider.DescriptionWrapper>
-													<FontAwesomeIcon icon={faMapMarker} />
-													<p>
-														{item.venue.venue
-															? item.venue.venue
-															: 'Staðsetning tilkynnt síðar'}
-													</p>
-												</StyledSlider.DescriptionWrapper>
-											)}
+											<StyledSlider.ItemList className="fa-ul">
+												{date}
+												{venue}
+											</StyledSlider.ItemList>
 										</StyledSlider.TextWrapper>
 									</StyledSlider.ClickableContainer>
 								</StyledSlider.ContentWrapper>

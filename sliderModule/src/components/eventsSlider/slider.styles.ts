@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+export const SuperWrapper = styled.div`
+	width: 100%;
+`;
+
 export const Wrapper = styled.div`
 	max-width: 1800px;
 	width: 100%;
@@ -55,7 +59,7 @@ export const Date = styled.div`
 	font-family: Gotham-Book;
 	position: relative;
 	p {
-		padding-left: 1.5rem;
+		padding-left: 2.5rem;
 		font-size: 18px;
 	}
 	svg {
@@ -75,7 +79,7 @@ export const ContentWrapper = styled.div`
 	width: 25rem;
 	background-color: #f2f6f9;
 	/* cursor: pointer; */
-	min-height: 23rem;
+	min-height: 28rem;
 	/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -135,10 +139,11 @@ export const DescriptionWrapper = styled.div`
 	margin: 1rem 0;
 	position: relative;
 	p {
-		padding-left: 1.5rem;
+		padding-left: 2.5rem;
 		font-size: 18px;
 	}
 	svg {
+		padding-left: 0.4rem;
 		position: absolute;
 	}
 `;
@@ -166,4 +171,13 @@ export const Loading = styled.h2`
 
 export const BreakpointWrapper = styled.span`
 	display: inline-block;
+`;
+
+export const ItemList = styled.ul`
+	list-style: none !important;
+	li {
+		margin: 1rem 0;
+		font-family: Gotham-Book;
+		font-size: 18px;
+	}
 `;
