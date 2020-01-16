@@ -22,8 +22,6 @@ let url =
 		? 'http://testing.skatarnir.is/wp-json/wp/v2/posts?_embed'
 		: '/wp-json/wp/v2/posts?_embed';
 
-
-
 const Slider: FC<Props> = () => {
 	// const redirectToEvent = (url, event) => {
 	// 	if (event.ctrlKey) {
@@ -33,6 +31,7 @@ const Slider: FC<Props> = () => {
 	// 	}
 	// };
 	const [data, setData] = useState(null);
+	console.log(url);
 	if (!data) {
 		axios(url).then(res => {
 			setData(res.data);
@@ -69,13 +68,14 @@ const Slider: FC<Props> = () => {
 	}
 	settings.nextArrow = <NextArrow />;
 	settings.prevArrow = <PrevArrow />;
+	console.log(data);
 	return (
 		<StyledSlider.Wrapper>
 			<StyledSlider.Title>
 				<a href="/frettir">Fréttir</a>
 			</StyledSlider.Title>
 			<Slide {...settings}>
-				{ data && 
+				{data &&
 					data.map((item, index) => {
 						// Get the url to the post
 						let itemUrl = '';
@@ -84,7 +84,12 @@ const Slider: FC<Props> = () => {
 						}
 						// Get the url to the image
 						let imgUrl = '';
-						if (item._embedded['wp:featuredmedia'][0] && item._embedded['wp:featuredmedia'][0].media_details && item._embedded['wp:featuredmedia'][0].media_details.sizes && item._embedded['wp:featuredmedia'][0].media_details.sizes.large) {
+						if (
+							item._embedded['wp:featuredmedia'][0] &&
+							item._embedded['wp:featuredmedia'][0].media_details &&
+							item._embedded['wp:featuredmedia'][0].media_details.sizes &&
+							item._embedded['wp:featuredmedia'][0].media_details.sizes.large
+						) {
 							imgUrl = item._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url;
 						} else {
 							// use default image if we don't find the image
@@ -95,16 +100,17 @@ const Slider: FC<Props> = () => {
 						if (item.title && item.title.rendered) {
 							itemTitle = item.title.rendered;
 						}
-						
+
 						// Get the date of the post
 						let itemDate = '';
 						if (item.date) {
 							let date = new Date(item.date);
-							itemDate = date.getDate() + '. ' + monthNumberMapper(date.getMonth()) + ' ' + date.getFullYear();
+							itemDate =
+								date.getDate() + '. ' + monthNumberMapper(date.getMonth()) + ' ' + date.getFullYear();
 						}
 						// Get the item excerpt
 						let itemExcerpt = '';
-						if(item.excerpt && item.excerpt.rendered) {
+						if (item.excerpt && item.excerpt.rendered) {
 							itemExcerpt = item.excerpt.rendered;
 							// Remove some HTLM tags that come with the post
 							itemExcerpt = itemExcerpt.replace('<p>', '');
@@ -113,7 +119,7 @@ const Slider: FC<Props> = () => {
 							// Take only the first 115 letters
 							itemExcerpt = itemExcerpt.substring(0, 115);
 							itemExcerpt = itemExcerpt + ' ...';
-						}		
+						}
 						return (
 							<StyledSlider.SliderItem key={index}>
 								<StyledSlider.ContentWrapper>
@@ -133,17 +139,14 @@ const Slider: FC<Props> = () => {
 											</StyledSlider.Date>
 											<StyledSlider.DescriptionWrapper>
 												<FontAwesomeIcon icon={faMapMarker} />
-												<p>
-													{itemExcerpt}
-												</p>
+												<p>{itemExcerpt}</p>
 											</StyledSlider.DescriptionWrapper>
 										</StyledSlider.TextWrapper>
-									</StyledSlider.ClickableContainer>	
+									</StyledSlider.ClickableContainer>
 								</StyledSlider.ContentWrapper>
 							</StyledSlider.SliderItem>
-						)
-					})
-					}
+						);
+					})}
 			</Slide>
 		</StyledSlider.Wrapper>
 	);
