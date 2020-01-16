@@ -5,11 +5,10 @@ import React, { FC, useState } from 'react';
 import Slide from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import { monthNumberMapper } from './helpers';
+import { ageGroupColorMapper, monthMapper, widthMapper } from './helpers';
 import { settings } from './settings';
 import * as StyledSlider from './slider.styles';
 
-// TODO: order frettum by date
 interface Props {}
 
 const defaultLogo =
@@ -17,12 +16,12 @@ const defaultLogo =
 		? 'https://testing.skatarnir.is/wp-content/uploads/Untitled-design-33.png'
 		: '/wp-content/uploads/Untitled-design-33.png';
 
-let url =
+const url =
 	process.env.NODE_ENV === 'development'
-		? 'http://testing.skatarnir.is/wp-json/wp/v2/posts?_embed'
-		: '/wp-json/wp/v2/posts?_embed';
+		? 'http://testing.skatarnir.is/wp-json/tribe/events/v1/events'
+		: '/wp-json/tribe/events/v1/events';
 
-const Slider: FC<Props> = () => {
+const EventsSlider: FC<Props> = () => {
 	// const redirectToEvent = (url, event) => {
 	// 	if (event.ctrlKey) {
 	// 		window.open(url);
@@ -31,13 +30,12 @@ const Slider: FC<Props> = () => {
 	// 	}
 	// };
 	const [data, setData] = useState(null);
-	console.log(url);
 	if (!data) {
 		axios(url).then(res => {
 			setData(res.data);
 		});
 	}
-	if (!data) return <StyledSlider.Loading>Sæki....</StyledSlider.Loading>;
+	if (!data) return <StyledSlider.Loading>Sæki viðburði....</StyledSlider.Loading>;
 
 	function PrevArrow(props) {
 		const { className, style, onClick } = props;
@@ -68,79 +66,66 @@ const Slider: FC<Props> = () => {
 	}
 	settings.nextArrow = <NextArrow />;
 	settings.prevArrow = <PrevArrow />;
-	console.log(data);
 	return (
 		<StyledSlider.Wrapper>
 			<StyledSlider.Title>
-				<a href="/frettir">Fréttir</a>
+				<a href="/vidburdir">Viðburðir</a>
 			</StyledSlider.Title>
 			<Slide {...settings}>
-				{data &&
-					data.map((item, index) => {
-						// Get the url to the post
-						let itemUrl = '';
-						if (item.link) {
-							itemUrl = item.link;
-						}
-						// Get the url to the image
+				{data.events &&
+					data.events.map((item, index) => {
+						const startMonth = monthMapper(item.start_date_details.month);
+						const endMonth = monthMapper(item.end_date_details.month);
 						let imgUrl = '';
+						let showOneDate = false;
 						if (
-							item._embedded['wp:featuredmedia'][0] &&
-							item._embedded['wp:featuredmedia'][0].media_details &&
-							item._embedded['wp:featuredmedia'][0].media_details.sizes &&
-							item._embedded['wp:featuredmedia'][0].media_details.sizes.large
+							item.start_date_details.day === item.end_date_details.day &&
+							item.start_date_details.month === item.end_date_details.month
 						) {
-							imgUrl = item._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url;
+							showOneDate = true;
+						}
+						if (item.image && item.image.sizes && item.image.sizes.large) {
+							imgUrl = item.image.sizes.large.url;
 						} else {
-							// use default image if we don't find the image
 							imgUrl = defaultLogo;
 						}
 
-						let itemTitle = '';
-						if (item.title && item.title.rendered) {
-							itemTitle = item.title.rendered;
-						}
-
-						// Get the date of the post
 						let itemDate = '';
-						if (item.date) {
-							let date = new Date(item.date);
-							itemDate =
-								date.getDate() + '. ' + monthNumberMapper(date.getMonth()) + ' ' + date.getFullYear();
+						itemDate = `${item.start_date_details.day}. ${startMonth}${ showOneDate ? '' : ' -' }` + 
+						` ${item.end_date_details.day}. ${endMonth}`;
+						let date = <li><span className="fa-li"><FontAwesomeIcon icon={faCalendar} /></span>{itemDate}</li>;
+						
+						let itemVenue = '';
+						if (item.venue) {
+							itemVenue = item.venue.venue ? item.venue.venue : 'Staðsetning tilkynnt síðar';
 						}
-						// Get the item excerpt
-						let itemExcerpt = '';
-						if (item.excerpt && item.excerpt.rendered) {
-							itemExcerpt = item.excerpt.rendered;
-							// Remove some HTLM tags that come with the post
-							itemExcerpt = itemExcerpt.replace('<p>', '');
-							itemExcerpt = itemExcerpt.replace('</p>', '');
-							itemExcerpt = itemExcerpt.replace('</ p>', '');
-							// Take only the first 115 letters
-							itemExcerpt = itemExcerpt.substring(0, 115);
-							itemExcerpt = itemExcerpt + ' ...';
-						}
+						let venue = <li><span className="fa-li"><FontAwesomeIcon icon={faMapMarker} /></span>{itemVenue}</li>;
+
 						return (
 							<StyledSlider.SliderItem key={index}>
 								<StyledSlider.ContentWrapper>
-									<StyledSlider.ClickableContainer href={itemUrl}>
+									<StyledSlider.ClickableContainer href={item.url}>
 										<StyledSlider.PictureWrapper>
 											<StyledSlider.Picture src={imgUrl} />
+											<StyledSlider.AgeGroupOverlayContainer>
+												{item.categories.map((ageGroup, ind) => {
+													const color = ageGroupColorMapper(ageGroup.slug);
+													const width = widthMapper(item.categories.length);
+													return (
+														<StyledSlider.AgeGroupOverlayItem
+															style={{ backgroundColor: color, width: width }}
+															key={ind}
+														/>
+													);
+												})}
+											</StyledSlider.AgeGroupOverlayContainer>
 										</StyledSlider.PictureWrapper>
 										<StyledSlider.TextWrapper>
-											<StyledSlider.EventTitle>{itemTitle}</StyledSlider.EventTitle>
-											<StyledSlider.Date>
-												<FontAwesomeIcon icon={faCalendar} />
-												<p>
-													<StyledSlider.BreakpointWrapper>
-														{itemDate}
-													</StyledSlider.BreakpointWrapper>
-												</p>
-											</StyledSlider.Date>
-											<StyledSlider.DescriptionWrapper>
-												<FontAwesomeIcon icon={faMapMarker} />
-												<p>{itemExcerpt}</p>
-											</StyledSlider.DescriptionWrapper>
+											<StyledSlider.EventTitle>{item.title}</StyledSlider.EventTitle>
+											<StyledSlider.ItemList className="fa-ul">
+												{date}
+												{venue}
+											</StyledSlider.ItemList>
 										</StyledSlider.TextWrapper>
 									</StyledSlider.ClickableContainer>
 								</StyledSlider.ContentWrapper>
@@ -152,4 +137,4 @@ const Slider: FC<Props> = () => {
 	);
 };
 
-export default Slider;
+export default EventsSlider;
