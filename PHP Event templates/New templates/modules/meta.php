@@ -20,7 +20,13 @@ $set_venue_apart = apply_filters( 'tribe_events_single_event_the_meta_group_venu
 ?>
 
 <?php if ( $not_skeleton ) : ?>
-	<div class="tribe-events-single-section tribe-events-event-meta primary tribe-clearfix set-height">
+	<style>#adjustContent{
+		height: 100%;
+		margin: 0;
+	}
+	</style>
+
+	<div class="tribe-events-single-section tribe-events-event-meta primary tribe-clearfix set-height" id="adjustContent">
 <?php endif; ?>
 
 <?php
@@ -28,7 +34,13 @@ do_action( 'tribe_events_single_event_meta_primary_section_start' );
 
 // Always include the main event details in this first section
 tribe_get_template_part( 'modules/meta/details' );
+?>
 
+<div class="tribe-events-meta-group " id="register">
+	<a href="https://skatar.felog.is" id="register-button">Skráðu þig hérna</a>
+</div>
+
+<?php
 // Include venue meta if appropriate.
 if ( tribe_get_venue_id() ) {
 	// If we have no map to embed and no need to keep the venue separate...
@@ -53,10 +65,11 @@ if ( tribe_has_organizer() ) {
 
 do_action( 'tribe_events_single_event_meta_primary_section_end' );
 ?>
-
-<div class="tribe-events-meta-group " id="register">
-	<a href="https://skatar.felog.is" id="register-button">Skráðu þig hérna</a>
-</div>
+<style>.tribe-events-cal-links{
+	padding: 0.5rem;
+}
+</style>
+<?php do_action( 'tribe_events_single_event_after_the_content' ) ?>
 <style>
 #register {
 	float: inherit;

@@ -28,6 +28,7 @@ $map = tribe_get_embedded_map()
 	<style>
 	.contentWrapper {
 		display: flex;
+		margin-bottom: 2rem;
 	}
 	.meta-wrapper {
 		width: 30%;
@@ -40,12 +41,20 @@ $map = tribe_get_embedded_map()
 		padding: 2rem 2rem 0 0;
 	}
 	.pictureAndTextWrapper img {
-		width: 50%;
-		float: right;
+		width: 60%;
 	}
 	.single-tribe_events .tribe-events-event-image {
 		margin: 0;
 		margin-bottom: 0;
+		text-align: inherit;
+	}
+	.single-tribe_events .tribe-events-venue-map {
+		float: left;
+		margin: 20px 4% 0% 0;
+	}
+	#tribe-events .tribe-events-content p {
+		font-weight: 600;
+		margin-top: 1rem;
 	}
  	@media only screen and (max-width: 600px) {
 		.meta-wrapper {
@@ -76,6 +85,7 @@ $map = tribe_get_embedded_map()
 				<div class="pictureAndTextWrapper">
 					<!-- Image -->
 					<?php echo tribe_event_featured_image( $event_id, 'full', false ); ?>
+					<?php the_title( '<h1 class="tribe-events-single-event-title asdasd">', '</h1>' ); ?>
 					<!-- Event content -->
 					<?php do_action( 'tribe_events_single_event_before_the_content' ) ?>
 					<div class="tribe-events-single-event-description tribe-events-content">
@@ -101,7 +111,6 @@ $map = tribe_get_embedded_map()
 				</div>
 			</div>
 			<!-- .tribe-events-single-event-description -->
-			<?php do_action( 'tribe_events_single_event_after_the_content' ) ?>
 		</div> <!-- #post-x -->
 		<?php if ( get_post_type() == Tribe__Events__Main::POSTTYPE && tribe_get_option( 'showComments', false ) ) comments_template() ?>
 	<?php endwhile; ?>

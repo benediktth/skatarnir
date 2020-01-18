@@ -150,7 +150,5 @@ $website = tribe_get_event_website_link();
 			<dt class="tribe-events-event-url-label">Vefsíða:  </dt>
 			<dd class="tribe-events-event-url"> <?php echo $website; ?> </dd>
 		<?php endif ?>
-
-		<?php do_action( 'tribe_events_single_meta_details_section_end' ) ?>
 	</dl>
 </div>
