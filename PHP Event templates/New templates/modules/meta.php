@@ -20,10 +20,10 @@ $set_venue_apart = apply_filters( 'tribe_events_single_event_the_meta_group_venu
 ?>
 
 <?php if ( $not_skeleton ) : ?>
-	<style>#adjustContent{
-		height: 100%;
-		margin: 0;
-	}
+	<style>
+		#adjustContent{
+			margin: 0;
+		}
 	</style>
 
 	<div class="tribe-events-single-section tribe-events-event-meta primary tribe-clearfix set-height" id="adjustContent">
@@ -40,6 +40,18 @@ tribe_get_template_part( 'modules/meta/details' );
 	<a href="https://skatar.felog.is" id="register-button">Skráðu þig hérna</a>
 </div>
 
+<style>
+	.tribe-events-event-meta .column, .tribe-events-event-meta .tribe-events-meta-group {
+		display: inherit;
+		float: inherit;
+		width: 100%;
+	}
+	.tribe-events-event-meta .column, .tribe-events-event-meta .tribe-events-meta-group h2 {
+	    background-color: #3C50FF;
+		color: #E3A158;
+		padding: 4px 10px;
+	}
+</style>
 <?php
 // Include venue meta if appropriate.
 if ( tribe_get_venue_id() ) {

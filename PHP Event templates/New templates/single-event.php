@@ -26,44 +26,45 @@ $map = tribe_get_embedded_map()
 
 <div id="tribe-events-content" class="tribe-events-single">
 	<style>
-	.contentWrapper {
-		display: flex;
-		margin-bottom: 2rem;
-	}
-	.meta-wrapper {
-		width: 30%;
-	}
-	.tribe-events-single-section {
-		width: 100%;
-	}
-	.pictureAndTextWrapper {
-		width: 70%;
-		padding: 2rem 2rem 0 0;
-	}
-	.pictureAndTextWrapper img {
-		width: 60%;
-	}
-	.single-tribe_events .tribe-events-event-image {
-		margin: 0;
-		margin-bottom: 0;
-		text-align: inherit;
-	}
-	.single-tribe_events .tribe-events-venue-map {
-		float: left;
-		margin: 20px 4% 0% 0;
-	}
-	#tribe-events .tribe-events-content p {
-		font-weight: 600;
-		margin-top: 1rem;
-	}
- 	@media only screen and (max-width: 600px) {
-		.meta-wrapper {
-			display: none;
+		.contentWrapper {
+			display: flex;
+			margin-bottom: 2rem;
 		}
-		.pictureAndTextWrapper {
+		.meta-wrapper {
+			width: 30%;
+		}
+		.tribe-events-single-section {
 			width: 100%;
 		}
-	}
+		.pictureAndTextWrapper {
+			width: 70%;
+			padding: 2rem 2rem 0 0;
+		}
+		.pictureAndTextWrapper img {
+			width: 60%;
+		}
+		.single-tribe_events .tribe-events-event-image {
+			margin: 0;
+			margin-bottom: 0;
+			text-align: inherit;
+		}
+		.single-tribe_events .tribe-events-venue-map {
+			float: left;
+			margin: 20px 4% 0% 0;
+			width: 100%;
+		}
+		#tribe-events .tribe-events-content p {
+			font-weight: 600;
+			margin-top: 1rem;
+		}
+		@media only screen and (max-width: 600px) {
+			.meta-wrapper {
+				display: none;
+			}
+			.pictureAndTextWrapper {
+				width: 100%;
+			}
+		}
 	</style>
 	<!-- Notices -->
 	<?php tribe_the_notices() ?>

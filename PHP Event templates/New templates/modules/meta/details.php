@@ -55,9 +55,14 @@ $website = tribe_get_event_website_link();
 	#events-meta {
 		width: 100%;
 	}
+	#keyInfo {
+		background-color: #3C50FF;
+		color: #E3A158;
+		padding: 4px 10px;
+	}
 </style>
 <div class="tribe-events-meta-group tribe-events-meta-group-details" id="events-meta">
-	<h2 class="tribe-events-single-section-title">Upplýsingar: </h2>
+	<h2 class="tribe-events-single-section-title" id="keyInfo">Lykilupplýsingar</h2>
 	<dl>
 
 		<?php
