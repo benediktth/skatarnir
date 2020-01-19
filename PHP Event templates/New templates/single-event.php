@@ -31,13 +31,13 @@ $map = tribe_get_embedded_map()
 			margin-bottom: 2rem;
 		}
 		.meta-wrapper {
-			width: 30%;
+			width: 20%;
 		}
 		.tribe-events-single-section {
 			width: 100%;
 		}
 		.pictureAndTextWrapper {
-			width: 70%;
+			width: 80%;
 			padding: 2rem 2rem 0 0;
 		}
 		.pictureAndTextWrapper img {
@@ -57,13 +57,29 @@ $map = tribe_get_embedded_map()
 			font-weight: 600;
 			margin-top: 1rem;
 		}
-		@media only screen and (max-width: 600px) {
+		@media only screen and (max-width: 1000px) {
 			.meta-wrapper {
 				display: none;
 			}
 			.pictureAndTextWrapper {
+				padding: 0;
 				width: 100%;
 			}
+			.pictureAndTextWrapper img {
+				width: 100%;
+			}
+		}
+		#tribe-events .tribe-events-button, .tribe-events-button {
+			background-color: #3C50FF;
+			color: #E3A158;
+		}
+		.tribe-events-sub-nav a {
+			border-radius: 3px;
+			background-color: #3C50FF;
+			padding: 10px;
+		}
+		#tribe-events-footer li {
+			padding: 12px;
 		}
 	</style>
 	<!-- Notices -->
@@ -86,7 +102,6 @@ $map = tribe_get_embedded_map()
 				<div class="pictureAndTextWrapper">
 					<!-- Image -->
 					<?php echo tribe_event_featured_image( $event_id, 'full', false ); ?>
-					<?php the_title( '<h1 class="tribe-events-single-event-title asdasd">', '</h1>' ); ?>
 					<!-- Event content -->
 					<?php do_action( 'tribe_events_single_event_before_the_content' ) ?>
 					<div class="tribe-events-single-event-description tribe-events-content">
