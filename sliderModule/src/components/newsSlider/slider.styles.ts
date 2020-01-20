@@ -32,6 +32,9 @@ export const Title = styled.h1`
 	font-weight: 400;
 	font-size: -webkit-xxx-large;
 	padding: 2rem;
+	a:hover {
+		color: #3c50ff !important;
+	}
 	a {
 		color: inherit;
 		text-decoration: none;
