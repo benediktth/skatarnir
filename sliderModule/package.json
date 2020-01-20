@@ -40,10 +40,14 @@
 	},
 	"scripts": {
 		"start": "react-scripts start",
-		"build": "react-scripts build",
+		"build": "react-scripts build && npm run copy-files-to-wp",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"now-build": "npm run build"
+		"now-build": "npm run build",
+		"copy-files-to-wp": "npm run create-wp-dir && npm run copy-main && npm run copy-2",
+		"create-wp-dir": "if not exist .\\build\\wp mkdir .\\build\\wp",
+		"copy-main": "cp build/static/js/main.*.chunk.js build/wp/main.sliders.chunk.js",
+		"copy-2": "cp build/static/js/2.*.chunk.js build/wp/2.sliders.chunk.js"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
@@ -57,6 +61,7 @@
 	"devDependencies": {
 		"@types/react": "^16.9.9",
 		"@types/styled-components": "^4.1.12",
+		"renamer": "^1.1.4",
 		"tslint-config-prettier": "^1.18.0"
 	}
 }
