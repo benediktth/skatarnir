@@ -41,7 +41,7 @@ $map = tribe_get_embedded_map()
 			padding: 2rem 2rem 0 0;
 		}
 		.pictureAndTextWrapper img {
-			width: 60%;
+			width: 100%;
 		}
 		.single-tribe_events .tribe-events-event-image {
 			margin: 0;
@@ -71,7 +71,7 @@ $map = tribe_get_embedded_map()
 		}
 		#tribe-events .tribe-events-button, .tribe-events-button {
 			background-color: #3C50FF;
-			color: #E3A158;
+			color: #ffaf3c;
 		}
 		.tribe-events-sub-nav a {
 			border-radius: 3px;
@@ -81,11 +81,26 @@ $map = tribe_get_embedded_map()
 		#tribe-events-footer li {
 			padding: 12px;
 		}
+		#title {
+    		text-transform: uppercase;
+		}
+		.tribe-events-content {
+			background: #fafafa;
+			border: 1px solid #eee;
+			margin-top: 20px;
+		}
+		.tribe-events-content h3 {
+			margin-top: 0px;
+			padding: 10px;
+		}
+		.tribe-events-content p {
+			padding: 0 10px
+		}
 	</style>
 	<!-- Notices -->
 	<?php tribe_the_notices() ?>
 
-	<?php the_title( '<h1 class="tribe-events-single-event-title asdasd">', '</h1>' ); ?>
+	<?php the_title( '<h1 class="tribe-events-single-event-title asdasd" id="title">', '</h1>' ); ?>
 <!--
 	<div class="tribe-events-schedule tribe-clearfix">
 		<?php echo tribe_events_event_schedule_details( $event_id, '<h2>', '</h2>' ); ?>
@@ -105,10 +120,12 @@ $map = tribe_get_embedded_map()
 					<!-- Event content -->
 					<?php do_action( 'tribe_events_single_event_before_the_content' ) ?>
 					<div class="tribe-events-single-event-description tribe-events-content">
+						<h3>Um viðburðinn</h3>
 						<?php the_content(); ?>
 					</div>
 					<!-- <?php echo tribe_event_featured_image( $event_id, 'full', false ); ?> -->
 					<?php if ( !empty( $map ) ) : ?>
+						<h3>Staðsetning viðburðar á korti</h3>
 						<div class="tribe-events-venue-map">
 							<?php
 							// Display the map.

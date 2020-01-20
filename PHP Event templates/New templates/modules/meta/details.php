@@ -57,7 +57,7 @@ $website = tribe_get_event_website_link();
 	}
 	#keyInfo {
 		background-color: #3C50FF;
-		color: #E3A158;
+		color: #ffaf3c;
 		padding: 4px 10px;
 	}
 </style>

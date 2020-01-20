@@ -37,7 +37,7 @@ tribe_get_template_part( 'modules/meta/details' );
 ?>
 
 <div class="tribe-events-meta-group " id="register">
-	<a href="https://skatar.felog.is" id="register-button">Skráðu þig hérna</a>
+	<a href="https://skatar.felog.is" id="register-button">Skráning á viðburð</a>
 </div>
 
 <style>
@@ -48,7 +48,7 @@ tribe_get_template_part( 'modules/meta/details' );
 	}
 	.tribe-events-event-meta .column, .tribe-events-event-meta .tribe-events-meta-group h2 {
 	    background-color: #3C50FF;
-		color: #E3A158;
+		color: #ffaf3c;
 		padding: 4px 10px;
 	}
 </style>
@@ -79,15 +79,25 @@ do_action( 'tribe_events_single_event_meta_primary_section_end' );
 ?>
 <style>.tribe-events-cal-links{
 	padding: 0.5rem;
+	text-align: center;
+}
+.tribe-events-cal-links a {
+	margin-right: 0px;
 }
 </style>
+
 <?php do_action( 'tribe_events_single_event_after_the_content' ) ?>
+
 <style>
 #register {
 	float: inherit;
 	width: 100%;
 	text-align: center;
 	margin: 1rem 0;
+	padding: 10px 0px 25px 0px;
+}
+.tribe-events-event-meta dl {
+	padding: 3px 20px;
 }
 #register-button {
 	background-color: #3C50FF;
@@ -124,4 +134,5 @@ do_action( 'tribe_events_single_event_meta_primary_section_end' );
 	<?php endif; ?>
 <?php
 endif;
+// google cal links
 do_action( 'tribe_events_single_meta_after' );
