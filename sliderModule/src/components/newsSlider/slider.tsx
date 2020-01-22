@@ -6,7 +6,7 @@ import React, { FC, useState } from 'react';
 import Slide from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import { monthNumberMapper } from './helpers';
+import { monthNumberMapper } from '../common/helpers';
 import { settings } from './settings';
 import * as StyledSlider from './slider.styles';
 
@@ -21,7 +21,7 @@ const defaultLogo =
 // Category 148 is frettir
 let url =
 	process.env.NODE_ENV === 'development'
-		? 'http://testing.skatarnir.is/wp-json/wp/v2/posts?_embed&categories=148'
+		? 'https://testing.skatarnir.is/wp-json/wp/v2/posts?_embed&categories=148'
 		: '/wp-json/wp/v2/posts?_embed&categories=148';
 
 
@@ -75,7 +75,7 @@ const NewsSlider: FC<Props> = () => {
 		<StyledSlider.SuperWrapper>
 			<StyledSlider.Wrapper>
 				<StyledSlider.Title>
-					<a href="/frettir">Fréttir</a>
+					<a href="/frettir">FRÉTTIR</a>
 				</StyledSlider.Title>
 				<Slide {...settings}>
 					{data &&
@@ -96,7 +96,7 @@ const NewsSlider: FC<Props> = () => {
 
 							let itemTitle = '';
 							if (item.title && item.title.rendered) {
-								itemTitle = item.title.rendered;
+								itemTitle = item.title.rendered.toUpperCase();
 							}
 
 							// Get the date of the post

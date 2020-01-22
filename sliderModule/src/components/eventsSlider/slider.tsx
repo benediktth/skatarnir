@@ -5,11 +5,11 @@ import React, { FC, useState } from 'react';
 import Slide from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import { ageGroupColorMapper, monthMapper, widthMapper } from './helpers';
+import { ageGroupColorMapper, monthMapper, widthMapper } from '../common/helpers';
 import { settings } from './settings';
 import * as StyledSlider from './slider.styles';
 
-interface Props {}
+interface Props { }
 
 const defaultLogo =
 	process.env.NODE_ENV === 'development'
@@ -18,7 +18,7 @@ const defaultLogo =
 
 const url =
 	process.env.NODE_ENV === 'development'
-		? 'http://testing.skatarnir.is/wp-json/tribe/events/v1/events'
+		? 'https://testing.skatarnir.is/wp-json/tribe/events/v1/events'
 		: '/wp-json/tribe/events/v1/events';
 
 const EventsSlider: FC<Props> = () => {
@@ -69,7 +69,7 @@ const EventsSlider: FC<Props> = () => {
 	return (
 		<StyledSlider.Wrapper>
 			<StyledSlider.Title>
-				<a href="/vidburdir">Viðburðir</a>
+				<a href="/vidburdir">VIÐBURÐIR</a>
 			</StyledSlider.Title>
 			<Slide {...settings}>
 				{data.events &&
@@ -90,11 +90,16 @@ const EventsSlider: FC<Props> = () => {
 							imgUrl = defaultLogo;
 						}
 
+						let itemTitle = '';
+						if (item.title) {
+							itemTitle = item.title.toUpperCase();
+						}
+
 						let itemDate = '';
-						itemDate = `${item.start_date_details.day}. ${startMonth}${ showOneDate ? '' : ' -' }` + 
-						` ${item.end_date_details.day}. ${endMonth}`;
+						itemDate = `${item.start_date_details.day}. ${startMonth}${showOneDate ? '' : ' -'}` +
+							` ${item.end_date_details.day}. ${endMonth}`;
 						let date = <li><span className="fa-li"><FontAwesomeIcon icon={faCalendar} /></span>{itemDate}</li>;
-						
+
 						let itemVenue = '';
 						if (item.venue) {
 							itemVenue = item.venue.venue ? item.venue.venue : 'Staðsetning tilkynnt síðar';
@@ -121,7 +126,7 @@ const EventsSlider: FC<Props> = () => {
 											</StyledSlider.AgeGroupOverlayContainer>
 										</StyledSlider.PictureWrapper>
 										<StyledSlider.TextWrapper>
-											<StyledSlider.EventTitle>{item.title}</StyledSlider.EventTitle>
+											<StyledSlider.EventTitle>{itemTitle}</StyledSlider.EventTitle>
 											<StyledSlider.ItemList className="fa-ul">
 												{date}
 												{venue}
