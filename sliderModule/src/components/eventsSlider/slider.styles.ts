@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 	max-width: 1800px;
 	width: 100%;
 	margin: auto;
-	padding: 2rem 0;
+	padding-bottom: 2rem;
 
 	@media (max-width: 1900px) {
 		width: 80%;
@@ -27,10 +27,9 @@ export const Wrapper = styled.div`
 export const Title = styled.h1`
 	margin: 0 auto;
 	text-align: center;
-	font-family: Gotham-Book;
-	font-weight: 400;
+	font-family: Gotham-Bold;
 	font-size: -webkit-xxx-large;
-	padding: 2rem;
+	padding: 3rem 2rem;
 	a {
 		color: inherit;
 		text-decoration: none;
@@ -88,14 +87,14 @@ export const ContentWrapper = styled.div`
 	}
 	@media (max-width: 1200px) {
 		width: 18rem;
-		min-height: 19rem;
+		min-height: 28rem;
 	}
 	@media (max-width: 956px) {
 		width: 20rem;
 	}
 	@media (max-width: 475px) {
-		width: 11rem;
-		min-height: 10rem;
+		width: 14rem;
+		min-height: 28rem;
 	}
 `;
 
@@ -105,9 +104,10 @@ export const ArrowWrapperLeft = styled.div`
 		height: 7rem;
 		left: -80px;
 		z-index: 3;
-		@media (max-width: 768px) {
-			left: -130px;
+		@media (max-width: 767px) {
+			left: -105px;
 			height: 3rem;
+			z-index: 0;
 		}
 	}
 `;
@@ -117,18 +117,18 @@ export const ArrowWrapperRight = styled.div`
 		height: 7rem;
 		right: -80px;
 		z-index: 3;
-		@media (max-width: 768px) {
-			right: -130px;
+		@media (max-width: 767px) {
+			right: -105px;
 			height: 3rem;
+			z-index: 0;
 		}
 	}
 `;
 
 export const Icons = styled.div``;
 
-export const EventTitle = styled.h2`
-	font-family: Gotham-Book;
-	font-size: 30px;
+export const EventTitle = styled.h3`
+	font-family: Gotham-Bold;
 	@media (max-width: 768px) {
 		font-size: 18px !important;
 	}
