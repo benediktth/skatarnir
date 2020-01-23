@@ -51,13 +51,9 @@ $time_title = apply_filters( 'tribe_events_single_event_time_title', __( 'Time:'
 $cost    = tribe_get_formatted_cost();
 $website = tribe_get_event_website_link();
 ?>
-<style>
-	#events-meta {
-		width: 100%;
-	}
-</style>
-<div class="tribe-events-meta-group tribe-events-meta-group-details" id="events-meta">
-	<h2 class="tribe-events-single-section-title">Upplýsingar: </h2>
+
+<div class="tribe-events-meta-group tribe-events-meta-group-details">
+	<h2 class="tribe-events-single-section-title"> <?php esc_html_e( 'Details', 'the-events-calendar' ) ?> </h2>
 	<dl>
 
 		<?php
@@ -67,12 +63,12 @@ $website = tribe_get_event_website_link();
 		if ( tribe_event_is_all_day() && tribe_event_is_multiday() ) :
 			?>
 
-			<dt class="tribe-events-start-date-label">Byrjar: </dt>
+			<dt class="tribe-events-start-date-label"> <?php esc_html_e( 'Start:', 'the-events-calendar' ) ?> </dt>
 			<dd>
 				<abbr class="tribe-events-abbr tribe-events-start-date published dtstart" title="<?php esc_attr_e( $start_ts ) ?>"> <?php esc_html_e( $start_date ) ?> </abbr>
 			</dd>
 
-			<dt class="tribe-events-end-date-label">Endar: </dt>
+			<dt class="tribe-events-end-date-label"> <?php esc_html_e( 'End:', 'the-events-calendar' ) ?> </dt>
 			<dd>
 				<abbr class="tribe-events-abbr tribe-events-end-date dtend" title="<?php esc_attr_e( $end_ts ) ?>"> <?php esc_html_e( $end_date ) ?> </abbr>
 			</dd>
@@ -82,7 +78,7 @@ $website = tribe_get_event_website_link();
 		elseif ( tribe_event_is_all_day() ):
 			?>
 
-			<dt class="tribe-events-start-date-label">Dagsetning: </dt>
+			<dt class="tribe-events-start-date-label"> <?php esc_html_e( 'Date:', 'the-events-calendar' ) ?> </dt>
 			<dd>
 				<abbr class="tribe-events-abbr tribe-events-start-date published dtstart" title="<?php esc_attr_e( $start_ts ) ?>"> <?php esc_html_e( $start_date ) ?> </abbr>
 			</dd>
@@ -92,12 +88,12 @@ $website = tribe_get_event_website_link();
 		elseif ( tribe_event_is_multiday() ) :
 			?>
 
-			<dt class="tribe-events-start-datetime-label">Byrjar: </dt>
+			<dt class="tribe-events-start-datetime-label"> <?php esc_html_e( 'Start:', 'the-events-calendar' ) ?> </dt>
 			<dd>
 				<abbr class="tribe-events-abbr tribe-events-start-datetime updated published dtstart" title="<?php esc_attr_e( $start_ts ) ?>"> <?php esc_html_e( $start_datetime ) ?> </abbr>
 			</dd>
 
-			<dt class="tribe-events-end-datetime-label">Endar: </dt>
+			<dt class="tribe-events-end-datetime-label"> <?php esc_html_e( 'End:', 'the-events-calendar' ) ?> </dt>
 			<dd>
 				<abbr class="tribe-events-abbr tribe-events-end-datetime dtend" title="<?php esc_attr_e( $end_ts ) ?>"> <?php esc_html_e( $end_datetime ) ?> </abbr>
 			</dd>
@@ -107,7 +103,7 @@ $website = tribe_get_event_website_link();
 		else :
 			?>
 
-			<dt class="tribe-events-start-date-label">Dagsetning: </dt>
+			<dt class="tribe-events-start-date-label"> <?php esc_html_e( 'Date:', 'the-events-calendar' ) ?> </dt>
 			<dd>
 				<abbr class="tribe-events-abbr tribe-events-start-date published dtstart" title="<?php esc_attr_e( $start_ts ) ?>"> <?php esc_html_e( $start_date ) ?> </abbr>
 			</dd>
@@ -125,7 +121,7 @@ $website = tribe_get_event_website_link();
 		// Event Cost
 		if ( ! empty( $cost ) ) : ?>
 
-			<dt class="tribe-events-event-cost-label">Kostnaður: </dt>
+			<dt class="tribe-events-event-cost-label"> <?php esc_html_e( 'Cost:', 'the-events-calendar' ) ?> </dt>
 			<dd class="tribe-events-event-cost"> <?php esc_html_e( $cost ); ?> </dd>
 		<?php endif ?>
 
@@ -135,7 +131,7 @@ $website = tribe_get_event_website_link();
 				'before'       => '',
 				'sep'          => ', ',
 				'after'        => '',
-				'label'        => 'Aldurshopar', // An appropriate plural/singular label will be provided
+				'label'        => null, // An appropriate plural/singular label will be provided
 				'label_before' => '<dt class="tribe-events-event-categories-label">',
 				'label_after'  => '</dt>',
 				'wrap_before'  => '<dd class="tribe-events-event-categories">',
@@ -143,11 +139,14 @@ $website = tribe_get_event_website_link();
 			)
 		);
 		?>
+
+		<?php echo tribe_meta_event_tags( sprintf( esc_html__( '%s Tags:', 'the-events-calendar' ), tribe_get_event_label_singular() ), ', ', false ) ?>
+
 		<?php
 		// Event Website
 		if ( ! empty( $website ) ) : ?>
 
-			<dt class="tribe-events-event-url-label">Vefsíða:  </dt>
+			<dt class="tribe-events-event-url-label"> <?php esc_html_e( 'Website:', 'the-events-calendar' ) ?> </dt>
 			<dd class="tribe-events-event-url"> <?php echo $website; ?> </dd>
 		<?php endif ?>
 
