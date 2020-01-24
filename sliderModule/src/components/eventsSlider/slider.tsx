@@ -74,30 +74,34 @@ const EventsSlider: FC<Props> = () => {
 			<Slide {...settings}>
 				{data.events &&
 					data.events.map((item, index) => {
-						const startMonth = monthMapper(item.start_date_details.month);
-						const endMonth = monthMapper(item.end_date_details.month);
+
+						// Get the image or use default image if it is not found
 						let imgUrl = '';
-						let showOneDate = false;
-						if (
-							item.start_date_details.day === item.end_date_details.day &&
-							item.start_date_details.month === item.end_date_details.month
-						) {
-							showOneDate = true;
-						}
 						if (item.image && item.image.sizes && item.image.sizes.large) {
 							imgUrl = item.image.sizes.large.url;
 						} else {
 							imgUrl = defaultLogo;
 						}
 
+						// Get the title and put it into upper case
 						let itemTitle = '';
 						if (item.title) {
 							itemTitle = item.title.toUpperCase();
 						}
 
 						let itemDate = '';
-						itemDate = `${item.start_date_details.day}. ${startMonth}${showOneDate ? '' : ' -'}` +
-							` ${item.end_date_details.day}. ${endMonth}`;
+						if (item.start_date_details && item.end_date_details) {
+							// Get the date
+							const startMonth = monthMapper(item.start_date_details.month);
+							const endMonth = monthMapper(item.end_date_details.month);
+							// Show 
+							itemDate = `${item.start_date_details.day}. ${startMonth}`;
+							// If the start day is not equal to the end date or the start month is not equal to the end month we add the end date
+							if (item.start_date_details.day !== item.end_date_details.day ||
+								item.start_date_details.month !== item.end_date_details.month) {
+								itemDate = itemDate + ' - ' + `${item.end_date_details.day}. ${endMonth}`;
+							}
+						}
 						let date = <li><span className="fa-li"><FontAwesomeIcon icon={faCalendar} /></span>{itemDate}</li>;
 
 						let itemVenue = '';
