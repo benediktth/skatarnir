@@ -1,3 +1,4 @@
-#finna-skatafelag-column:hover > div > div > div > div > div.vc_custom_heading_wrap.dreka > #finna-skatafelag > h2  {
+#finna-skatafelag-column:hover > div > div > div > div > div.vc_custom_heading_wrap > #finna-skatafelag-heading > h2, 
+#gerast-sjalfbodalidi-column:hover > div > div > div > div > div.vc_custom_heading_wrap > #gerast-sjalfbodalidi-heading > h2 {
     color: #3c50ff;
 }
