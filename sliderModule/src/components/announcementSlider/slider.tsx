@@ -87,10 +87,21 @@ const AnnouncementSlider: FC<Props> = () => {
 							}
 							// Get the url to the image
 							let imgUrl = '';
-							if (item._embedded && item._embedded['wp:featuredmedia'] && item._embedded['wp:featuredmedia'][0] && item._embedded['wp:featuredmedia'][0].media_details && item._embedded['wp:featuredmedia'][0].media_details.sizes && item._embedded['wp:featuredmedia'][0].media_details.sizes.large) {
-								imgUrl = item._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url;
-							} else {
-								// use default image if we don't find the image
+							if (item._embedded && item._embedded['wp:featuredmedia'] && item._embedded['wp:featuredmedia'][0] && item._embedded['wp:featuredmedia'][0].media_details && item._embedded['wp:featuredmedia'][0].media_details.sizes) {
+								let imageSizes = item._embedded['wp:featuredmedia'][0].media_details.sizes;
+								// Try to get first the large if that does not exist we try the next one and the next one
+								if (imageSizes.large) {
+									imgUrl = imageSizes.large.source_url;
+								} else if (imageSizes.medium_large) {
+									imgUrl = imageSizes.medium_large.source_url;
+								} else if (imageSizes.medium) {
+									imgUrl = imageSizes.medium.source_url;
+								} else if (imageSizes.full) {
+									imgUrl = imageSizes.full.source_url;
+								}
+							}
+							// use default image if we don't find the image
+							if (imgUrl === '') {
 								imgUrl = defaultLogo;
 							}
 
@@ -132,7 +143,7 @@ const AnnouncementSlider: FC<Props> = () => {
 								}, ));
 							*/
 
-							if(item.hofundur) {
+							if (item.hofundur) {
 								itemAuthor = item.hofundur;
 							}
 							else if (item._embedded && item._embedded.author && item._embedded.author[0] && item._embedded.author[0].name) {

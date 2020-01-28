@@ -77,9 +77,17 @@ const EventsSlider: FC<Props> = () => {
 
 						// Get the image or use default image if it is not found
 						let imgUrl = '';
-						if (item.image && item.image.sizes && item.image.sizes.large) {
-							imgUrl = item.image.sizes.large.url;
-						} else {
+						if (item.image && item.image.sizes) {
+							// Try to get first the large if that does not exist we try the next one and the next one
+							if (item.image.sizes.large) {
+								imgUrl = item.image.sizes.large.url;
+							} else if (item.image.sizes.medium_large) {
+								imgUrl = item.image.sizes.medium_large.url;
+							} else if (item.image.sizes.medium) {
+								imgUrl = item.image.sizes.medium.url;
+							}
+						}
+						if (imgUrl === '') {
 							imgUrl = defaultLogo;
 						}
 
@@ -119,7 +127,7 @@ const EventsSlider: FC<Props> = () => {
 											<StyledSlider.AgeGroupOverlayContainer>
 												{item.categories.map((ageGroup, ind) => {
 													const color = ageGroupColorMapper(ageGroup.slug);
-													const width = widthMapper(item.categories.length);
+													const width = widthMapper(item.categories.length, ind);
 													return (
 														<StyledSlider.AgeGroupOverlayItem
 															style={{ backgroundColor: color, width: width }}
