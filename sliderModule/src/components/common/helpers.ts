@@ -17,14 +17,18 @@ export const ageGroupColorMapper = ageGroup => {
 	}
 };
 
-export const widthMapper = length => {
+export const widthMapper = (length, count) => {
+	//Special case that we make the 3rd (0, 1, 2) width be 34% so we end up with 100%
+	if(length === 3 && count === 2) {
+		return '34%';
+	}
 	switch (length) {
 		case 1:
 			return '100%';
 		case 2:
 			return '50%';
 		case 3:
-			return '34%';
+			return '33%';
 		case 4:
 			return '25%';
 		case 5:
