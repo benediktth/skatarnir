@@ -129,6 +129,7 @@ export const Icons = styled.div``;
 
 export const EventTitle = styled.h3`
 	font-family: Gotham-Bold;
+	word-wrap: break-word;
 	@media (max-width: 768px) {
 		font-size: 18px !important;
 	}
