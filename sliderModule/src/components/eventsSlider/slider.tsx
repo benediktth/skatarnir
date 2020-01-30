@@ -18,8 +18,8 @@ const defaultLogo =
 
 const url =
 	process.env.NODE_ENV === 'development'
-		? 'https://testing.skatarnir.is/wp-json/tribe/events/v1/events'
-		: '/wp-json/tribe/events/v1/events';
+		? 'https://testing.skatarnir.is/wp-json/tribe/events/v1/events?per_page='
+		: '/wp-json/tribe/events/v1/events?per_page=50';
 
 const EventsSlider: FC<Props> = () => {
 	// const redirectToEvent = (url, event) => {
