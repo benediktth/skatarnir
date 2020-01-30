@@ -58,8 +58,13 @@ $map = tribe_get_embedded_map()
 			margin-top: 1rem;
 		}
 		@media only screen and (max-width: 600px) {
+			.contentWrapper {
+				flex-direction: column;
+			}
 			.meta-wrapper {
-				display: none;
+				display: flext;
+				margin-top: 2rem;
+				width: 100%;
 			}
 			.pictureAndTextWrapper {
 				width: 100%;
