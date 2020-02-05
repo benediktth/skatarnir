@@ -5,11 +5,11 @@ import React, { FC, useState } from 'react';
 import Slide from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import { ageGroupColorMapper, monthMapper, widthMapper } from './helpers';
+import { ageGroupColorMapper, monthMapper, widthMapper } from '../common/helpers';
 import { settings } from './settings';
 import * as StyledSlider from './slider.styles';
 
-interface Props {}
+interface Props { }
 
 const defaultLogo =
 	process.env.NODE_ENV === 'development'
@@ -18,8 +18,8 @@ const defaultLogo =
 
 const url =
 	process.env.NODE_ENV === 'development'
-		? 'http://testing.skatarnir.is/wp-json/tribe/events/v1/events'
-		: '/wp-json/tribe/events/v1/events';
+		? 'https://testing.skatarnir.is/wp-json/tribe/events/v1/events?per_page=50'
+		: '/wp-json/tribe/events/v1/events?per_page=50';
 
 const EventsSlider: FC<Props> = () => {
 	// const redirectToEvent = (url, event) => {
@@ -69,32 +69,49 @@ const EventsSlider: FC<Props> = () => {
 	return (
 		<StyledSlider.Wrapper>
 			<StyledSlider.Title>
-				<a href="/vidburdir">Viðburðir</a>
+				<a href="/vidburdir">VIÐBURÐIR</a>
 			</StyledSlider.Title>
 			<Slide {...settings}>
 				{data.events &&
 					data.events.map((item, index) => {
-						const startMonth = monthMapper(item.start_date_details.month);
-						const endMonth = monthMapper(item.end_date_details.month);
+
+						// Get the image or use default image if it is not found
 						let imgUrl = '';
-						let showOneDate = false;
-						if (
-							item.start_date_details.day === item.end_date_details.day &&
-							item.start_date_details.month === item.end_date_details.month
-						) {
-							showOneDate = true;
+						if (item.image && item.image.sizes) {
+							// Try to get first the large if that does not exist we try the next one and the next one
+							if (item.image.sizes.large) {
+								imgUrl = item.image.sizes.large.url;
+							} else if (item.image.sizes.medium_large) {
+								imgUrl = item.image.sizes.medium_large.url;
+							} else if (item.image.sizes.medium) {
+								imgUrl = item.image.sizes.medium.url;
+							}
 						}
-						if (item.image && item.image.sizes && item.image.sizes.large) {
-							imgUrl = item.image.sizes.large.url;
-						} else {
+						if (imgUrl === '') {
 							imgUrl = defaultLogo;
 						}
 
+						// Get the title and put it into upper case
+						let itemTitle = '';
+						if (item.title) {
+							itemTitle = item.title.toUpperCase();
+						}
+
 						let itemDate = '';
-						itemDate = `${item.start_date_details.day}. ${startMonth}${ showOneDate ? '' : ' -' }` + 
-						` ${item.end_date_details.day}. ${endMonth}`;
+						if (item.start_date_details && item.end_date_details) {
+							// Get the date
+							const startMonth = monthMapper(item.start_date_details.month);
+							const endMonth = monthMapper(item.end_date_details.month);
+							// Show 
+							itemDate = `${item.start_date_details.day}. ${startMonth}`;
+							// If the start day is not equal to the end date or the start month is not equal to the end month we add the end date
+							if (item.start_date_details.day !== item.end_date_details.day ||
+								item.start_date_details.month !== item.end_date_details.month) {
+								itemDate = itemDate + ' - ' + `${item.end_date_details.day}. ${endMonth}`;
+							}
+						}
 						let date = <li><span className="fa-li"><FontAwesomeIcon icon={faCalendar} /></span>{itemDate}</li>;
-						
+
 						let itemVenue = '';
 						if (item.venue) {
 							itemVenue = item.venue.venue ? item.venue.venue : 'Staðsetning tilkynnt síðar';
@@ -110,7 +127,7 @@ const EventsSlider: FC<Props> = () => {
 											<StyledSlider.AgeGroupOverlayContainer>
 												{item.categories.map((ageGroup, ind) => {
 													const color = ageGroupColorMapper(ageGroup.slug);
-													const width = widthMapper(item.categories.length);
+													const width = widthMapper(item.categories.length, ind);
 													return (
 														<StyledSlider.AgeGroupOverlayItem
 															style={{ backgroundColor: color, width: width }}
@@ -121,7 +138,7 @@ const EventsSlider: FC<Props> = () => {
 											</StyledSlider.AgeGroupOverlayContainer>
 										</StyledSlider.PictureWrapper>
 										<StyledSlider.TextWrapper>
-											<StyledSlider.EventTitle>{item.title}</StyledSlider.EventTitle>
+											<StyledSlider.EventTitle>{itemTitle}</StyledSlider.EventTitle>
 											<StyledSlider.ItemList className="fa-ul">
 												{date}
 												{venue}

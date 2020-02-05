@@ -6,7 +6,7 @@ import React, { FC, useState } from 'react';
 import Slide from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import { monthNumberMapper } from './helpers';
+import { monthNumberMapper } from '../common/helpers';
 import { settings } from './settings';
 import * as StyledSlider from './slider.styles';
 
@@ -21,7 +21,7 @@ const defaultLogo =
 // Category 148 is frettir
 let url =
 	process.env.NODE_ENV === 'development'
-		? 'http://testing.skatarnir.is/wp-json/wp/v2/posts?_embed&categories=148'
+		? 'https://testing.skatarnir.is/wp-json/wp/v2/posts?_embed&categories=148'
 		: '/wp-json/wp/v2/posts?_embed&categories=148';
 
 
@@ -75,7 +75,7 @@ const NewsSlider: FC<Props> = () => {
 		<StyledSlider.SuperWrapper>
 			<StyledSlider.Wrapper>
 				<StyledSlider.Title>
-					<a href="/frettir">Fréttir</a>
+					<a href="/frettir">FRÉTTIR</a>
 				</StyledSlider.Title>
 				<Slide {...settings}>
 					{data &&
@@ -87,16 +87,27 @@ const NewsSlider: FC<Props> = () => {
 							}
 							// Get the url to the image
 							let imgUrl = '';
-							if (item._embedded && item._embedded['wp:featuredmedia'] && item._embedded['wp:featuredmedia'][0] && item._embedded['wp:featuredmedia'][0].media_details && item._embedded['wp:featuredmedia'][0].media_details.sizes && item._embedded['wp:featuredmedia'][0].media_details.sizes.large) {
-								imgUrl = item._embedded['wp:featuredmedia'][0].media_details.sizes.large.source_url;
-							} else {
-								// use default image if we don't find the image
+							if (item._embedded && item._embedded['wp:featuredmedia'] && item._embedded['wp:featuredmedia'][0] && item._embedded['wp:featuredmedia'][0].media_details && item._embedded['wp:featuredmedia'][0].media_details.sizes) {
+								let imageSizes = item._embedded['wp:featuredmedia'][0].media_details.sizes;
+								// Try to get first the large if that does not exist we try the next one and the next one
+								if (imageSizes.large) {
+									imgUrl = imageSizes.large.source_url;
+								} else if (imageSizes.medium_large) {
+									imgUrl = imageSizes.medium_large.source_url;
+								} else if (imageSizes.medium) {
+									imgUrl = imageSizes.medium.source_url;
+								} else if (imageSizes.full) {
+									imgUrl = imageSizes.full.source_url;
+								}
+							}
+							// use default image if we don't find the image
+							if (imgUrl === '') {
 								imgUrl = defaultLogo;
 							}
 
 							let itemTitle = '';
 							if (item.title && item.title.rendered) {
-								itemTitle = item.title.rendered;
+								itemTitle = item.title.rendered.toUpperCase();
 							}
 
 							// Get the date of the post
@@ -123,7 +134,19 @@ const NewsSlider: FC<Props> = () => {
 
 							// Get the posts author
 							let itemAuthor = '';
-							if (item._embedded && item._embedded.author && item._embedded.author[0] && item._embedded.author[0].name) {
+							// Check if there came a hofundur(icelandic for author), else we try to get the default author
+							// We need to make sure that the code below is in function.php in the current wp theme
+							/*
+								register_rest_field( 'post', 'hofundur', array(
+									'get_callback' => function ( $data ) {
+									return get_post_meta( $data['id'], 'hofundur', true );
+								}, ));
+							*/
+
+							if(item.hofundur) {
+								itemAuthor = item.hofundur;
+							}
+							else if (item._embedded && item._embedded.author && item._embedded.author[0] && item._embedded.author[0].name) {
 								itemAuthor = item._embedded.author[0].name;
 							}
 

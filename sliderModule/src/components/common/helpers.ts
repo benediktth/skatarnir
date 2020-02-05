@@ -17,7 +17,11 @@ export const ageGroupColorMapper = ageGroup => {
 	}
 };
 
-export const widthMapper = length => {
+export const widthMapper = (length, count) => {
+	//Special case that we make the 3rd (0, 1, 2) width be 34% so we end up with 100%
+	if(length === 3 && count === 2) {
+		return '34%';
+	}
 	switch (length) {
 		case 1:
 			return '100%';
@@ -59,6 +63,37 @@ export const monthMapper = monthNumber => {
 		case '11':
 			return 'nóvember';
 		case '12':
+			return 'desember';
+		default:
+			return '';
+	}
+};
+
+export const monthNumberMapper = monthNumber => {
+	switch (monthNumber) {
+		case 0:
+			return 'janúar';
+		case 1:
+			return 'febrúar';
+		case 2:
+			return 'mars';
+		case 3:
+			return 'apríl';
+		case 4:
+			return 'maí';
+		case 5:
+			return 'júní';
+		case 6:
+			return 'júlí';
+		case 7:
+			return 'ágúst';
+		case 8:
+			return 'september';
+		case 9:
+			return 'október';
+		case 10:
+			return 'nóvember';
+		case 11:
 			return 'desember';
 		default:
 			return '';
