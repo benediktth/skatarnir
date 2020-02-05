@@ -78,6 +78,10 @@ $map = tribe_get_embedded_map()
 			background-color: #3C50FF;
 			padding: 10px;
 		}
+		/* Taka burt fram og aftur takka a vidburdum */
+		.tribe-events-nav-pagination {
+			display: none;
+		}
 		#tribe-events-footer li {
 			padding: 12px;
 		}
