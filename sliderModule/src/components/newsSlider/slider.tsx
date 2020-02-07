@@ -11,7 +11,7 @@ import { settings } from './settings';
 import * as StyledSlider from './slider.styles';
 
 // TODO: order frettum by date
-interface Props { }
+//interface Props { }
 
 const defaultLogo =
 	process.env.NODE_ENV === 'development'
@@ -26,7 +26,8 @@ let url =
 
 
 
-const NewsSlider: FC<Props> = () => {
+const NewsSlider: FC<{ hide: boolean, background: string, showTitle: boolean }> = ({ hide, background, showTitle }) => {
+	
 	// const redirectToEvent = (url, event) => {
 	// 	if (event.ctrlKey) {
 	// 		window.open(url);
@@ -34,6 +35,10 @@ const NewsSlider: FC<Props> = () => {
 	// 		window.location.href = url;
 	// 	}
 	// };
+	if(hide) {
+		return(null);
+	}
+
 	const [data, setData] = useState(null);
 	if (!data) {
 		axios(url).then(res => {
@@ -71,12 +76,27 @@ const NewsSlider: FC<Props> = () => {
 	}
 	settings.nextArrow = <NextArrow />;
 	settings.prevArrow = <PrevArrow />;
+	function Wrapper(props) {
+		if (background === 'orange') {
+			return (<StyledSlider.OrangeSuperWrapper>{props.children}</StyledSlider.OrangeSuperWrapper>)
+		} else {
+			return (<StyledSlider.SuperWrapper>{props.children}</StyledSlider.SuperWrapper>)
+		}
+	}
+
+	let title;
+	if (showTitle) {
+		title = <StyledSlider.Title>
+			<a href="/frettir">FRÉTTIR</a>
+		</StyledSlider.Title>
+	}
+
 	return (
-		<StyledSlider.SuperWrapper>
+		<Wrapper>
+
 			<StyledSlider.Wrapper>
-				<StyledSlider.Title>
-					<a href="/frettir">FRÉTTIR</a>
-				</StyledSlider.Title>
+				{title}
+
 				<Slide {...settings}>
 					{data &&
 						data.map((item, index) => {
@@ -143,7 +163,7 @@ const NewsSlider: FC<Props> = () => {
 								}, ));
 							*/
 
-							if(item.hofundur) {
+							if (item.hofundur) {
 								itemAuthor = item.hofundur;
 							}
 							else if (item._embedded && item._embedded.author && item._embedded.author[0] && item._embedded.author[0].name) {
@@ -177,7 +197,7 @@ const NewsSlider: FC<Props> = () => {
 					}
 				</Slide>
 			</StyledSlider.Wrapper>
-		</StyledSlider.SuperWrapper>
+		</Wrapper>
 	);
 };
 

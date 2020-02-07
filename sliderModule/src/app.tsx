@@ -10,9 +10,9 @@ interface Props {}
 const App: FC<Props> = () => {
 	return (
 		<StyledApp.Wrapper>
-			<EventsSlider />
-			<NewsSlider />
-			<AnnouncementSlider />
+			<EventsSlider hide={false}/>
+			<NewsSlider hide={false} background='orange' showTitle={true}/>
+			<AnnouncementSlider hide={false}/>
 		</StyledApp.Wrapper>
 	);
 };

@@ -9,7 +9,7 @@ import { ageGroupColorMapper, monthMapper, widthMapper } from '../common/helpers
 import { settings } from './settings';
 import * as StyledSlider from './slider.styles';
 
-interface Props { }
+//interface Props { }
 
 const defaultLogo =
 	process.env.NODE_ENV === 'development'
@@ -21,7 +21,7 @@ const url =
 		? 'https://testing.skatarnir.is/wp-json/tribe/events/v1/events?per_page=50'
 		: '/wp-json/tribe/events/v1/events?per_page=50';
 
-const EventsSlider: FC<Props> = () => {
+const EventsSlider: FC<{ hide: boolean }> = ({ hide }) => {
 	// const redirectToEvent = (url, event) => {
 	// 	if (event.ctrlKey) {
 	// 		window.open(url);
@@ -29,6 +29,10 @@ const EventsSlider: FC<Props> = () => {
 	// 		window.location.href = url;
 	// 	}
 	// };
+	if (hide) {
+		console.log(hide);
+	}
+
 	const [data, setData] = useState(null);
 	if (!data) {
 		axios(url).then(res => {

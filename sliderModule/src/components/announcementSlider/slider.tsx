@@ -11,7 +11,7 @@ import { settings } from './settings';
 import * as StyledSlider from './slider.styles';
 
 // TODO: order frettum by date
-interface Props { }
+//interface Props { }
 
 const defaultLogo =
 	process.env.NODE_ENV === 'development'
@@ -26,7 +26,7 @@ let url =
 
 
 
-const AnnouncementSlider: FC<Props> = () => {
+const AnnouncementSlider: FC<{ hide: boolean }> = ({ hide }) => {
 	// const redirectToEvent = (url, event) => {
 	// 	if (event.ctrlKey) {
 	// 		window.open(url);
@@ -34,6 +34,11 @@ const AnnouncementSlider: FC<Props> = () => {
 	// 		window.location.href = url;
 	// 	}
 	// };
+
+	if (hide) {
+		return (null);
+	}
+
 	const [data, setData] = useState(null);
 	if (!data) {
 		axios(url).then(res => {

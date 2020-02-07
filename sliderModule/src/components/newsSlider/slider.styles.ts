@@ -2,6 +2,9 @@ import styled from 'styled-components';
 
 export const SuperWrapper = styled.div`
 	width: 100%;
+`;
+
+export const OrangeSuperWrapper = styled(SuperWrapper)`
 	background-color: #ffaf3c;
 `;
 
