@@ -21,7 +21,7 @@ const url =
 		? 'https://testing.skatarnir.is/wp-json/tribe/events/v1/events?per_page=50'
 		: '/wp-json/tribe/events/v1/events?per_page=50';
 
-const EventsSlider: FC<{ hide: boolean }> = ({ hide }) => {
+const EventsSlider: FC<{ hide: boolean, categories: string[] }> = ({ hide, categories }) => {
 	// const redirectToEvent = (url, event) => {
 	// 	if (event.ctrlKey) {
 	// 		window.open(url);
@@ -32,6 +32,7 @@ const EventsSlider: FC<{ hide: boolean }> = ({ hide }) => {
 	if (hide) {
 		console.log(hide);
 	}
+	console.log(categories);
 
 	const [data, setData] = useState(null);
 	if (!data) {
@@ -40,6 +41,21 @@ const EventsSlider: FC<{ hide: boolean }> = ({ hide }) => {
 		});
 	}
 	if (!data) return <StyledSlider.Loading>Sæki viðburði....</StyledSlider.Loading>;
+
+	// If the categories is not empty filter out all the events that don't have a category in the list
+	if (data.events && categories !== undefined && categories.length !== 0) {
+		data.events = data.events.filter(function (value /*index, arr*/) {
+			// Go through the categories in the event
+			for (let i = 0; i < value.categories.length; i++) {
+				// If a category is in the list then we keep in the events we show
+				if (categories.includes(value.categories[i].slug)) {
+					return true;
+				}
+			}
+			// Since the categories of the events where not in the list we remove it
+			return false;
+		});
+	}
 
 	function PrevArrow(props) {
 		const { className, style, onClick } = props;

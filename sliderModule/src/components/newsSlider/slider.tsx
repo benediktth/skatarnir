@@ -26,7 +26,7 @@ let url =
 
 
 
-const NewsSlider: FC<{ hide: boolean, background: string, showTitle: boolean }> = ({ hide, background, showTitle }) => {
+const NewsSlider: FC<{ hide: boolean, orangeBackground: boolean, showTitle: boolean }> = ({ hide, orangeBackground, showTitle }) => {
 	
 	// const redirectToEvent = (url, event) => {
 	// 	if (event.ctrlKey) {
@@ -77,7 +77,7 @@ const NewsSlider: FC<{ hide: boolean, background: string, showTitle: boolean }> 
 	settings.nextArrow = <NextArrow />;
 	settings.prevArrow = <PrevArrow />;
 	function Wrapper(props) {
-		if (background === 'orange') {
+		if (orangeBackground) {
 			return (<StyledSlider.OrangeSuperWrapper>{props.children}</StyledSlider.OrangeSuperWrapper>)
 		} else {
 			return (<StyledSlider.SuperWrapper>{props.children}</StyledSlider.SuperWrapper>)
