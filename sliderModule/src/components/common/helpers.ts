@@ -22,6 +22,9 @@ export const widthMapper = (length, count) => {
 	if(length === 3 && count === 2) {
 		return '34%';
 	}
+	if(length === 6 && count === 5) {
+		return '15%'
+	}
 	switch (length) {
 		case 1:
 			return '100%';
@@ -33,6 +36,8 @@ export const widthMapper = (length, count) => {
 			return '25%';
 		case 5:
 			return '20%';
+		case 6:
+			return '17%'
 		default:
 			return '0%';
 	}
