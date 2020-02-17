@@ -11,9 +11,9 @@ interface Props {}
 const App: FC<Props> = () => {
 	return (
 		<StyledApp.Wrapper>
-			<EventsSlider hide={false} categories={[Constants.FALKASKATAR]}/>
-			<NewsSlider hide={false} orangeBackground={true} showTitle={true}/>
-			<AnnouncementSlider hide={false}/>
+			<EventsSlider hide={false} categories={[Constants.DREKASKATAR]} aldursbilasida={true}/>
+			<NewsSlider hide={true} orangeBackground={true} showTitle={true}/>
+			<AnnouncementSlider hide={true}/>
 		</StyledApp.Wrapper>
 	);
 };

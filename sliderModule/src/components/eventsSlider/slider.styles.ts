@@ -111,6 +111,13 @@ export const ArrowWrapperLeft = styled.div`
 		}
 	}
 `;
+
+export const ArrowWrapperLeftMini = styled(ArrowWrapperLeft)`
+	svg {
+		left: -140px;
+	}
+`;
+
 export const ArrowWrapperRight = styled.div`
 	svg {
 		font-size: 18rem;
@@ -124,6 +131,12 @@ export const ArrowWrapperRight = styled.div`
 		}
 	}
 `;
+export const ArrowWrapperRightMini = styled(ArrowWrapperRight)`
+	svg {
+		right: -140px;
+	}
+`;
+
 
 export const Icons = styled.div``;
 

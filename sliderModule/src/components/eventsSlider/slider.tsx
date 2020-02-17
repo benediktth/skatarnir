@@ -21,7 +21,7 @@ const url =
 		? 'https://testing.skatarnir.is/wp-json/tribe/events/v1/events?per_page=50'
 		: '/wp-json/tribe/events/v1/events?per_page=50';
 
-const EventsSlider: FC<{ hide: boolean, categories: string[] }> = ({ hide, categories }) => {
+const EventsSlider: FC<{ hide: boolean, categories: string[], aldursbilasida: boolean }> = ({ hide, categories, aldursbilasida }) => {
 	// const redirectToEvent = (url, event) => {
 	// 	if (event.ctrlKey) {
 	// 		window.open(url);
@@ -30,9 +30,8 @@ const EventsSlider: FC<{ hide: boolean, categories: string[] }> = ({ hide, categ
 	// 	}
 	// };
 	if (hide) {
-		console.log(hide);
+		return (null);
 	}
-	console.log(categories);
 
 	const [data, setData] = useState(null);
 	if (!data) {
@@ -69,7 +68,7 @@ const EventsSlider: FC<{ hide: boolean, categories: string[] }> = ({ hide, categ
 				/>
 			</StyledSlider.ArrowWrapperLeft>
 		);
-	}
+	};
 
 	function NextArrow(props) {
 		const { className, style, onClick } = props;
@@ -83,9 +82,60 @@ const EventsSlider: FC<{ hide: boolean, categories: string[] }> = ({ hide, categ
 				/>
 			</StyledSlider.ArrowWrapperRight>
 		);
-	}
+	};
+
+	function PrevArrowMini(props) {
+		const { className, style, onClick } = props;
+		return (
+			<StyledSlider.ArrowWrapperLeftMini>
+				<FontAwesomeIcon
+					icon={faChevronLeft}
+					className={className}
+					style={{ ...style, color: '#3C50FF' }}
+					onClick={onClick}
+				/>
+			</StyledSlider.ArrowWrapperLeftMini>
+		);
+	};
+
+	function NextArrowMini(props) {
+		const { className, style, onClick } = props;
+		return (
+			<StyledSlider.ArrowWrapperRightMini>
+				<FontAwesomeIcon
+					icon={faChevronRight}
+					className={className}
+					style={{ ...style, color: '#3C50FF' }}
+					onClick={onClick}
+				/>
+			</StyledSlider.ArrowWrapperRightMini>
+		);
+	};
+
 	settings.nextArrow = <NextArrow />;
 	settings.prevArrow = <PrevArrow />;
+
+	// If there are less than 3 event we get an duplication error, this fixes that
+	if(data.events && data.events.length < 3) {
+		settings.infinite = false;
+	}
+	// In aldursbilas pages we don't have as much space as on the front page so we have to do small changes
+	if(aldursbilasida) {
+		settings.nextArrow = <NextArrowMini />;
+		settings.prevArrow = <PrevArrowMini />;
+		settings.slidesToShow = 2;
+		settings.responsive =  [
+			{
+				breakpoint: 1600,
+				settings: {
+					draggable: true,
+					slidesToShow: 1,
+					arrows: true,
+				}
+			}
+		];
+		
+	}
 	return (
 		<StyledSlider.Wrapper>
 			<StyledSlider.Title>
