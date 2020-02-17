@@ -85,7 +85,7 @@ export const ContentWrapper = styled.div`
 	width: 25rem;
 	background-color: #f2f6f9;
 	/* cursor: pointer; */
-	min-height: 28rem;
+	min-height: 29rem;
 	/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
