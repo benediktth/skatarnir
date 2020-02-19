@@ -9,3 +9,5 @@ export const REKKASKATAR = 'rekkaskatar';
 export const ROVERSKATAR = 'roverskatar';
 
 export const FULLORDNIR = 'fullordnir';
+
+export const SKATABLAR = '#3C50FF';
