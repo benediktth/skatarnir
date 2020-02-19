@@ -9,6 +9,7 @@ import 'slick-carousel/slick/slick.css';
 import { monthNumberMapper } from '../common/helpers';
 import { settings } from './settings';
 import * as StyledSlider from './slider.styles';
+import * as Constants from '../common/constants';
 
 // TODO: order frettum by date
 //interface Props { }
@@ -54,7 +55,7 @@ const NewsSlider: FC<{ hide: boolean, orangeBackground: boolean, showTitle: bool
 				<FontAwesomeIcon
 					icon={faChevronLeft}
 					className={className}
-					style={{ ...style, color: '#3C50FF' }}
+					style={{ ...style, color: Constants.SKATABLAR }}
 					onClick={onClick}
 				/>
 			</StyledSlider.ArrowWrapperLeft>
@@ -68,7 +69,7 @@ const NewsSlider: FC<{ hide: boolean, orangeBackground: boolean, showTitle: bool
 				<FontAwesomeIcon
 					icon={faChevronRight}
 					className={className}
-					style={{ ...style, color: '#3C50FF' }}
+					style={{ ...style, color: Constants.SKATABLAR }}
 					onClick={onClick}
 				/>
 			</StyledSlider.ArrowWrapperRight>
