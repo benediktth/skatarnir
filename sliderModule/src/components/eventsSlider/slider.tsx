@@ -5,9 +5,10 @@ import React, { FC, useState } from 'react';
 import Slide from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import { ageGroupColorMapper, monthMapper, widthMapper } from '../common/helpers';
+import { ageGroupColorMapper, ageGroupEventTitleMapper, monthMapper, widthMapper } from '../common/helpers';
 import { settings } from './settings';
 import * as StyledSlider from './slider.styles';
+import * as Constants from '../common/constants';
 
 //interface Props { }
 
@@ -21,7 +22,7 @@ const url =
 		? 'https://testing.skatarnir.is/wp-json/tribe/events/v1/events?per_page=50'
 		: '/wp-json/tribe/events/v1/events?per_page=50';
 
-const EventsSlider: FC<{ hide: boolean, categories: string[], aldursbilasida: boolean }> = ({ hide, categories, aldursbilasida }) => {
+const EventsSlider: FC<{ hide: boolean, ageGroup: string }> = ({ hide, ageGroup }) => {
 	// const redirectToEvent = (url, event) => {
 	// 	if (event.ctrlKey) {
 	// 		window.open(url);
@@ -41,17 +42,17 @@ const EventsSlider: FC<{ hide: boolean, categories: string[], aldursbilasida: bo
 	}
 	if (!data) return <StyledSlider.Loading>Sæki viðburði....</StyledSlider.Loading>;
 
-	// If the categories is not empty filter out all the events that don't have a category in the list
-	if (data.events && categories !== undefined && categories.length !== 0) {
+	// If ther is an ageGroup filter out all the events that don't have the ageGroup in its categories
+	if (data.events && ageGroup !== undefined && ageGroup.length !== 0) {
 		data.events = data.events.filter(function (value /*index, arr*/) {
 			// Go through the categories in the event
 			for (let i = 0; i < value.categories.length; i++) {
-				// If a category is in the list then we keep in the events we show
-				if (categories.includes(value.categories[i].slug)) {
+				// If ageGroup is in categories we keep the event in the list
+				if (ageGroup === value.categories[i].slug) {
 					return true;
 				}
 			}
-			// Since the categories of the events where not in the list we remove it
+			// Since the ageGroup was in the events categories we remove it
 			return false;
 		});
 	}
@@ -63,7 +64,7 @@ const EventsSlider: FC<{ hide: boolean, categories: string[], aldursbilasida: bo
 				<FontAwesomeIcon
 					icon={faChevronLeft}
 					className={className}
-					style={{ ...style, color: '#3C50FF' }}
+					style={{ ...style, color: Constants.SKATABLAR }}
 					onClick={onClick}
 				/>
 			</StyledSlider.ArrowWrapperLeft>
@@ -77,54 +78,66 @@ const EventsSlider: FC<{ hide: boolean, categories: string[], aldursbilasida: bo
 				<FontAwesomeIcon
 					icon={faChevronRight}
 					className={className}
-					style={{ ...style, color: '#3C50FF' }}
+					style={{ ...style, color: Constants.SKATABLAR }}
 					onClick={onClick}
 				/>
 			</StyledSlider.ArrowWrapperRight>
 		);
 	};
 
-	function PrevArrowMini(props) {
+	// The arrow when there is an ageGroup
+	function PrevArrowAgeGroup(props) {
 		const { className, style, onClick } = props;
+		let arrowColour = ageGroupColorMapper(ageGroup);
 		return (
-			<StyledSlider.ArrowWrapperLeftMini>
+			<StyledSlider.ArrowWrapperLeftAgeGroup>
 				<FontAwesomeIcon
 					icon={faChevronLeft}
 					className={className}
-					style={{ ...style, color: '#3C50FF' }}
+					style={{ ...style, color: arrowColour }}
 					onClick={onClick}
 				/>
-			</StyledSlider.ArrowWrapperLeftMini>
+			</StyledSlider.ArrowWrapperLeftAgeGroup>
 		);
 	};
 
-	function NextArrowMini(props) {
+	// The arrow when there is a ageGroup
+	function NextArrowAgeGroup(props) {
 		const { className, style, onClick } = props;
+		let arrowColour = ageGroupColorMapper(ageGroup);
 		return (
-			<StyledSlider.ArrowWrapperRightMini>
+			<StyledSlider.ArrowWrapperRightAgeGroup>
 				<FontAwesomeIcon
 					icon={faChevronRight}
 					className={className}
-					style={{ ...style, color: '#3C50FF' }}
+					style={{ ...style, color: arrowColour }}
 					onClick={onClick}
 				/>
-			</StyledSlider.ArrowWrapperRightMini>
+			</StyledSlider.ArrowWrapperRightAgeGroup>
 		);
 	};
 
 	settings.nextArrow = <NextArrow />;
 	settings.prevArrow = <PrevArrow />;
 
+	// The normal Title
+	let title = <StyledSlider.Title>
+		<a href="/vidburdir">VIÐBURÐIR</a>
+	</StyledSlider.Title>
+
 	// If there are less than 3 event we get an duplication error, this fixes that
-	if(data.events && data.events.length < 3) {
+	if (data.events && data.events.length < 3) {
 		settings.infinite = false;
 	}
 	// In aldursbilas pages we don't have as much space as on the front page so we have to do small changes
-	if(aldursbilasida) {
-		settings.nextArrow = <NextArrowMini />;
-		settings.prevArrow = <PrevArrowMini />;
+	if (ageGroup) {
+		title = <StyledSlider.AldursbilaTitle>
+			Á DÖFNINNI HJÁ {ageGroupEventTitleMapper(ageGroup)}
+		</StyledSlider.AldursbilaTitle>
+		settings.nextArrow = <NextArrowAgeGroup />;
+		settings.prevArrow = <PrevArrowAgeGroup />;
 		settings.slidesToShow = 2;
-		settings.responsive =  [
+		settings.responsive = [
 			{
 				breakpoint: 1600,
 				settings: {
@@ -134,13 +147,11 @@ const EventsSlider: FC<{ hide: boolean, categories: string[], aldursbilasida: bo
 				}
 			}
 		];
-		
+
 	}
 	return (
 		<StyledSlider.Wrapper>
-			<StyledSlider.Title>
-				<a href="/vidburdir">VIÐBURÐIR</a>
-			</StyledSlider.Title>
+			{title}
 			<Slide {...settings}>
 				{data.events &&
 					data.events.map((item, index) => {

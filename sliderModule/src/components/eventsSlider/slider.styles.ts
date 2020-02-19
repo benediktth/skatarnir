@@ -40,6 +40,16 @@ export const Title = styled.h1`
 	}
 `;
 
+export const AldursbilaTitle = styled.h4`
+	margin: 0 auto;
+	text-align: center;
+	font-family: Gotham-Bold;
+	padding: 3rem 2rem;
+	@media (max-width: 768px) {
+		padding: 2rem 0;
+	}
+`;
+
 export const SliderItem = styled.div`
 	margin: 0 0 2rem 0;
 `;
@@ -112,7 +122,7 @@ export const ArrowWrapperLeft = styled.div`
 	}
 `;
 
-export const ArrowWrapperLeftMini = styled(ArrowWrapperLeft)`
+export const ArrowWrapperLeftAgeGroup = styled(ArrowWrapperLeft)`
 	svg {
 		left: -140px;
 	}
@@ -131,7 +141,7 @@ export const ArrowWrapperRight = styled.div`
 		}
 	}
 `;
-export const ArrowWrapperRightMini = styled(ArrowWrapperRight)`
+export const ArrowWrapperRightAgeGroup = styled(ArrowWrapperRight)`
 	svg {
 		right: -140px;
 	}

@@ -1,3 +1,5 @@
+import * as Constants from './constants';
+
 export const ageGroupColorMapper = ageGroup => {
 	switch (ageGroup) {
 		case 'rekkaskatar':
@@ -17,12 +19,31 @@ export const ageGroupColorMapper = ageGroup => {
 	}
 };
 
+export const ageGroupEventTitleMapper = ageGroup => {
+	switch (ageGroup) {
+		case Constants.DREKASKATAR:
+			return 'DREKASKÁTUM';
+		case Constants.FALKASKATAR:
+			return 'FÁLKASKÁTUM';
+		case Constants.DROTTSKATAR:
+			return 'DRÓTTSKÁTUM';
+		case Constants.REKKASKATAR:
+			return 'REKKASKÁTUM';
+		case Constants.ROVERSKATAR:
+			return 'RÓVERSKÁTUM';
+		case Constants.FULLORDNIR:
+			return 'FULLORÐNUM';
+		default:
+			return '';
+	}
+}
+
 export const widthMapper = (length, count) => {
 	//Special case that we make the 3rd (0, 1, 2) width be 34% so we end up with 100%
-	if(length === 3 && count === 2) {
+	if (length === 3 && count === 2) {
 		return '34%';
 	}
-	if(length === 6 && count === 5) {
+	if (length === 6 && count === 5) {
 		return '15%'
 	}
 	switch (length) {
