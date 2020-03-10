@@ -24,6 +24,10 @@ export const Wrapper = styled.div`
 	}
 `;
 
+export const AgeGroupWrapper = styled(Wrapper)`
+	padding-bottom: 0rem;
+`;
+
 export const Title = styled.h1`
 	margin: 0 auto;
 	text-align: center;
@@ -40,11 +44,11 @@ export const Title = styled.h1`
 	}
 `;
 
-export const AldursbilaTitle = styled.h4`
+export const AgeGroupTitle = styled.h4`
 	margin: 0 auto;
 	text-align: center;
 	font-family: Gotham-Bold;
-	padding: 3rem 2rem;
+	padding-bottom: 2rem;
 	@media (max-width: 768px) {
 		padding: 2rem 0;
 	}

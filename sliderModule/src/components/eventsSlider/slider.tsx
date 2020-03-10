@@ -120,6 +120,15 @@ const EventsSlider: FC<{ hide: boolean, ageGroup: string }> = ({ hide, ageGroup 
 	settings.nextArrow = <NextArrow />;
 	settings.prevArrow = <PrevArrow />;
 
+	// Show the ageGroup wrapper when ageGroup is set else the normal wrapper
+	function Wrapper(props) {
+		if (ageGroup) {
+			return (<StyledSlider.AgeGroupWrapper>{props.children}</StyledSlider.AgeGroupWrapper>)
+		} else {
+			return (<StyledSlider.Wrapper>{props.children}</StyledSlider.Wrapper>)
+		}
+	}
+
 	// The normal Title
 	let title = <StyledSlider.Title>
 		<a href="/vidburdir">VIÐBURÐIR</a>
@@ -129,11 +138,11 @@ const EventsSlider: FC<{ hide: boolean, ageGroup: string }> = ({ hide, ageGroup 
 	if (data.events && data.events.length < 3) {
 		settings.infinite = false;
 	}
-	// In aldursbilas pages we don't have as much space as on the front page so we have to do small changes
+	// In ageGroup pages we don't have as much space as on the front page so we have to do small changes
 	if (ageGroup) {
-		title = <StyledSlider.AldursbilaTitle>
-			Á DÖFNINNI HJÁ {ageGroupEventTitleMapper(ageGroup)}
-		</StyledSlider.AldursbilaTitle>
+		title = <StyledSlider.AgeGroupTitle>
+			Á DÖFINNI HJÁ {ageGroupEventTitleMapper(ageGroup)}
+		</StyledSlider.AgeGroupTitle>
 		settings.nextArrow = <NextArrowAgeGroup />;
 		settings.prevArrow = <PrevArrowAgeGroup />;
 		settings.slidesToShow = 2;
@@ -150,7 +159,7 @@ const EventsSlider: FC<{ hide: boolean, ageGroup: string }> = ({ hide, ageGroup 
 
 	}
 	return (
-		<StyledSlider.Wrapper>
+		<Wrapper>
 			{title}
 			<Slide {...settings}>
 				{data.events &&
@@ -231,7 +240,7 @@ const EventsSlider: FC<{ hide: boolean, ageGroup: string }> = ({ hide, ageGroup 
 						);
 					})}
 			</Slide>
-		</StyledSlider.Wrapper>
+		</Wrapper>
 	);
 };
 
