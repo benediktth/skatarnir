@@ -5,7 +5,7 @@ import React, { FC, useState } from 'react';
 import Slide from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import { ageGroupColorMapper, ageGroupEventTitleMapper, monthMapper, widthMapper } from '../common/helpers';
+import { ageGroupColorMapper, ageGroupEventTitleMapper, monthMapper, widthMapper, decodeHTMLEntites } from '../common/helpers';
 import { settings } from './settings';
 import * as StyledSlider from './slider.styles';
 import * as Constants from '../common/constants';
@@ -43,7 +43,7 @@ const EventsSlider: FC<{ hide: boolean, ageGroup: string }> = ({ hide, ageGroup 
 	if (!data) return <StyledSlider.Loading>Sæki viðburði....</StyledSlider.Loading>;
 
 	// If ther is an ageGroup filter out all the events that don't have the ageGroup in its categories
-	if (data.events && ageGroup !== undefined && ageGroup.length !== 0) {
+	if (data.events && ageGroup !== undefined && ageGroup.length !== 0 && ageGroup !== Constants.NOAGEGROUP) {
 		data.events = data.events.filter(function (value /*index, arr*/) {
 			// Go through the categories in the event
 			for (let i = 0; i < value.categories.length; i++) {
@@ -143,6 +143,11 @@ const EventsSlider: FC<{ hide: boolean, ageGroup: string }> = ({ hide, ageGroup 
 		title = <StyledSlider.AgeGroupTitle>
 			Á DÖFINNI HJÁ {ageGroupEventTitleMapper(ageGroup)}
 		</StyledSlider.AgeGroupTitle>
+		if (ageGroup === Constants.NOAGEGROUP) {
+			title = <StyledSlider.Title>
+				Viðburðir
+			</StyledSlider.Title>
+		}
 		settings.nextArrow = <NextArrowAgeGroup />;
 		settings.prevArrow = <PrevArrowAgeGroup />;
 		settings.slidesToShow = 2;
@@ -184,7 +189,8 @@ const EventsSlider: FC<{ hide: boolean, ageGroup: string }> = ({ hide, ageGroup 
 						// Get the title and put it into upper case
 						let itemTitle = '';
 						if (item.title) {
-							itemTitle = item.title.toUpperCase();
+							itemTitle = decodeHTMLEntites(item.title);
+							itemTitle = itemTitle.toUpperCase();
 						}
 
 						let itemDate = '';

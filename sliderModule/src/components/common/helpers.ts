@@ -2,18 +2,20 @@ import * as Constants from './constants';
 
 export const ageGroupColorMapper = ageGroup => {
 	switch (ageGroup) {
-		case 'rekkaskatar':
-			return '#65CDF0';
-		case 'drottskatar':
-			return '#1BB89B';
-		case 'falkaskatar':
-			return '#EB6363';
 		case 'drekaskatar':
 			return '#FEE75F';
+		case 'falkaskatar':
+			return '#EB6363';
+		case 'drottskatar':
+			return '#1BB89B';
+		case 'rekkaskatar':
+			return '#65CDF0';
 		case 'roverskatar':
 			return '#FFAF3C';
 		case 'fullordnir':
 			return '#CF88FF';
+		case Constants.NOAGEGROUP:
+			return Constants.SKATABLAR;
 		default:
 			return '#000000';
 	}
@@ -33,6 +35,8 @@ export const ageGroupEventTitleMapper = ageGroup => {
 			return 'RÓVERSKÁTUM';
 		case Constants.FULLORDNIR:
 			return 'FULLORÐNUM';
+		case Constants.NOAGEGROUP:
+			return '';
 		default:
 			return '';
 	}
@@ -125,3 +129,14 @@ export const monthNumberMapper = monthNumber => {
 			return '';
 	}
 };
+
+
+export const decodeHTMLEntites = str => {
+	var element = document.createElement('div');
+	if (str && typeof str === 'string') {
+		element.innerHTML = str;
+		str = element.textContent;
+		element.textContent = '';
+	}
+	return str;
+}
