@@ -1,28 +1,53 @@
+import * as Constants from './constants';
+
 export const ageGroupColorMapper = ageGroup => {
 	switch (ageGroup) {
-		case 'rekkaskatar':
-			return '#65CDF0';
-		case 'drottskatar':
-			return '#1BB89B';
-		case 'falkaskatar':
-			return '#EB6363';
 		case 'drekaskatar':
 			return '#FEE75F';
+		case 'falkaskatar':
+			return '#EB6363';
+		case 'drottskatar':
+			return '#1BB89B';
+		case 'rekkaskatar':
+			return '#65CDF0';
 		case 'roverskatar':
 			return '#FFAF3C';
 		case 'fullordnir':
 			return '#CF88FF';
+		case Constants.NOAGEGROUP:
+			return Constants.SKATABLAR;
 		default:
 			return '#000000';
 	}
 };
 
+export const ageGroupEventTitleMapper = ageGroup => {
+	switch (ageGroup) {
+		case Constants.DREKASKATAR:
+			return 'DREKASKÁTUM';
+		case Constants.FALKASKATAR:
+			return 'FÁLKASKÁTUM';
+		case Constants.DROTTSKATAR:
+			return 'DRÓTTSKÁTUM';
+		case Constants.REKKASKATAR:
+			return 'REKKASKÁTUM';
+		case Constants.ROVERSKATAR:
+			return 'RÓVERSKÁTUM';
+		case Constants.FULLORDNIR:
+			return 'FULLORÐNUM';
+		case Constants.NOAGEGROUP:
+			return '';
+		default:
+			return '';
+	}
+}
+
 export const widthMapper = (length, count) => {
 	//Special case that we make the 3rd (0, 1, 2) width be 34% so we end up with 100%
-	if(length === 3 && count === 2) {
+	if (length === 3 && count === 2) {
 		return '34%';
 	}
-	if(length === 6 && count === 5) {
+	if (length === 6 && count === 5) {
 		return '15%'
 	}
 	switch (length) {
@@ -104,3 +129,14 @@ export const monthNumberMapper = monthNumber => {
 			return '';
 	}
 };
+
+
+export const decodeHTMLEntites = str => {
+	var element = document.createElement('div');
+	if (str && typeof str === 'string') {
+		element.innerHTML = str;
+		str = element.textContent;
+		element.textContent = '';
+	}
+	return str;
+}

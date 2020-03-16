@@ -24,6 +24,10 @@ export const Wrapper = styled.div`
 	}
 `;
 
+export const AgeGroupWrapper = styled(Wrapper)`
+	padding-bottom: 0rem;
+`;
+
 export const Title = styled.h1`
 	margin: 0 auto;
 	text-align: center;
@@ -35,6 +39,16 @@ export const Title = styled.h1`
 		text-decoration: none;
 		cursor: pointer;
 	}
+	@media (max-width: 768px) {
+		padding: 2rem 0;
+	}
+`;
+
+export const AgeGroupTitle = styled.h4`
+	margin: 0 auto;
+	text-align: center;
+	font-family: Gotham-Bold;
+	padding-bottom: 2rem;
 	@media (max-width: 768px) {
 		padding: 2rem 0;
 	}
@@ -78,7 +92,7 @@ export const ContentWrapper = styled.div`
 	width: 25rem;
 	background-color: #f2f6f9;
 	/* cursor: pointer; */
-	min-height: 28rem;
+	min-height: 30rem;
 	/* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 	transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -112,7 +126,7 @@ export const ArrowWrapperLeft = styled.div`
 	}
 `;
 
-export const ArrowWrapperLeftMini = styled(ArrowWrapperLeft)`
+export const ArrowWrapperLeftAgeGroup = styled(ArrowWrapperLeft)`
 	svg {
 		left: -140px;
 	}
@@ -131,7 +145,7 @@ export const ArrowWrapperRight = styled.div`
 		}
 	}
 `;
-export const ArrowWrapperRightMini = styled(ArrowWrapperRight)`
+export const ArrowWrapperRightAgeGroup = styled(ArrowWrapperRight)`
 	svg {
 		right: -140px;
 	}

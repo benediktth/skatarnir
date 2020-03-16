@@ -9,6 +9,7 @@ import 'slick-carousel/slick/slick.css';
 import { monthNumberMapper } from '../common/helpers';
 import { settings } from './settings';
 import * as StyledSlider from './slider.styles';
+import * as Constants from '../common/constants';
 
 // TODO: order frettum by date
 //interface Props { }
@@ -27,7 +28,7 @@ let url =
 
 
 const NewsSlider: FC<{ hide: boolean, orangeBackground: boolean, showTitle: boolean }> = ({ hide, orangeBackground, showTitle }) => {
-	
+
 	// const redirectToEvent = (url, event) => {
 	// 	if (event.ctrlKey) {
 	// 		window.open(url);
@@ -35,8 +36,8 @@ const NewsSlider: FC<{ hide: boolean, orangeBackground: boolean, showTitle: bool
 	// 		window.location.href = url;
 	// 	}
 	// };
-	if(hide) {
-		return(null);
+	if (hide) {
+		return (null);
 	}
 
 	const [data, setData] = useState(null);
@@ -54,7 +55,7 @@ const NewsSlider: FC<{ hide: boolean, orangeBackground: boolean, showTitle: bool
 				<FontAwesomeIcon
 					icon={faChevronLeft}
 					className={className}
-					style={{ ...style, color: '#3C50FF' }}
+					style={{ ...style, color: Constants.SKATABLAR }}
 					onClick={onClick}
 				/>
 			</StyledSlider.ArrowWrapperLeft>
@@ -68,7 +69,7 @@ const NewsSlider: FC<{ hide: boolean, orangeBackground: boolean, showTitle: bool
 				<FontAwesomeIcon
 					icon={faChevronRight}
 					className={className}
-					style={{ ...style, color: '#3C50FF' }}
+					style={{ ...style, color: Constants.SKATABLAR }}
 					onClick={onClick}
 				/>
 			</StyledSlider.ArrowWrapperRight>
@@ -93,10 +94,8 @@ const NewsSlider: FC<{ hide: boolean, orangeBackground: boolean, showTitle: bool
 
 	return (
 		<Wrapper>
-
 			<StyledSlider.Wrapper>
 				{title}
-
 				<Slide {...settings}>
 					{data &&
 						data.map((item, index) => {
@@ -136,21 +135,6 @@ const NewsSlider: FC<{ hide: boolean, orangeBackground: boolean, showTitle: bool
 								let date = new Date(item.date);
 								itemDate = date.getDate() + '. ' + monthNumberMapper(date.getMonth()) + ' ' + date.getFullYear();
 							}
-							/*
-							They did not want this, should be removed in the future.
-							// Get the item excerpt
-							let itemExcerpt = '';
-							if (item.excerpt && item.excerpt.rendered) {
-								itemExcerpt = item.excerpt.rendered;
-								// Remove some HTLM tags that come with the post
-								itemExcerpt = itemExcerpt.replace('<p>', '');
-								itemExcerpt = itemExcerpt.replace('</p>', '');
-								itemExcerpt = itemExcerpt.replace('</ p>', '');
-								// Take only the first 115 letters
-								itemExcerpt = itemExcerpt.substring(0, 115);
-								itemExcerpt = itemExcerpt + ' ...';
-							}
-							*/
 
 							// Get the posts author
 							let itemAuthor = '';
