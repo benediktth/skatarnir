@@ -36,9 +36,27 @@ do_action( 'tribe_events_single_event_meta_primary_section_start' );
 tribe_get_template_part( 'modules/meta/details' );
 ?>
 
-<div class="tribe-events-meta-group " id="register">
-	<a href="https://skatar.felog.is" id="register-button">Skráning á viðburð</a>
-</div>
+<!-- 
+	We only show the registration button if engin_skraning is not used
+	If there is no value in skraning then we show the default button which sends you to https://skatar.felog.is
+	otherwise we show a button with the given registration url
+-->
+<?php if ( !get_field('engin_skraning') ) : ?>	
+	<?php if ( empty( get_field('skraning') ) ) : ?>	
+		<div class="tribe-events-meta-group " id="register">
+			<a href="https://skatar.felog.is" id="register-button" target="_blank">Skráning á viðburð</a>
+		</div>
+	<?php endif; ?>
+	<?php if ( !empty( get_field('skraning') ) ) : ?>		
+		<div class="tribe-events-meta-group " id="register">
+			<?php
+				echo '<a href="' . get_field('skraning') . ' " id="register-button" target="_blank">Skráning á viðburð</a>';
+			?>
+		</div>
+	<?php endif; ?>
+<?php endif; ?>
+
+
 
 <style>
 	.tribe-events-event-meta .column, .tribe-events-event-meta .tribe-events-meta-group {
