@@ -6,7 +6,7 @@ import React, { FC, useState } from 'react';
 import Slide from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-import { monthNumberMapper } from '../common/helpers';
+import { monthNumberMapper, decodeHTMLEntites } from '../common/helpers';
 import { settings } from './settings';
 import * as StyledSlider from './slider.styles';
 import * as Constants from '../common/constants';
@@ -113,7 +113,8 @@ const AnnouncementSlider: FC<{ hide: boolean }> = ({ hide }) => {
 
 							let itemTitle = '';
 							if (item.title && item.title.rendered) {
-								itemTitle = item.title.rendered.toUpperCase();
+								itemTitle = decodeHTMLEntites(item.title.rendered);
+								itemTitle = itemTitle.toUpperCase();
 							}
 
 							// Get the date of the post
