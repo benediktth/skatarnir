@@ -9,13 +9,12 @@ import * as Constants from './components/common/constants';
 
 interface Props { }
 
-//[Constants.DREKASKATAR, Constants.FALKASKATAR, Constants.DROTTSKATAR, Constants.REKKASKATAR, Constants.ROVERSKATAR, Constants.FULLORDNIR]
 const App: FC<Props> = () => {
 	return (
 		<StyledApp.Wrapper>
-			<EventsSlider hide={false} ageGroup={Constants.DREKASKATAR} />
-			<NewsSlider hide={true} orangeBackground={true} showTitle={true} />
-			<AnnouncementSlider hide={true} />
+			<EventsSlider hide={false} ageGroup={''} />
+			<NewsSlider hide={false} orangeBackground={true} showTitle={true} />
+			<AnnouncementSlider hide={false} />
 		</StyledApp.Wrapper>
 	);
 };

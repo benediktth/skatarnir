@@ -24,6 +24,7 @@ yarn-debug.log*
 yarn-error.log*
 frettaHjol/package-lock.json
 vidburdarmodule/package-lock.json
+sliderModule/ageGroupFiles/*
 sliderModule/ageGroupFiles/DrekaskataSlider/2.sliders.chunk.js
 sliderModule/ageGroupFiles/DrekaskataSlider/main.sliders.chunk.js
 sliderModule/ageGroupFiles/DrottskataSlider/2.sliders.chunk.js
