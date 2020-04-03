@@ -130,7 +130,7 @@ $website = tribe_get_event_website_link();
 	<div class="counter-wrapper">
 		<div class="counter-item-wrapper">
 			<h2 id="days"></h2>
-			<p>Dagar</p>
+			<p id="days-text"></p>
 		</div>
 		<div class="counter-item-wrapper">
 			<h2 id="hours"></h2>
@@ -147,6 +147,11 @@ $website = tribe_get_event_website_link();
 	</div>
 	<script>
 		var timeLeft = getTimeRemaining(dateOfEvent);
+		if (timeLeft.days > 1) {
+			document.getElementById('days-text').innerText = 'Dagar';
+		} else {
+			document.getElementById('days-text').innerText = 'Dagur';
+		}
 		document.getElementById('seconds').innerText = timeLeft.seconds;
 		document.getElementById('minutes').innerText = timeLeft.minutes;
 		document.getElementById('hours').innerText = timeLeft.hours;

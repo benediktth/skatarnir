@@ -112,7 +112,7 @@ do_action( 'tribe_events_single_event_meta_primary_section_end' );
 	margin-right: 5px;
 	color: #3C50FF !important;
 	background-color: #FFAF3C !important;
-	font-size: 20px !important;
+	font-size: 17px !important;
 	font-weight: 700 !important;
 }
 </style>
