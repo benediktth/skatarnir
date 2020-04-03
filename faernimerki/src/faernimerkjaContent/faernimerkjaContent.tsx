@@ -51,10 +51,10 @@ const FaernimerkjaContent: FC<Props> = ({ data }) => {
 				<StyledFaernimerkjaContent.ContentWrapper>
 					<Description description={data.acf.lysing} />
 				</StyledFaernimerkjaContent.ContentWrapper>
-				<StyledFaernimerkjaContent.AgeGroupsWrapper>
-					<AgeGroups ageGroups={data.acf.aldursbil} />
-				</StyledFaernimerkjaContent.AgeGroupsWrapper>
 			</StyledFaernimerkjaContent.FirstRowWrapper>
+			<StyledFaernimerkjaContent.AgeGroupsWrapper>
+				<AgeGroups ageGroups={data.acf.aldursbil} />
+			</StyledFaernimerkjaContent.AgeGroupsWrapper>
 			<StyledFaernimerkjaContent.SecondRowWrapper>
 				<StyledFaernimerkjaContent.DocumentsWrapper>
 					<Documents documents={filesArray} />

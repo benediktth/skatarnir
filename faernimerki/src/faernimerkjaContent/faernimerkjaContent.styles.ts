@@ -19,7 +19,7 @@ export const PictureWrapper = styled.div`
 `;
 
 export const ContentWrapper = styled.div`
-	width: 40%;
+	width: 67%;
 `;
 
 export const AgeGroupsWrapper = styled.div`

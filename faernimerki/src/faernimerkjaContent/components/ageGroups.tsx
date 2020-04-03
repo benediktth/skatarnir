@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 const AgeGroups: FC<Props> = ({ ageGroups }) => {
 	return (
 		<Wrapper>
-			<h1>Aldursbils</h1>
+			<h2 style={{ marginTop: 'o' }}>Aldursbils</h2>
 			<ul>
 				{ageGroups.map(ageGroup => {
 					return <li key={ageGroup}>{ageGroup}</li>;

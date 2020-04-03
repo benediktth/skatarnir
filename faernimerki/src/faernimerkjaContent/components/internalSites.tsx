@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 const InternalSites: FC<Props> = () => {
 	return (
 		<Wrapper>
-			<span>Síður á Skátamál.is tengdar færnimerkinu</span>
+			<h2>Síður á Skátamál.is tengdar færnimerkinu</h2>
 		</Wrapper>
 	);
 };
