@@ -48,9 +48,7 @@
 		"create-wp-dir": "if not exist .\\build\\wp mkdir .\\build\\wp",
 		"copy-main": "cp build/static/js/main.*.chunk.js build/wp/main.sliders.chunk.js",
 		"copy-2": "cp build/static/js/2.*.chunk.js build/wp/2.sliders.chunk.js",
-
 		"build-ageGroups": "npm run create-ageGroups-Folders && npm run build-drekaskatar && npm run build-falkaskatar && npm run build-drottskatar && npm run build-rekkaskatar && npm run build-roverskatar && npm run build-noAgeGroup",
-
 		"create-ageGroups-Folders": "npm run create-ageGroups-Folder && npm run create-drekaskata-Folder && npm run create-falkaskata-Folder && npm run create-drottskatar-Folder && npm run create-rekkaskatar-Folder && npm run create-roverskatar-Folder && npm run create-noAgeGroup-Folder",
 		"create-ageGroups-Folder": "if not exist .\\ageGroupFiles mkdir .\\ageGroupFiles",
 		"create-drekaskata-Folder": "if not exist .\\ageGroupFiles\\DrekaskataSlider mkdir .\\ageGroupFiles\\DrekaskataSlider",
@@ -59,37 +57,30 @@
 		"create-rekkaskatar-Folder": "if not exist .\\ageGroupFiles\\RekkaskataSlider mkdir .\\ageGroupFiles\\RekkaskataSlider",
 		"create-roverskatar-Folder": "if not exist .\\ageGroupFiles\\RoverskataSlider mkdir .\\ageGroupFiles\\RoverskataSlider",
 		"create-noAgeGroup-Folder": "if not exist .\\ageGroupFiles\\NoAgeGroupSlider mkdir .\\ageGroupFiles\\NoAgeGroupSlider",
-
 		"build-drekaskatar": "npm run switch-to-drekaskatar && react-scripts build && npm run copy-to-drekaskatar-main && npm run copy-to-drekaskatar-2",
 		"switch-to-drekaskatar": "sed -i 's/ageGroup={.*}/ageGroup={Constants.DREKASKATAR}/' src/app.tsx",
 		"copy-to-drekaskatar-main": "cp build/static/js/main.*.chunk.js ageGroupFiles/DrekaskataSlider/main.sliders.chunk.js",
 		"copy-to-drekaskatar-2": "cp build/static/js/2.*.chunk.js ageGroupFiles/DrekaskataSlider/2.sliders.chunk.js",
-
 		"build-falkaskatar": "npm run switch-to-falkaskatar && react-scripts build && npm run copy-to-falkaskatar-main && npm run copy-to-falkaskatar-2",
 		"switch-to-falkaskatar": "sed -i 's/ageGroup={.*}/ageGroup={Constants.FALKASKATAR}/' src/app.tsx",
 		"copy-to-falkaskatar-main": "cp build/static/js/main.*.chunk.js ageGroupFiles/FalkaskataSlider/main.sliders.chunk.js",
 		"copy-to-falkaskatar-2": "cp build/static/js/2.*.chunk.js ageGroupFiles/FalkaskataSlider/2.sliders.chunk.js",
-
 		"build-drottskatar": "npm run switch-to-drottskatar && react-scripts build && npm run copy-to-drottskatar-main && npm run copy-to-drottskatar-2",
 		"switch-to-drottskatar": "sed -i 's/ageGroup={.*}/ageGroup={Constants.DROTTSKATAR}/' src/app.tsx",
 		"copy-to-drottskatar-main": "cp build/static/js/main.*.chunk.js ageGroupFiles/DrottskataSlider/main.sliders.chunk.js",
 		"copy-to-drottskatar-2": "cp build/static/js/2.*.chunk.js ageGroupFiles/DrottskataSlider/2.sliders.chunk.js",
-
 		"build-rekkaskatar": "npm run switch-to-rekkaskatar && react-scripts build && npm run copy-to-rekkaskatar-main && npm run copy-to-rekkaskatar-2",
 		"switch-to-rekkaskatar": "sed -i 's/ageGroup={.*}/ageGroup={Constants.REKKASKATAR}/' src/app.tsx",
 		"copy-to-rekkaskatar-main": "cp build/static/js/main.*.chunk.js ageGroupFiles/RekkaskataSlider/main.sliders.chunk.js",
 		"copy-to-rekkaskatar-2": "cp build/static/js/2.*.chunk.js ageGroupFiles/RekkaskataSlider/2.sliders.chunk.js",
-
 		"build-roverskatar": "npm run switch-to-roverskatar && react-scripts build && npm run copy-to-roverskatar-main && npm run copy-to-roverskatar-2",
 		"switch-to-roverskatar": "sed -i 's/ageGroup={.*}/ageGroup={Constants.ROVERSKATAR}/' src/app.tsx",
 		"copy-to-roverskatar-main": "cp build/static/js/main.*.chunk.js ageGroupFiles/RoverskataSlider/main.sliders.chunk.js",
 		"copy-to-roverskatar-2": "cp build/static/js/2.*.chunk.js ageGroupFiles/RoverskataSlider/2.sliders.chunk.js",
-
 		"build-noAgeGroup": "npm run switch-to-noAgeGroup && react-scripts build && npm run copy-to-noAgeGroup-main && npm run copy-to-noAgeGroup-2",
 		"switch-to-noAgeGroup": "sed -i 's/ageGroup={.*}/ageGroup={Constants.NOAGEGROUP}/' src/app.tsx",
 		"copy-to-noAgeGroup-main": "cp build/static/js/main.*.chunk.js ageGroupFiles/NoAgeGroupSlider/main.sliders.chunk.js",
 		"copy-to-noAgeGroup-2": "cp build/static/js/2.*.chunk.js ageGroupFiles/NoAgeGroupSlider/2.sliders.chunk.js"
-		
 	},
 	"eslintConfig": {
 		"extends": "react-app"

@@ -10,6 +10,7 @@
  */
 
 
+
 $time_format = get_option( 'time_format', Tribe__Date_Utils::TIMEFORMAT );
 $time_range_separator = tribe_get_option( 'timeRangeSeparator', ' - ' );
 
@@ -62,9 +63,97 @@ $website = tribe_get_event_website_link();
 	}
 </style>
 <div class="tribe-events-meta-group tribe-events-meta-group-details" id="events-meta">
+
+	<?php
+		echo "
+		<script type=\"text/javascript\">
+		function getTimeRemaining(endtime){
+			var t = Date.parse(endtime) - Date.parse(new Date());
+			var seconds = Math.floor( (t/1000) % 60 );
+			var minutes = Math.floor( (t/1000/60) % 60 );
+			var hours = Math.floor( (t/(1000*60*60)) % 24 );
+			var days = Math.floor( t/(1000*60*60*24) );
+			return {
+				'total': t,
+				'days': days,
+				'hours': hours,
+				'minutes': minutes,
+				'seconds': seconds
+			};
+		}
+
+		</script>
+		";
+	?>
+	<script>
+		var startDate = "<?php echo $start_ts; ?>";
+		var startTime = "<?php echo $start_time; ?>";
+		var formattedDate = startDate + "T" + startTime;
+		var dateOfEvent = new Date(formattedDate)
+		function decreaseTime(){
+			setInterval(function(){
+				var timeLeft = getTimeRemaining(dateOfEvent);
+				document.getElementById('seconds').innerText = timeLeft.seconds;
+				document.getElementById('minutes').innerText = timeLeft.minutes;
+				document.getElementById('hours').innerText = timeLeft.hours;
+				document.getElementById('days').innerText = timeLeft.days;
+			},1000);
+		}
+		decreaseTime()
+	</script>
+	<style>
+		.counter-wrapper {
+			display: flex;
+			justify-content: space-around;
+			margin-top: 30px;
+		}
+		.counter-item-wrapper {
+			text-align: center;
+			background-color: #3C50FF;
+			width: 23%;
+		}
+
+		.counter-item-wrapper p {
+			margin: 0;
+			margin-top: -11px;
+			padding: 0;
+			font-size: 20px;
+			color: white;
+		}
+
+		.counter-item-wrapper h2 {
+			margin: 0;
+			padding: 0;
+			font-size: 29px !important;
+		}
+	</style>
+	<div class="counter-wrapper">
+		<div class="counter-item-wrapper">
+			<h2 id="days"></h2>
+			<p>Dagar</p>
+		</div>
+		<div class="counter-item-wrapper">
+			<h2 id="hours"></h2>
+			<p>Klst</p>
+		</div>
+		<div class="counter-item-wrapper">
+			<h2 id="minutes"></h2>
+			<p>Min</p>
+		</div>
+		<div class="counter-item-wrapper">
+			<h2 id="seconds"></h2>
+			<p>Sek</p>
+		</div>
+	</div>
+	<script>
+		var timeLeft = getTimeRemaining(dateOfEvent);
+		document.getElementById('seconds').innerText = timeLeft.seconds;
+		document.getElementById('minutes').innerText = timeLeft.minutes;
+		document.getElementById('hours').innerText = timeLeft.hours;
+		document.getElementById('days').innerText = timeLeft.days;
+	</script>
 	<h2 class="tribe-events-single-section-title" id="keyInfo">Lykilupplýsingar</h2>
 	<dl>
-
 		<?php
 		do_action( 'tribe_events_single_meta_details_section_start' );
 
