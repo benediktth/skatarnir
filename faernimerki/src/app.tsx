@@ -1,12 +1,16 @@
-import React, { FC, useEffect, useRef } from 'react';
+import Axios from 'axios';
+import React, { FC, useEffect, useRef, useState } from 'react';
 import 'reset-css';
 import * as StyledApp from './app.styles';
+import { postFix } from './constants';
+import FaernimerkjaContent from './faernimerkjaContent';
 
 interface Props {}
 
 const App: FC<Props> = () => {
 	const ref = useRef();
-	let postId;
+	const [data, setData] = useState(null);
+	let postId: string = '';
 
 	const findParentWithId = (node: any) => {
 		if (node === null) {
@@ -19,12 +23,15 @@ const App: FC<Props> = () => {
 	};
 
 	useEffect(() => {
-		const parentRefId = findParentWithId(ref.current);
-		postId = parentRefId.split('-')[1];
-		console.log(parentRefId);
-		console.log(postId);
-	});
-	return <StyledApp.Wrapper ref={ref}>Test</StyledApp.Wrapper>;
+		if (postId === '') {
+			const parentRefId = findParentWithId(ref.current);
+			postId = parentRefId.split('-')[1];
+			Axios(postFix + postId).then(res => {
+				setData(res.data);
+			});
+		}
+	}, []);
+	return <StyledApp.Wrapper ref={ref}>{data && <FaernimerkjaContent data={data} />}</StyledApp.Wrapper>;
 };
 
 export default App;
