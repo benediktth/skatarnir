@@ -46,8 +46,8 @@
 		"now-build": "npm run build",
 		"copy-files-to-wp": "npm run create-wp-dir && npm run copy-main && npm run copy-2",
 		"create-wp-dir": "if not exist .\\build\\wp mkdir .\\build\\wp",
-		"copy-main": "cp build/static/js/main.*.chunk.js build/wp/main.sliders.chunk.js",
-		"copy-2": "cp build/static/js/2.*.chunk.js build/wp/2.sliders.chunk.js"
+		"copy-main": "cp build/static/js/main.*.chunk.js build/wp/main.chunk.js",
+		"copy-2": "cp build/static/js/2.*.chunk.js build/wp/2.chunk.js"
 	},
 	"eslintConfig": {
 		"extends": "react-app"
