@@ -27,7 +27,7 @@ const SubContentWrapper = styled.div``;
 const ExternalSites: FC<Props> = ({ externalWebsites }) => {
 	return (
 		<Wrapper>
-			<h1>Vefsíður tengdar færnimerkinu</h1>
+			<h2 style={{ marginTop: '0' }}>Vefsíður tengdar færnimerkinu</h2>
 			{externalWebsites.map((website, index) => {
 				return (
 					<ContentWrapper key={index}>
@@ -35,7 +35,7 @@ const ExternalSites: FC<Props> = ({ externalWebsites }) => {
 							<img src={website.url} />
 						</ImageWrapper>
 						<SubContentWrapper>
-							<h1>{website.title}</h1>
+							<h3 style={{ marginTop: '0' }}>{website.title}</h3>
 							<a href={website.link}>{website.description}</a>
 						</SubContentWrapper>
 					</ContentWrapper>

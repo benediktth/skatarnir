@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 const Description: FC<Props> = ({ description }) => {
 	return (
 		<Wrapper>
-			<h1>Um færnimerkið</h1>
+			<h2 style={{ marginTop: '0' }}>Um færnimerkið</h2>
 			<span>{description}</span>
 		</Wrapper>
 	);
