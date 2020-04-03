@@ -4,6 +4,7 @@ import 'reset-css';
 import * as StyledApp from './app.styles';
 import { postFix } from './constants';
 import FaernimerkjaContent from './faernimerkjaContent';
+import { StyledLoader } from './Loader';
 
 interface Props {}
 
@@ -26,12 +27,18 @@ const App: FC<Props> = () => {
 		if (postId === '') {
 			const parentRefId = findParentWithId(ref.current);
 			postId = parentRefId.split('-')[1];
-			Axios(postFix + postId).then(res => {
+			Axios(postFix + postId).then((res) => {
 				setData(res.data);
 			});
 		}
 	}, []);
-	return <StyledApp.Wrapper ref={ref}>{data && <FaernimerkjaContent data={data} />}</StyledApp.Wrapper>;
+
+	return (
+		<StyledApp.Wrapper ref={ref}>
+			{data && <FaernimerkjaContent data={data} />}
+			{data !== null || <StyledLoader />}
+		</StyledApp.Wrapper>
+	);
 };
 
 export default App;
