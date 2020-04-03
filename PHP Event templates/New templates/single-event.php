@@ -31,7 +31,7 @@ $map = tribe_get_embedded_map()
 			margin-bottom: 2rem;
 		}
 		.meta-wrapper {
-			width: 20%;
+			width: 35%;
 		}
 		.tribe-events-single-section {
 			width: 100%;
@@ -97,13 +97,12 @@ $map = tribe_get_embedded_map()
 			background: #fafafa;
 			border: 1px solid #eee;
 			margin-top: 20px;
+			padding: 20px 40px !important;
 		}
 		.tribe-events-content h3 {
 			margin-top: 0px;
-			padding: 10px;
 		}
 		.tribe-events-content p {
-			padding: 0 10px
 		}
 	</style>
 	<!-- Notices -->
@@ -129,7 +128,7 @@ $map = tribe_get_embedded_map()
 					<!-- Event content -->
 					<?php do_action( 'tribe_events_single_event_before_the_content' ) ?>
 					<div class="tribe-events-single-event-description tribe-events-content">
-						<h3>Um viðburðinn</h3>
+						<h3>Um viðburðinn:</h3>
 						<?php the_content(); ?>
 					</div>
 					<!-- <?php echo tribe_event_featured_image( $event_id, 'full', false ); ?> -->

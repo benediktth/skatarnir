@@ -24,6 +24,9 @@ $set_venue_apart = apply_filters( 'tribe_events_single_event_the_meta_group_venu
 		#adjustContent{
 			margin: 0;
 		}
+		#adjustContent h2 {
+			font-size: 20px;
+		}
 	</style>
 
 	<div class="tribe-events-single-section tribe-events-event-meta primary tribe-clearfix set-height" id="adjustContent">
@@ -36,21 +39,27 @@ do_action( 'tribe_events_single_event_meta_primary_section_start' );
 tribe_get_template_part( 'modules/meta/details' );
 ?>
 
-<!-- 
+<style>
+	#register-button {
+		font-weight: 700;
+		font-size: 20px;
+	}
+</style>
+<!--
 	We only show the registration button if engin_skraning is not used
 	If there is no value in skraning then we show the default button which sends you to https://skatar.felog.is
 	otherwise we show a button with the given registration url
 -->
-<?php if ( !get_field('engin_skraning') ) : ?>	
-	<?php if ( empty( get_field('skraning') ) ) : ?>	
+<?php if ( !get_field('engin_skraning') ) : ?>
+	<?php if ( empty( get_field('skraning') ) ) : ?>
 		<div class="tribe-events-meta-group " id="register">
-			<a href="https://skatar.felog.is" id="register-button" target="_blank">Skráning á viðburð</a>
+			<a href="https://skatar.felog.is" id="register-button" target="_blank">Skráning</a>
 		</div>
 	<?php endif; ?>
-	<?php if ( !empty( get_field('skraning') ) ) : ?>		
+	<?php if ( !empty( get_field('skraning') ) ) : ?>
 		<div class="tribe-events-meta-group " id="register">
 			<?php
-				echo '<a href="' . get_field('skraning') . ' " id="register-button" target="_blank">Skráning á viðburð</a>';
+				echo '<a href="' . get_field('skraning') . ' " id="register-button" target="_blank">Skráning</a>';
 			?>
 		</div>
 	<?php endif; ?>
@@ -100,7 +109,11 @@ do_action( 'tribe_events_single_event_meta_primary_section_end' );
 	text-align: center;
 }
 .tribe-events-cal-links a {
-	margin-right: 0px;
+	margin-right: 5px;
+	color: #3C50FF !important;
+	background-color: #FFAF3C !important;
+	font-size: 17px !important;
+	font-weight: 700 !important;
 }
 </style>
 
@@ -118,8 +131,8 @@ do_action( 'tribe_events_single_event_meta_primary_section_end' );
 	padding: 3px 20px;
 }
 #register-button {
-	background-color: #3C50FF;
-	color: #FFAF3C;
+	color: #3C50FF;
+	background-color: #FFAF3C;
     width: 115px;
     height: 45px;
     padding: 10px;
