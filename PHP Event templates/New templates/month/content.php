@@ -31,8 +31,42 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<!-- #tribe-events-header -->
 	<?php do_action( 'tribe_events_after_header' ) ?>
 	
-	<p>Hægt er að skrá nýja viðburði inná viðburðarskráningunni <a href="https://skatarnir.is/vidburdarskraning/" target="_blank">hérna</a></p>
+	<style>
+		.new-event-button {
+			background-color: #ffaf3c;
+			padding: 1rem;
+			line-height: 4rem;
+			border-radius: 10px;
+			color: #3c50ff !important;
+			text-transform: uppercase;
+			font-weight: 700;
+		}
+		
+		.new-event-button:hover {
+			background-color: #3c50ff;
+			color: #ffaf3c !important;
+		}
 
+		#tribe-events-content>a.tribe-events-ical.tribe-events-button {
+			background-color: #ffaf3c;
+			color: #3c50ff;
+			font-size: 15px;
+		    border-radius: 10px;
+		}
+
+		#tribe-events-content>a.tribe-events-ical.tribe-events-button:hover {
+			background-color: #3c50ff;
+			color: #ffaf3c;
+		}
+		@media screen and (min-width: 769px) {
+			#tribe-events-content>a.tribe-events-ical.tribe-events-button {
+				padding: 1rem;
+			}
+		}
+	</style>
+	
+	<a class="new-event-button" href="https://skatarnir.is/vidburdarskraning/" target="_blank">SKRÁ NÝJAN VIÐBURÐ</a>
+	
 	<!-- Month Grid -->
 	<?php tribe_get_template_part( 'month/loop', 'grid' ) ?>
 

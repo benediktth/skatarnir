@@ -22,10 +22,16 @@ if (!defined('ABSPATH')) {
 
 <style>
 	.events-list-navigation {
-		background: #3c50ff;
+		background: #3c50ff !important;
 		padding: 1rem;
-		line-height: 4rem;
 		border-radius: 10px;
+		text-transform: uppercase;
+		font-weight: 700;
+	}
+	@media screen and (min-width: 769px) {
+		.events-list-navigation {
+			line-height: 4rem;
+		}
 	}
 </style>
 
