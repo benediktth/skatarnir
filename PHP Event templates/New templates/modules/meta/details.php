@@ -106,6 +106,7 @@ $website = tribe_get_event_website_link();
 			display: flex;
 			justify-content: space-around;
 			margin-top: 30px;
+			margin-bottom: 30px;
 		}
 		.counter-item-wrapper {
 			text-align: center;
@@ -125,6 +126,25 @@ $website = tribe_get_event_website_link();
 			margin: 0;
 			padding: 0;
 			font-size: 29px !important;
+		}
+		/* Make counter responsive */
+		@media screen and (min-width: 601px) and  (max-width: 1050px), (max-width: 360px) {
+			.counter-item-wrapper p {
+				font-size: 17px;
+			}
+
+			.counter-item-wrapper h2 {
+				font-size: 25px !important;
+			}
+		}
+		@media screen and (min-width: 601px) and  (max-width: 900px), (max-width: 322px)  {
+			.counter-item-wrapper p {
+				font-size: 12px;
+			}
+
+			.counter-item-wrapper h2 {
+				font-size: 19px !important;
+			}
 		}
 	</style>
 	<div class="counter-wrapper">
@@ -229,6 +249,46 @@ $website = tribe_get_event_website_link();
 		<?php endif ?>
 
 		<?php
+			/**
+			 * Show the categories so that the urls are the age group sites
+			 */
+			
+			// Get the categories
+			$cats = get_the_terms(get_the_id(), Tribe__Events__Main::TAXONOMY);
+			echo '<dt class="tribe-events-event-categories-label">Aldurshópar:</dt>';
+			echo '<dd class="tribe-events-event-categories">';
+			$first = true;
+			// Go throug all the categories
+			foreach ($cats as $cat) {
+				// Make ', ' before all categories except the first one
+				if ($first) {
+					$first = false;
+				} else {
+					echo ', ';
+				}
+				// Create a url which point to the age group sites
+				if ($cat->slug == 'drekaskatar') {
+					echo '<a href="https://skatarnir.is/drekaskatar/">Drekaskátar</a>';
+				} else if ($cat->slug == 'falkaskatar') {
+					echo '<a href="https://skatarnir.is/falkaskatar/">Fálkaskátar</a>';
+				} else if ($cat->slug == 'drottskatar') {
+					echo '<a href="https://skatarnir.is/drottskatar/">Dróttskátar</a>';
+				} else if ($cat->slug == 'rekkaskatar') {
+					echo '<a href="https://skatarnir.is/rekkaskatar/">Rekkaskátar</a>';
+				} else if ($cat->slug == 'roverskatar') {
+					echo '<a href="https://skatarnir.is/roverskatar/">Róverskátar</a>';
+				} else {
+					// If we don't know the category we just show it as plain text
+					echo $cat->name;
+				}
+			}
+			// Close the dd from above
+			echo '</dd>';
+		?>
+
+		<!--
+			This is the original (old) code to show categories
+		<?php
 		echo tribe_get_event_categories(
 			get_the_id(), array(
 				'before'       => '',
@@ -242,6 +302,7 @@ $website = tribe_get_event_website_link();
 			)
 		);
 		?>
+		-->
 		<?php
 		// Event Website
 		if ( ! empty( $website ) ) : ?>
