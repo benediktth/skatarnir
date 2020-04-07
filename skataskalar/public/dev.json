@@ -1,0 +1,1948 @@
+[
+    {
+        "id": 96371,
+        "date": "2020-04-06T17:36:32",
+        "date_gmt": "2020-04-06T17:36:32",
+        "guid": {
+            "rendered": "https://skatarnir.is/?post_type=skalar&#038;p=96371"
+        },
+        "modified": "2020-04-06T17:39:06",
+        "modified_gmt": "2020-04-06T17:39:06",
+        "slug": "falkafell",
+        "status": "publish",
+        "type": "skalar",
+        "link": "https://skatarnir.is/skalar/falkafell/",
+        "title": {
+            "rendered": "Fálkafell"
+        },
+        "content": {
+            "rendered": "",
+            "protected": false
+        },
+        "featured_media": 96373,
+        "template": "",
+        "acf": {
+            "skatafelag": "Klakkur",
+            "stadsetning": " Glerárdalsöxl",
+            "hnit": "65°39'19.6\"N 18°08'42.7\"W",
+            "svefnplass": "25"
+        },
+        "_links": {
+            "self": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar/96371"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/types/skalar"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media/96373"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media?parent=96371"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https://api.w.org/{rel}",
+                    "templated": true
+                }
+            ]
+        },
+        "_embedded": {
+            "wp:featuredmedia": [
+                {
+                    "id": 96373,
+                    "date": "2020-04-06T17:38:58",
+                    "slug": "falkafell2",
+                    "type": "attachment",
+                    "link": "https://skatarnir.is/skalar/falkafell/falkafell2/",
+                    "title": {
+                        "rendered": "Fálkafell2"
+                    },
+                    "author": 11,
+                    "caption": {
+                        "rendered": ""
+                    },
+                    "alt_text": "",
+                    "media_type": "image",
+                    "mime_type": "image/jpeg",
+                    "media_details": {
+                        "width": 1600,
+                        "height": 1200,
+                        "file": "Fálkafell2.jpeg",
+                        "sizes": {
+                            "medium": {
+                                "file": "Fálkafell2-800x600.jpeg",
+                                "width": 800,
+                                "height": 600,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Fálkafell2-800x600.jpeg"
+                            },
+                            "large": {
+                                "file": "Fálkafell2-1200x900.jpeg",
+                                "width": 1200,
+                                "height": 900,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Fálkafell2-1200x900.jpeg"
+                            },
+                            "thumbnail": {
+                                "file": "Fálkafell2-500x500.jpeg",
+                                "width": 500,
+                                "height": 500,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Fálkafell2-500x500.jpeg"
+                            },
+                            "medium_large": {
+                                "file": "Fálkafell2-768x576.jpeg",
+                                "width": 768,
+                                "height": 576,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Fálkafell2-768x576.jpeg"
+                            },
+                            "1536x1536": {
+                                "file": "Fálkafell2-1536x1152.jpeg",
+                                "width": 1536,
+                                "height": 1152,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Fálkafell2-1536x1152.jpeg"
+                            },
+                            "full": {
+                                "file": "Fálkafell2.jpeg",
+                                "width": 1600,
+                                "height": 1200,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Fálkafell2.jpeg"
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": []
+                        }
+                    },
+                    "source_url": "https://skatarnir.is/wp-content/uploads/Fálkafell2.jpeg",
+                    "_links": {
+                        "self": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media/96373"
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media"
+                            }
+                        ],
+                        "about": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/types/attachment"
+                            }
+                        ],
+                        "author": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/users/11"
+                            }
+                        ],
+                        "replies": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/comments?post=96373"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": 96369,
+        "date": "2020-04-06T17:33:24",
+        "date_gmt": "2020-04-06T17:33:24",
+        "guid": {
+            "rendered": "https://skatarnir.is/?post_type=skalar&#038;p=96369"
+        },
+        "modified": "2020-04-06T17:39:56",
+        "modified_gmt": "2020-04-06T17:39:56",
+        "slug": "valholl",
+        "status": "publish",
+        "type": "skalar",
+        "link": "https://skatarnir.is/skalar/valholl/",
+        "title": {
+            "rendered": "Valhöll"
+        },
+        "content": {
+            "rendered": "",
+            "protected": false
+        },
+        "featured_media": 96374,
+        "template": "",
+        "acf": {
+            "skatafelag": "Klakkur",
+            "stadsetning": " Vaðlaheiði",
+            "hnit": "65°41'08.8\"N 18°02'13.8\"W",
+            "svefnplass": "30"
+        },
+        "_links": {
+            "self": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar/96369"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/types/skalar"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media/96374"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media?parent=96369"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https://api.w.org/{rel}",
+                    "templated": true
+                }
+            ]
+        },
+        "_embedded": {
+            "wp:featuredmedia": [
+                {
+                    "id": 96374,
+                    "date": "2020-04-06T17:39:46",
+                    "slug": "valholl-tungudalur",
+                    "type": "attachment",
+                    "link": "https://skatarnir.is/skalar/valholl/valholl-tungudalur/",
+                    "title": {
+                        "rendered": "Valhöll Tungudalur"
+                    },
+                    "author": 11,
+                    "caption": {
+                        "rendered": ""
+                    },
+                    "alt_text": "",
+                    "media_type": "image",
+                    "mime_type": "image/jpeg",
+                    "media_details": {
+                        "width": 470,
+                        "height": 307,
+                        "file": "Valhöll-Tungudalur.jpg",
+                        "sizes": {},
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": []
+                        }
+                    },
+                    "source_url": "https://skatarnir.is/wp-content/uploads/Valhöll-Tungudalur.jpg",
+                    "_links": {
+                        "self": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media/96374"
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media"
+                            }
+                        ],
+                        "about": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/types/attachment"
+                            }
+                        ],
+                        "author": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/users/11"
+                            }
+                        ],
+                        "replies": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/comments?post=96374"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": 96367,
+        "date": "2020-04-06T17:31:54",
+        "date_gmt": "2020-04-06T17:31:54",
+        "guid": {
+            "rendered": "https://skatarnir.is/?post_type=skalar&#038;p=96367"
+        },
+        "modified": "2020-04-06T17:40:52",
+        "modified_gmt": "2020-04-06T17:40:52",
+        "slug": "gamli",
+        "status": "publish",
+        "type": "skalar",
+        "link": "https://skatarnir.is/skalar/gamli/",
+        "title": {
+            "rendered": "Gamli"
+        },
+        "content": {
+            "rendered": "",
+            "protected": false
+        },
+        "featured_media": 96375,
+        "template": "",
+        "acf": {
+            "skatafelag": "Klakkur",
+            "stadsetning": "Hellisheiði",
+            "hnit": "64°02'42.6\"N 21°19'31.1\"W",
+            "svefnplass": "13"
+        },
+        "_links": {
+            "self": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar/96367"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/types/skalar"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media/96375"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media?parent=96367"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https://api.w.org/{rel}",
+                    "templated": true
+                }
+            ]
+        },
+        "_embedded": {
+            "wp:featuredmedia": [
+                {
+                    "id": 96375,
+                    "date": "2020-04-06T17:40:43",
+                    "slug": "gamli-2",
+                    "type": "attachment",
+                    "link": "https://skatarnir.is/skalar/gamli/gamli-2/",
+                    "title": {
+                        "rendered": "Gamli-2"
+                    },
+                    "author": 11,
+                    "caption": {
+                        "rendered": ""
+                    },
+                    "alt_text": "",
+                    "media_type": "image",
+                    "mime_type": "image/jpeg",
+                    "media_details": {
+                        "width": 500,
+                        "height": 218,
+                        "file": "Gamli-2.jpg",
+                        "sizes": {},
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": []
+                        }
+                    },
+                    "source_url": "https://skatarnir.is/wp-content/uploads/Gamli-2.jpg",
+                    "_links": {
+                        "self": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media/96375"
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media"
+                            }
+                        ],
+                        "about": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/types/attachment"
+                            }
+                        ],
+                        "author": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/users/11"
+                            }
+                        ],
+                        "replies": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/comments?post=96375"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": 96365,
+        "date": "2020-04-06T17:27:52",
+        "date_gmt": "2020-04-06T17:27:52",
+        "guid": {
+            "rendered": "https://skatarnir.is/?post_type=skalar&#038;p=96365"
+        },
+        "modified": "2020-04-07T12:24:02",
+        "modified_gmt": "2020-04-07T12:24:02",
+        "slug": "hleidra",
+        "status": "publish",
+        "type": "skalar",
+        "link": "https://skatarnir.is/skalar/hleidra/",
+        "title": {
+            "rendered": "Hleiðra"
+        },
+        "content": {
+            "rendered": "",
+            "protected": false
+        },
+        "featured_media": 96366,
+        "template": "",
+        "acf": {
+            "skatafelag": "Skjöldungar",
+            "stadsetning": "Hafravatn",
+            "hnit": "64°07'43.2\"N 21°38'41.5\"W",
+            "svefnplass": "12"
+        },
+        "_links": {
+            "self": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar/96365"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/types/skalar"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media/96366"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media?parent=96365"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https://api.w.org/{rel}",
+                    "templated": true
+                }
+            ]
+        },
+        "_embedded": {
+            "wp:featuredmedia": [
+                {
+                    "id": 96366,
+                    "date": "2020-04-06T17:27:42",
+                    "slug": "hleidra",
+                    "type": "attachment",
+                    "link": "https://skatarnir.is/skalar/hleidra/hleidra/",
+                    "title": {
+                        "rendered": "Hleiðra"
+                    },
+                    "author": 11,
+                    "caption": {
+                        "rendered": ""
+                    },
+                    "alt_text": "",
+                    "media_type": "image",
+                    "mime_type": "image/jpeg",
+                    "media_details": {
+                        "width": 1280,
+                        "height": 960,
+                        "file": "Hleiðra.jpg",
+                        "sizes": {
+                            "medium": {
+                                "file": "Hleiðra-800x600.jpg",
+                                "width": 800,
+                                "height": 600,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Hleiðra-800x600.jpg"
+                            },
+                            "large": {
+                                "file": "Hleiðra-1200x900.jpg",
+                                "width": 1200,
+                                "height": 900,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Hleiðra-1200x900.jpg"
+                            },
+                            "thumbnail": {
+                                "file": "Hleiðra-500x500.jpg",
+                                "width": 500,
+                                "height": 500,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Hleiðra-500x500.jpg"
+                            },
+                            "medium_large": {
+                                "file": "Hleiðra-768x576.jpg",
+                                "width": 768,
+                                "height": 576,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Hleiðra-768x576.jpg"
+                            },
+                            "full": {
+                                "file": "Hleiðra.jpg",
+                                "width": 1280,
+                                "height": 960,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Hleiðra.jpg"
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": []
+                        }
+                    },
+                    "source_url": "https://skatarnir.is/wp-content/uploads/Hleiðra.jpg",
+                    "_links": {
+                        "self": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media/96366"
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media"
+                            }
+                        ],
+                        "about": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/types/attachment"
+                            }
+                        ],
+                        "author": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/users/11"
+                            }
+                        ],
+                        "replies": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/comments?post=96366"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": 96363,
+        "date": "2020-04-06T17:25:58",
+        "date_gmt": "2020-04-06T17:25:58",
+        "guid": {
+            "rendered": "https://skatarnir.is/?post_type=skalar&#038;p=96363"
+        },
+        "modified": "2020-04-06T18:00:16",
+        "modified_gmt": "2020-04-06T18:00:16",
+        "slug": "kutur",
+        "status": "publish",
+        "type": "skalar",
+        "link": "https://skatarnir.is/skalar/kutur/",
+        "title": {
+            "rendered": "Kútur"
+        },
+        "content": {
+            "rendered": "",
+            "protected": false
+        },
+        "featured_media": 96364,
+        "template": "",
+        "acf": {
+            "skatafelag": "Skjöldungar",
+            "stadsetning": "Hellisheiði",
+            "hnit": "64°02'42.6\"N 21°19'31.1\"W",
+            "svefnplass": "6"
+        },
+        "_links": {
+            "self": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar/96363"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/types/skalar"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media/96364"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media?parent=96363"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https://api.w.org/{rel}",
+                    "templated": true
+                }
+            ]
+        },
+        "_embedded": {
+            "wp:featuredmedia": [
+                {
+                    "id": 96364,
+                    "date": "2020-04-06T17:25:47",
+                    "slug": "kutur",
+                    "type": "attachment",
+                    "link": "https://skatarnir.is/skalar/kutur/kutur/",
+                    "title": {
+                        "rendered": "Kútur"
+                    },
+                    "author": 11,
+                    "caption": {
+                        "rendered": ""
+                    },
+                    "alt_text": "",
+                    "media_type": "image",
+                    "mime_type": "image/jpeg",
+                    "media_details": {
+                        "width": 960,
+                        "height": 640,
+                        "file": "Kútur.jpg",
+                        "sizes": {
+                            "medium": {
+                                "file": "Kútur-800x533.jpg",
+                                "width": 800,
+                                "height": 533,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Kútur-800x533.jpg"
+                            },
+                            "thumbnail": {
+                                "file": "Kútur-500x500.jpg",
+                                "width": 500,
+                                "height": 500,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Kútur-500x500.jpg"
+                            },
+                            "medium_large": {
+                                "file": "Kútur-768x512.jpg",
+                                "width": 768,
+                                "height": 512,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Kútur-768x512.jpg"
+                            },
+                            "full": {
+                                "file": "Kútur.jpg",
+                                "width": 960,
+                                "height": 640,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Kútur.jpg"
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": []
+                        }
+                    },
+                    "source_url": "https://skatarnir.is/wp-content/uploads/Kútur.jpg",
+                    "_links": {
+                        "self": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media/96364"
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media"
+                            }
+                        ],
+                        "about": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/types/attachment"
+                            }
+                        ],
+                        "author": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/users/11"
+                            }
+                        ],
+                        "replies": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/comments?post=96364"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": 96361,
+        "date": "2020-04-06T17:21:59",
+        "date_gmt": "2020-04-06T17:21:59",
+        "guid": {
+            "rendered": "https://skatarnir.is/?post_type=skalar&#038;p=96361"
+        },
+        "modified": "2020-04-06T17:21:59",
+        "modified_gmt": "2020-04-06T17:21:59",
+        "slug": "vifilsbud",
+        "status": "publish",
+        "type": "skalar",
+        "link": "https://skatarnir.is/skalar/vifilsbud/",
+        "title": {
+            "rendered": "Vífilsbúð"
+        },
+        "content": {
+            "rendered": "",
+            "protected": false
+        },
+        "featured_media": 96362,
+        "template": "",
+        "acf": {
+            "skatafelag": "Vífill",
+            "stadsetning": "Heiðmörk",
+            "hnit": "64°03'13.4\"N 21°53'06.6\"W",
+            "svefnplass": "23"
+        },
+        "_links": {
+            "self": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar/96361"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/types/skalar"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media/96362"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media?parent=96361"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https://api.w.org/{rel}",
+                    "templated": true
+                }
+            ]
+        },
+        "_embedded": {
+            "wp:featuredmedia": [
+                {
+                    "id": 96362,
+                    "date": "2020-04-06T17:21:47",
+                    "slug": "vifilsbud",
+                    "type": "attachment",
+                    "link": "https://skatarnir.is/skalar/vifilsbud/vifilsbud/",
+                    "title": {
+                        "rendered": "vífilsbúð"
+                    },
+                    "author": 11,
+                    "caption": {
+                        "rendered": ""
+                    },
+                    "alt_text": "",
+                    "media_type": "image",
+                    "mime_type": "image/jpeg",
+                    "media_details": {
+                        "width": 1280,
+                        "height": 960,
+                        "file": "vífilsbúð.jpg",
+                        "sizes": {
+                            "medium": {
+                                "file": "vífilsbúð-800x600.jpg",
+                                "width": 800,
+                                "height": 600,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/vífilsbúð-800x600.jpg"
+                            },
+                            "large": {
+                                "file": "vífilsbúð-1200x900.jpg",
+                                "width": 1200,
+                                "height": 900,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/vífilsbúð-1200x900.jpg"
+                            },
+                            "thumbnail": {
+                                "file": "vífilsbúð-500x500.jpg",
+                                "width": 500,
+                                "height": 500,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/vífilsbúð-500x500.jpg"
+                            },
+                            "medium_large": {
+                                "file": "vífilsbúð-768x576.jpg",
+                                "width": 768,
+                                "height": 576,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/vífilsbúð-768x576.jpg"
+                            },
+                            "full": {
+                                "file": "vífilsbúð.jpg",
+                                "width": 1280,
+                                "height": 960,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/vífilsbúð.jpg"
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": []
+                        }
+                    },
+                    "source_url": "https://skatarnir.is/wp-content/uploads/vífilsbúð.jpg",
+                    "_links": {
+                        "self": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media/96362"
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media"
+                            }
+                        ],
+                        "about": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/types/attachment"
+                            }
+                        ],
+                        "author": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/users/11"
+                            }
+                        ],
+                        "replies": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/comments?post=96362"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": 96359,
+        "date": "2020-04-06T17:16:42",
+        "date_gmt": "2020-04-06T17:16:42",
+        "guid": {
+            "rendered": "https://skatarnir.is/?post_type=skalar&#038;p=96359"
+        },
+        "modified": "2020-04-06T17:17:46",
+        "modified_gmt": "2020-04-06T17:17:46",
+        "slug": "skatalundur",
+        "status": "publish",
+        "type": "skalar",
+        "link": "https://skatarnir.is/skalar/skatalundur/",
+        "title": {
+            "rendered": "Skátalundur"
+        },
+        "content": {
+            "rendered": "",
+            "protected": false
+        },
+        "featured_media": 96360,
+        "template": "",
+        "acf": {
+            "skatafelag": "St. Georgsgildið í Hafnarfirði",
+            "stadsetning": "Hvaleyrarvatn",
+            "hnit": "64°02'06.8\"N 21°55'00.7\"W",
+            "svefnplass": "0 (tjaldflöt við skálan)"
+        },
+        "_links": {
+            "self": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar/96359"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/types/skalar"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media/96360"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media?parent=96359"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https://api.w.org/{rel}",
+                    "templated": true
+                }
+            ]
+        },
+        "_embedded": {
+            "wp:featuredmedia": [
+                {
+                    "id": 96360,
+                    "date": "2020-04-06T17:17:38",
+                    "slug": "skatalundur-2",
+                    "type": "attachment",
+                    "link": "https://skatarnir.is/skalar/skatalundur/skatalundur-2/",
+                    "title": {
+                        "rendered": "Skátalundur"
+                    },
+                    "author": 11,
+                    "caption": {
+                        "rendered": ""
+                    },
+                    "alt_text": "",
+                    "media_type": "image",
+                    "mime_type": "image/jpeg",
+                    "media_details": {
+                        "width": 960,
+                        "height": 517,
+                        "file": "Skátalundur.jpg",
+                        "sizes": {
+                            "medium": {
+                                "file": "Skátalundur-800x431.jpg",
+                                "width": 800,
+                                "height": 431,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Skátalundur-800x431.jpg"
+                            },
+                            "thumbnail": {
+                                "file": "Skátalundur-500x500.jpg",
+                                "width": 500,
+                                "height": 500,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Skátalundur-500x500.jpg"
+                            },
+                            "medium_large": {
+                                "file": "Skátalundur-768x414.jpg",
+                                "width": 768,
+                                "height": 414,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Skátalundur-768x414.jpg"
+                            },
+                            "full": {
+                                "file": "Skátalundur.jpg",
+                                "width": 960,
+                                "height": 517,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Skátalundur.jpg"
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": []
+                        }
+                    },
+                    "source_url": "https://skatarnir.is/wp-content/uploads/Skátalundur.jpg",
+                    "_links": {
+                        "self": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media/96360"
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media"
+                            }
+                        ],
+                        "about": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/types/attachment"
+                            }
+                        ],
+                        "author": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/users/11"
+                            }
+                        ],
+                        "replies": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/comments?post=96360"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": 96357,
+        "date": "2020-04-06T17:13:58",
+        "date_gmt": "2020-04-06T17:13:58",
+        "guid": {
+            "rendered": "https://skatarnir.is/?post_type=skalar&#038;p=96357"
+        },
+        "modified": "2020-04-06T17:13:58",
+        "modified_gmt": "2020-04-06T17:13:58",
+        "slug": "hverahlid",
+        "status": "publish",
+        "type": "skalar",
+        "link": "https://skatarnir.is/skalar/hverahlid/",
+        "title": {
+            "rendered": "Hverahlíð"
+        },
+        "content": {
+            "rendered": "",
+            "protected": false
+        },
+        "featured_media": 96358,
+        "template": "",
+        "acf": {
+            "skatafelag": "Hraunbúar",
+            "stadsetning": "Kleifarvatni",
+            "hnit": "63°54'15.6\"N 22°00'57.8\"W",
+            "svefnplass": "15"
+        },
+        "_links": {
+            "self": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar/96357"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/types/skalar"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media/96358"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media?parent=96357"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https://api.w.org/{rel}",
+                    "templated": true
+                }
+            ]
+        },
+        "_embedded": {
+            "wp:featuredmedia": [
+                {
+                    "id": 96358,
+                    "date": "2020-04-06T17:13:49",
+                    "slug": "hverahlid",
+                    "type": "attachment",
+                    "link": "https://skatarnir.is/skalar/hverahlid/hverahlid/",
+                    "title": {
+                        "rendered": "Hverahlíð"
+                    },
+                    "author": 11,
+                    "caption": {
+                        "rendered": ""
+                    },
+                    "alt_text": "",
+                    "media_type": "image",
+                    "mime_type": "image/jpeg",
+                    "media_details": {
+                        "width": 640,
+                        "height": 480,
+                        "file": "Hverahlíð.jpg",
+                        "sizes": {
+                            "thumbnail": {
+                                "file": "Hverahlíð-500x480.jpg",
+                                "width": 500,
+                                "height": 480,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Hverahlíð-500x480.jpg"
+                            },
+                            "full": {
+                                "file": "Hverahlíð.jpg",
+                                "width": 640,
+                                "height": 480,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Hverahlíð.jpg"
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "7.7",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "1223138572",
+                            "copyright": "COPYRIGHT, 2007",
+                            "focal_length": "6.3",
+                            "iso": "80",
+                            "shutter_speed": "0.0028571428571429",
+                            "title": "",
+                            "orientation": "1",
+                            "keywords": []
+                        }
+                    },
+                    "source_url": "https://skatarnir.is/wp-content/uploads/Hverahlíð.jpg",
+                    "_links": {
+                        "self": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media/96358"
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media"
+                            }
+                        ],
+                        "about": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/types/attachment"
+                            }
+                        ],
+                        "author": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/users/11"
+                            }
+                        ],
+                        "replies": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/comments?post=96358"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": 96355,
+        "date": "2020-04-06T17:11:53",
+        "date_gmt": "2020-04-06T17:11:53",
+        "guid": {
+            "rendered": "https://skatarnir.is/?post_type=skalar&#038;p=96355"
+        },
+        "modified": "2020-04-06T17:11:53",
+        "modified_gmt": "2020-04-06T17:11:53",
+        "slug": "thrymheimur",
+        "status": "publish",
+        "type": "skalar",
+        "link": "https://skatarnir.is/skalar/thrymheimur/",
+        "title": {
+            "rendered": "Þrymheimur"
+        },
+        "content": {
+            "rendered": "",
+            "protected": false
+        },
+        "featured_media": 96356,
+        "template": "",
+        "acf": {
+            "skatafelag": "Landnemar",
+            "stadsetning": "Hellisheiði",
+            "hnit": "64°02'47.3\"N 21°18'59.3\"W",
+            "svefnplass": "9-15"
+        },
+        "_links": {
+            "self": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar/96355"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/types/skalar"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media/96356"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media?parent=96355"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https://api.w.org/{rel}",
+                    "templated": true
+                }
+            ]
+        },
+        "_embedded": {
+            "wp:featuredmedia": [
+                {
+                    "id": 96356,
+                    "date": "2020-04-06T17:11:04",
+                    "slug": "thrymur",
+                    "type": "attachment",
+                    "link": "https://skatarnir.is/skalar/thrymheimur/thrymur/",
+                    "title": {
+                        "rendered": "Þrymur"
+                    },
+                    "author": 11,
+                    "caption": {
+                        "rendered": ""
+                    },
+                    "alt_text": "",
+                    "media_type": "image",
+                    "mime_type": "image/jpeg",
+                    "media_details": {
+                        "width": 499,
+                        "height": 247,
+                        "file": "Þrymur-e1586193096729.jpg",
+                        "sizes": {
+                            "thumbnail": {
+                                "file": "Þrymur-500x248.jpg",
+                                "width": 500,
+                                "height": 248,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Þrymur-500x248.jpg"
+                            },
+                            "full": {
+                                "file": "Þrymur-e1586193096729.jpg",
+                                "width": 499,
+                                "height": 247,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Þrymur-e1586193096729.jpg"
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "1",
+                            "keywords": []
+                        }
+                    },
+                    "source_url": "https://skatarnir.is/wp-content/uploads/Þrymur-e1586193096729.jpg",
+                    "_links": {
+                        "self": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media/96356"
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media"
+                            }
+                        ],
+                        "about": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/types/attachment"
+                            }
+                        ],
+                        "author": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/users/11"
+                            }
+                        ],
+                        "replies": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/comments?post=96356"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": 96353,
+        "date": "2020-04-06T17:06:08",
+        "date_gmt": "2020-04-06T17:06:08",
+        "guid": {
+            "rendered": "https://skatarnir.is/?post_type=skalar&#038;p=96353"
+        },
+        "modified": "2020-04-06T17:06:08",
+        "modified_gmt": "2020-04-06T17:06:08",
+        "slug": "thristur",
+        "status": "publish",
+        "type": "skalar",
+        "link": "https://skatarnir.is/skalar/thristur/",
+        "title": {
+            "rendered": "Þristur"
+        },
+        "content": {
+            "rendered": "",
+            "protected": false
+        },
+        "featured_media": 96354,
+        "template": "",
+        "acf": {
+            "skatafelag": "Kópar",
+            "stadsetning": "Mosfellsdalur",
+            "hnit": "64°13'32.8\"N 21°33'08.2\"W",
+            "svefnplass": "30"
+        },
+        "_links": {
+            "self": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar/96353"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/types/skalar"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media/96354"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media?parent=96353"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https://api.w.org/{rel}",
+                    "templated": true
+                }
+            ]
+        },
+        "_embedded": {
+            "wp:featuredmedia": [
+                {
+                    "id": 96354,
+                    "date": "2020-04-06T17:05:22",
+                    "slug": "thristu-uti",
+                    "type": "attachment",
+                    "link": "https://skatarnir.is/skalar/thristur/thristu-uti/",
+                    "title": {
+                        "rendered": "Þristu-úti"
+                    },
+                    "author": 11,
+                    "caption": {
+                        "rendered": ""
+                    },
+                    "alt_text": "",
+                    "media_type": "image",
+                    "mime_type": "image/jpeg",
+                    "media_details": {
+                        "width": 1200,
+                        "height": 800,
+                        "file": "Þristu-úti-scaled-e1586192748627.jpg",
+                        "sizes": {
+                            "medium": {
+                                "file": "Þristu-úti-800x533.jpg",
+                                "width": 800,
+                                "height": 533,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Þristu-úti-800x533.jpg"
+                            },
+                            "large": {
+                                "file": "Þristu-úti-1200x800.jpg",
+                                "width": 1200,
+                                "height": 800,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Þristu-úti-1200x800.jpg"
+                            },
+                            "thumbnail": {
+                                "file": "Þristu-úti-500x500.jpg",
+                                "width": 500,
+                                "height": 500,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Þristu-úti-500x500.jpg"
+                            },
+                            "medium_large": {
+                                "file": "Þristu-úti-768x512.jpg",
+                                "width": 768,
+                                "height": 512,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Þristu-úti-768x512.jpg"
+                            },
+                            "1536x1536": {
+                                "file": "Þristu-úti-1536x1024.jpg",
+                                "width": 1536,
+                                "height": 1024,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Þristu-úti-1536x1024.jpg"
+                            },
+                            "2048x2048": {
+                                "file": "Þristu-úti-2048x1365.jpg",
+                                "width": 2048,
+                                "height": 1365,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Þristu-úti-2048x1365.jpg"
+                            },
+                            "full": {
+                                "file": "Þristu-úti-scaled-e1586192748627.jpg",
+                                "width": 1200,
+                                "height": 800,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Þristu-úti-scaled-e1586192748627.jpg"
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "ARNAR DADI BJARNASON",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": []
+                        },
+                        "original_image": "Þristu-úti.jpg"
+                    },
+                    "source_url": "https://skatarnir.is/wp-content/uploads/Þristu-úti-scaled-e1586192748627.jpg",
+                    "_links": {
+                        "self": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media/96354"
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media"
+                            }
+                        ],
+                        "about": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/types/attachment"
+                            }
+                        ],
+                        "author": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/users/11"
+                            }
+                        ],
+                        "replies": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/comments?post=96354"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": 96350,
+        "date": "2020-04-06T16:33:11",
+        "date_gmt": "2020-04-06T16:33:11",
+        "guid": {
+            "rendered": "https://skatarnir.is/?post_type=skalar&#038;p=96350"
+        },
+        "modified": "2020-04-06T16:38:19",
+        "modified_gmt": "2020-04-06T16:38:19",
+        "slug": "laekjarbotnar",
+        "status": "publish",
+        "type": "skalar",
+        "link": "https://skatarnir.is/skalar/laekjarbotnar/",
+        "title": {
+            "rendered": "Lækjarbotnar"
+        },
+        "content": {
+            "rendered": "",
+            "protected": false
+        },
+        "featured_media": 96352,
+        "template": "",
+        "acf": {
+            "skatafelag": "Garðbúar",
+            "stadsetning": "Lækjarbotnar / Lækjarbotnaland",
+            "hnit": "64°04'17.6\"N 21°40'13.0\"W",
+            "svefnplass": "34"
+        },
+        "_links": {
+            "self": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar/96350"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/types/skalar"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media/96352"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media?parent=96350"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https://api.w.org/{rel}",
+                    "templated": true
+                }
+            ]
+        },
+        "_embedded": {
+            "wp:featuredmedia": [
+                {
+                    "id": 96352,
+                    "date": "2020-04-06T16:37:59",
+                    "slug": "laekjarbotnar2",
+                    "type": "attachment",
+                    "link": "https://skatarnir.is/laekjarbotnar2/",
+                    "title": {
+                        "rendered": "Lækjarbotnar2"
+                    },
+                    "author": 11,
+                    "caption": {
+                        "rendered": ""
+                    },
+                    "alt_text": "",
+                    "media_type": "image",
+                    "mime_type": "image/jpeg",
+                    "media_details": {
+                        "width": 2048,
+                        "height": 1365,
+                        "file": "Lækjarbotnar2.jpg",
+                        "sizes": {
+                            "medium": {
+                                "file": "Lækjarbotnar2-800x533.jpg",
+                                "width": 800,
+                                "height": 533,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Lækjarbotnar2-800x533.jpg"
+                            },
+                            "large": {
+                                "file": "Lækjarbotnar2-1200x800.jpg",
+                                "width": 1200,
+                                "height": 800,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Lækjarbotnar2-1200x800.jpg"
+                            },
+                            "thumbnail": {
+                                "file": "Lækjarbotnar2-500x500.jpg",
+                                "width": 500,
+                                "height": 500,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Lækjarbotnar2-500x500.jpg"
+                            },
+                            "medium_large": {
+                                "file": "Lækjarbotnar2-768x512.jpg",
+                                "width": 768,
+                                "height": 512,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Lækjarbotnar2-768x512.jpg"
+                            },
+                            "1536x1536": {
+                                "file": "Lækjarbotnar2-1536x1024.jpg",
+                                "width": 1536,
+                                "height": 1024,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Lækjarbotnar2-1536x1024.jpg"
+                            },
+                            "full": {
+                                "file": "Lækjarbotnar2.jpg",
+                                "width": 2048,
+                                "height": 1365,
+                                "mime_type": "image/jpeg",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Lækjarbotnar2.jpg"
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": []
+                        }
+                    },
+                    "source_url": "https://skatarnir.is/wp-content/uploads/Lækjarbotnar2.jpg",
+                    "_links": {
+                        "self": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media/96352"
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media"
+                            }
+                        ],
+                        "about": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/types/attachment"
+                            }
+                        ],
+                        "author": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/users/11"
+                            }
+                        ],
+                        "replies": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/comments?post=96352"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "id": 96343,
+        "date": "2020-04-06T13:55:50",
+        "date_gmt": "2020-04-06T13:55:50",
+        "guid": {
+            "rendered": "https://skatarnir.is/?post_type=skalar&#038;p=96343"
+        },
+        "modified": "2020-04-06T13:58:21",
+        "modified_gmt": "2020-04-06T13:58:21",
+        "slug": "baeli",
+        "status": "publish",
+        "type": "skalar",
+        "link": "https://skatarnir.is/skalar/baeli/",
+        "title": {
+            "rendered": "Bæli"
+        },
+        "content": {
+            "rendered": "",
+            "protected": false
+        },
+        "featured_media": 94839,
+        "template": "",
+        "acf": {
+            "skatafelag": "Kópar",
+            "stadsetning": "Hellisheiði",
+            "hnit": "64°2.656´N 21°19.292´W",
+            "svefnplass": "14"
+        },
+        "_links": {
+            "self": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar/96343"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/skalar"
+                }
+            ],
+            "about": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/types/skalar"
+                }
+            ],
+            "wp:featuredmedia": [
+                {
+                    "embeddable": true,
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media/94839"
+                }
+            ],
+            "wp:attachment": [
+                {
+                    "href": "https://skatarnir.is/wp-json/wp/v2/media?parent=96343"
+                }
+            ],
+            "curies": [
+                {
+                    "name": "wp",
+                    "href": "https://api.w.org/{rel}",
+                    "templated": true
+                }
+            ]
+        },
+        "_embedded": {
+            "wp:featuredmedia": [
+                {
+                    "id": 94839,
+                    "date": "2020-02-07T14:13:39",
+                    "slug": "baeli",
+                    "type": "attachment",
+                    "link": "https://skatarnir.is/baeli/",
+                    "title": {
+                        "rendered": "Bæli"
+                    },
+                    "author": 5,
+                    "caption": {
+                        "rendered": ""
+                    },
+                    "alt_text": "",
+                    "media_type": "image",
+                    "mime_type": "image/png",
+                    "media_details": {
+                        "width": 1200,
+                        "height": 628,
+                        "file": "Bæli.png",
+                        "sizes": {
+                            "medium": {
+                                "file": "Bæli-800x419.png",
+                                "width": 800,
+                                "height": 419,
+                                "mime_type": "image/png",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Bæli-800x419.png"
+                            },
+                            "thumbnail": {
+                                "file": "Bæli-500x500.png",
+                                "width": 500,
+                                "height": 500,
+                                "mime_type": "image/png",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Bæli-500x500.png"
+                            },
+                            "medium_large": {
+                                "file": "Bæli-768x402.png",
+                                "width": 768,
+                                "height": 402,
+                                "mime_type": "image/png",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Bæli-768x402.png"
+                            },
+                            "full": {
+                                "file": "Bæli.png",
+                                "width": 1200,
+                                "height": 628,
+                                "mime_type": "image/png",
+                                "source_url": "https://skatarnir.is/wp-content/uploads/Bæli.png"
+                            }
+                        },
+                        "image_meta": {
+                            "aperture": "0",
+                            "credit": "",
+                            "camera": "",
+                            "caption": "",
+                            "created_timestamp": "0",
+                            "copyright": "",
+                            "focal_length": "0",
+                            "iso": "0",
+                            "shutter_speed": "0",
+                            "title": "",
+                            "orientation": "0",
+                            "keywords": []
+                        }
+                    },
+                    "source_url": "https://skatarnir.is/wp-content/uploads/Bæli.png",
+                    "_links": {
+                        "self": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media/94839"
+                            }
+                        ],
+                        "collection": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/media"
+                            }
+                        ],
+                        "about": [
+                            {
+                                "href": "https://skatarnir.is/wp-json/wp/v2/types/attachment"
+                            }
+                        ],
+                        "author": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/users/5"
+                            }
+                        ],
+                        "replies": [
+                            {
+                                "embeddable": true,
+                                "href": "https://skatarnir.is/wp-json/wp/v2/comments?post=94839"
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    }
+]
