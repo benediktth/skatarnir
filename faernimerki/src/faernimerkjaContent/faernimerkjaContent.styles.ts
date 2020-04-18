@@ -23,7 +23,9 @@ export const ContentWrapper = styled.div`
 `;
 
 export const AgeGroupsWrapper = styled.div`
-	width: 27%;
+	width: 70%;
+	margin: auto;
+	margin-bottom: 20px;
 `;
 
 export const DocumentsWrapper = styled.div`

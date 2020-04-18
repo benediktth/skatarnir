@@ -8,9 +8,12 @@ import { StyledLoader } from './Loader';
 
 interface Props {}
 
+const url = process.env.NODE_ENV === 'development' ? 'https://testing.skatarnir.is' : '';
+
 const App: FC<Props> = () => {
 	const ref = useRef();
 	const [data, setData] = useState(null);
+	const [pictureUrl, setPictureUrl] = useState('');
 	let postId: string = '';
 
 	const findParentWithId = (node: any) => {
@@ -29,13 +32,16 @@ const App: FC<Props> = () => {
 			postId = parentRefId.split('-')[1];
 			Axios(postFix + postId).then((res) => {
 				setData(res.data);
+				Axios(url + '/wp-json/wp/v2/media/' + res.data.featured_media).then((res) => {
+					setPictureUrl(res.data.media_details.sizes.medium.source_url);
+				});
 			});
 		}
 	}, []);
 
 	return (
 		<StyledApp.Wrapper ref={ref}>
-			{data && <FaernimerkjaContent data={data} />}
+			{data && <FaernimerkjaContent data={data} pictureUrl={pictureUrl} />}
 			{data !== null || <StyledLoader />}
 		</StyledApp.Wrapper>
 	);

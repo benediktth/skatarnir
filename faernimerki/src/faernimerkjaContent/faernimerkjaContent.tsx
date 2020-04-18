@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import AgeGroups from './components/ageGroups';
+import Demands from './components/demands';
 import Description from './components/description';
 import Documents from './components/documents';
 import ExternalSites from './components/externalSites';
@@ -10,14 +11,14 @@ import * as StyledFaernimerkjaContent from './faernimerkjaContent.styles';
 
 interface Props {
 	data: any;
+	pictureUrl: any;
 }
 
-const FaernimerkjaContent: FC<Props> = ({ data }) => {
+const FaernimerkjaContent: FC<Props> = ({ data, pictureUrl }) => {
 	const externalWebsitesArray = [];
 	const filesArray = [];
 	const internalWebsiteArray = [];
 	let i = 1;
-	console.log(data.acf);
 	while (data.acf.hasOwnProperty('vefsida' + i)) {
 		if (data.acf['vefsida' + i]) {
 			externalWebsitesArray.push(data.acf['vefsida' + i]);
@@ -38,18 +39,16 @@ const FaernimerkjaContent: FC<Props> = ({ data }) => {
 		}
 		i++;
 	}
-	console.log(externalWebsitesArray);
-	console.log(filesArray);
-	console.log(internalWebsiteArray);
 	return (
 		<StyledFaernimerkjaContent.Wrapper>
 			<StyledFaernimerkjaContent.H1>{data.title.rendered}</StyledFaernimerkjaContent.H1>
 			<StyledFaernimerkjaContent.FirstRowWrapper>
 				<StyledFaernimerkjaContent.PictureWrapper>
-					<PictureOfFaernimerki image={data.featured_media} />
+					<PictureOfFaernimerki image={pictureUrl} />
 				</StyledFaernimerkjaContent.PictureWrapper>
 				<StyledFaernimerkjaContent.ContentWrapper>
 					<Description description={data.acf.lysing} />
+					<Demands demands={data.acf.krofur} bulletin={data.acf.krofurPunktar} />
 				</StyledFaernimerkjaContent.ContentWrapper>
 			</StyledFaernimerkjaContent.FirstRowWrapper>
 			<StyledFaernimerkjaContent.AgeGroupsWrapper>

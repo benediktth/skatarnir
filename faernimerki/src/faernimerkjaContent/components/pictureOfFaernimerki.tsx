@@ -14,13 +14,11 @@ const Wrapper = styled.div`
 	}
 `;
 
-const PictureOfFaernimerki: FC<Props> = () => {
+const PictureOfFaernimerki: FC<Props> = ({ image }) => {
+	console.log(image);
 	return (
 		<Wrapper>
-			<img
-				src="https://www.skatamal.is/wp-content/uploads/2020/04/HÉRNA-KEMUR-MYNDIN-AF-FÆRNIMERKINU.png"
-				alt="pic"
-			/>
+			<img src={image} alt="pic" />
 		</Wrapper>
 	);
 };
