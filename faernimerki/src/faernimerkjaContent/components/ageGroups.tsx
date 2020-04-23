@@ -33,12 +33,18 @@ const AgeGroup = styled.div<ageGroupsProps>`
 	p {
 		margin-top: 0px;
 	}
+	@media only screen and (max-width: 1028px) {
+		margin-top: 10px;
+	}
 `;
 
 const AgeGroupWrapper = styled.div`
 	display: flex;
 	justify-content: space-around;
 	margin-top: 10px;
+	@media only screen and (max-width: 1028px) {
+		flex-wrap: wrap;
+	}
 `;
 
 const AgeGroups: FC<Props> = ({ ageGroups }) => {

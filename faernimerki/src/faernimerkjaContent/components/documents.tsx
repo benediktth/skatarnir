@@ -7,6 +7,11 @@ interface Props {
 
 const Wrapper = styled.div`
 	padding: 10px;
+	@media only screen and (max-width: 1028px) {
+		h2 {
+			text-align: center;
+		}
+	}
 `;
 
 const ContentWrapper = styled.div`

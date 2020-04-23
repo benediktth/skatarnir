@@ -15,7 +15,6 @@ const Wrapper = styled.div`
 `;
 
 const PictureOfFaernimerki: FC<Props> = ({ image }) => {
-	console.log(image);
 	return (
 		<Wrapper>
 			<img src={image} alt="pic" />
