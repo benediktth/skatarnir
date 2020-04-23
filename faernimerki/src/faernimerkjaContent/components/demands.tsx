@@ -16,16 +16,11 @@ const Wrapper = styled.div`
 
 const Demands: FC<Props> = ({ demands, bulletin }) => {
 	let bulletinList = bulletin.split('\r\n');
-	console.log(bulletinList);
 	return (
 		<Wrapper>
 			<h2 style={{ marginTop: '0px', marginBottom: '10px' }}>Kröfur</h2>
 			<span>{demands}</span>
-			<ul>
-				{bulletinList.map((text, index) => (
-					<li key={index}>{text}</li>
-				))}
-			</ul>
+			<ul>{bulletinList.map((text, index) => (text.length > 0 ? <li key={index}>{text}</li> : null))}</ul>
 		</Wrapper>
 	);
 };

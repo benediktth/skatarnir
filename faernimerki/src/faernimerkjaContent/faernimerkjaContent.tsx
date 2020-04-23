@@ -52,7 +52,7 @@ const FaernimerkjaContent: FC<Props> = ({ data, pictureUrl }) => {
 				</StyledFaernimerkjaContent.ContentWrapper>
 			</StyledFaernimerkjaContent.FirstRowWrapper>
 			<StyledFaernimerkjaContent.AgeGroupsWrapper>
-				<AgeGroups ageGroups={data.acf.aldursbil} />
+				<AgeGroups ageGroups={data.faernimerki_category} />
 			</StyledFaernimerkjaContent.AgeGroupsWrapper>
 			<StyledFaernimerkjaContent.SecondRowWrapper>
 				<StyledFaernimerkjaContent.DocumentsWrapper>

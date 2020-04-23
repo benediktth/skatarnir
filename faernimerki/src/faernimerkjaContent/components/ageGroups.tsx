@@ -2,15 +2,15 @@ import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
 
 const ageGroupColor = {
-	drekaskatar: '#FEE75F',
-	falkaskatar: '#EB6363',
-	drottskatar: '#1BB89B',
-	rekkaskatar: '#65CDF0',
-	roverskatar: '#FFAF3C',
+	Drekaskátar: '#FEE75F',
+	Fálkaskátar: '#EB6363',
+	Dróttskátar: '#1BB89B',
+	Rekkaskátar: '#65CDF0',
+	Róverskátar: '#FFAF3C',
 	fullordnir: '#CF88FF',
 };
 interface Props {
-	ageGroups: any;
+	ageGroups: number[];
 }
 
 const Wrapper = styled.div`
@@ -42,14 +42,13 @@ const AgeGroupWrapper = styled.div`
 `;
 
 const AgeGroups: FC<Props> = ({ ageGroups }) => {
-	const ageGroupMapper = (ageGroup: string) => {
+	const ageGroupMapper = (ageGroup: number) => {
 		const mapperItems = {
-			drekaskatar: 'Drekaskátar',
-			falkaskatar: 'Fálkaskátar',
-			drottskatar: 'Dróttskátar',
-			rekkaskatar: 'Rekkaskátar',
-			roverskatar: 'Róverskátar',
-			fullordnir: 'Fullorðnir',
+			428: 'Drekaskátar',
+			429: 'Fálkaskátar',
+			430: 'Dróttskátar',
+			431: 'Rekkaskátar',
+			432: 'Róverskátar',
 		};
 		return mapperItems[ageGroup];
 	};
@@ -59,7 +58,7 @@ const AgeGroups: FC<Props> = ({ ageGroups }) => {
 			<AgeGroupWrapper>
 				{ageGroups.map((ageGroup) => {
 					return (
-						<AgeGroup key={ageGroup} ageGroup={ageGroup}>
+						<AgeGroup key={ageGroup} ageGroup={ageGroupMapper(ageGroup)}>
 							<p>{ageGroupMapper(ageGroup)}</p>
 						</AgeGroup>
 					);
