@@ -20,12 +20,12 @@ const ContentWrapper = styled.div`
 	padding: 15px 0;
 `;
 
-const ImageWrapper = styled.div`
-	max-width: 30%;
-	img {
-		width: 100%;
-	}
-`;
+// const ImageWrapper = styled.div`
+// 	max-width: 30%;
+// 	img {
+// 		width: 100%;
+// 	}
+// `;
 
 const SubContentWrapper = styled.div``;
 
@@ -36,9 +36,9 @@ const ExternalSites: FC<Props> = ({ externalWebsites }) => {
 			{externalWebsites.map((website, index) => {
 				return (
 					<ContentWrapper key={index}>
-						<ImageWrapper>
-							<img src={website.url} />
-						</ImageWrapper>
+						{/* <ImageWrapper> */}
+						<img src={website.url} />
+						{/* </ImageWrapper> */}
 						<SubContentWrapper>
 							<h3 style={{ marginTop: '0' }}>{website.title}</h3>
 							<a href={website.link}>{website.description}</a>

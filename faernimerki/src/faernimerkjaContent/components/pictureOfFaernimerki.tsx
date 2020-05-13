@@ -6,7 +6,6 @@ interface Props {
 }
 
 const Wrapper = styled.div`
-	float: left;
 	padding: 10px;
 	img {
 		max-height: 100%;

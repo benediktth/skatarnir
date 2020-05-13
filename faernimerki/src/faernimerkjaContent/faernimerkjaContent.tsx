@@ -45,15 +45,16 @@ const FaernimerkjaContent: FC<Props> = ({ data, pictureUrl }) => {
 			<StyledFaernimerkjaContent.FirstRowWrapper>
 				<StyledFaernimerkjaContent.PictureWrapper>
 					<PictureOfFaernimerki image={pictureUrl} />
+					<AgeGroups ageGroups={data.faernimerki_category} />
 				</StyledFaernimerkjaContent.PictureWrapper>
 				<StyledFaernimerkjaContent.ContentWrapper>
 					<Description description={data.acf.lysing} />
 					<Demands demands={data.acf.krofur} bulletin={data.acf.krofurPunktar} />
 				</StyledFaernimerkjaContent.ContentWrapper>
 			</StyledFaernimerkjaContent.FirstRowWrapper>
-			<StyledFaernimerkjaContent.AgeGroupsWrapper>
+			{/* <StyledFaernimerkjaContent.AgeGroupsWrapper>
 				<AgeGroups ageGroups={data.faernimerki_category} />
-			</StyledFaernimerkjaContent.AgeGroupsWrapper>
+			</StyledFaernimerkjaContent.AgeGroupsWrapper> */}
 			<StyledFaernimerkjaContent.SecondRowWrapper>
 				<StyledFaernimerkjaContent.DocumentsWrapper>
 					<Documents documents={filesArray} />

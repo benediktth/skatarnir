@@ -60,7 +60,6 @@ const AgeGroups: FC<Props> = ({ ageGroups }) => {
 	};
 	return (
 		<Wrapper>
-			<h2 style={{ marginTop: 'o', textAlign: 'center' }}>Aldursbils</h2>
 			<AgeGroupWrapper>
 				{ageGroups.map((ageGroup) => {
 					return (

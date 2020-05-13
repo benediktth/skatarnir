@@ -32,7 +32,7 @@ export const ContentWrapper = styled.div`
 `;
 
 export const AgeGroupsWrapper = styled.div`
-	width: 70%;
+	width: 50%;
 	margin: auto;
 	margin-bottom: 20px;
 	@media only screen and (max-width: 1028px) {
