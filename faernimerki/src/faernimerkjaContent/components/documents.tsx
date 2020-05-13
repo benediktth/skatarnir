@@ -24,6 +24,7 @@ const ContentWrapper = styled.div`
 `;
 
 const Documents: FC<Props> = ({ documents }) => {
+	console.log(documents);
 	return (
 		<Wrapper>
 			<h2 style={{ marginTop: '0' }}>Útgefið efni á rafrænu formi</h2>
