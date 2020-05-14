@@ -4,7 +4,7 @@ import Demands from './components/demands';
 import Description from './components/description';
 import Documents from './components/documents';
 import ExternalSites from './components/externalSites';
-import InternalSites from './components/internalSites';
+// import InternalSites from './components/internalSites';
 import PictureOfFaernimerki from './components/pictureOfFaernimerki';
 import Video from './components/video';
 import * as StyledFaernimerkjaContent from './faernimerkjaContent.styles';
@@ -61,10 +61,10 @@ const FaernimerkjaContent: FC<Props> = ({ data, pictureUrl }) => {
 				</StyledFaernimerkjaContent.DocumentsWrapper>
 				<StyledFaernimerkjaContent.ExternalSitesWrapper>
 					<ExternalSites externalWebsites={externalWebsitesArray} />
-					<InternalSites internalWebsites={internalWebsiteArray} />
+					{/* <InternalSites internalWebsites={internalWebsiteArray} /> */}
 				</StyledFaernimerkjaContent.ExternalSitesWrapper>
 			</StyledFaernimerkjaContent.SecondRowWrapper>
-			<Video />
+			<Video videoUrl={data.acf.myndband} />
 		</StyledFaernimerkjaContent.Wrapper>
 	);
 };

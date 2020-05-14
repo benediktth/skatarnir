@@ -26,7 +26,7 @@ const ContentWrapper = styled.div`
 const Documents: FC<Props> = ({ documents }) => {
 	return (
 		<Wrapper>
-			<h2 style={{ marginTop: '0' }}>Útgefið efni á rafrænu formi</h2>
+			<h2 style={{ marginTop: '0' }}>Stuðningsefni</h2>
 			{documents.map((document, index) => {
 				return (
 					<ContentWrapper key={index}>
