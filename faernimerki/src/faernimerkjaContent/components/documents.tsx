@@ -7,6 +7,11 @@ interface Props {
 
 const Wrapper = styled.div`
 	padding: 10px;
+	@media only screen and (max-width: 1028px) {
+		h2 {
+			text-align: center;
+		}
+	}
 `;
 
 const ContentWrapper = styled.div`
@@ -19,6 +24,7 @@ const ContentWrapper = styled.div`
 `;
 
 const Documents: FC<Props> = ({ documents }) => {
+	console.log(documents);
 	return (
 		<Wrapper>
 			<h2 style={{ marginTop: '0' }}>Útgefið efni á rafrænu formi</h2>

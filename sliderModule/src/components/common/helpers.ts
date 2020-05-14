@@ -1,6 +1,17 @@
 import * as Constants from './constants';
 
-export const ageGroupColorMapper = ageGroup => {
+export const ageGroupColor = {
+	drekaskatar: '#FEE75F',
+	falkaskatar: '#EB6363',
+	drottskatar: '#1BB89B',
+	rekkaskatar: '#65CDF0',
+	roverskatar: '#FFAF3C',
+	fullordnir: '#CF88FF',
+	[Constants.NOAGEGROUP]: Constants.SKATABLAR,
+};
+
+// Vaeri lika haegt ad gera eins og ad ofan
+export const ageGroupColorMapper = (ageGroup) => {
 	switch (ageGroup) {
 		case 'drekaskatar':
 			return '#FEE75F';
@@ -21,7 +32,7 @@ export const ageGroupColorMapper = ageGroup => {
 	}
 };
 
-export const ageGroupEventTitleMapper = ageGroup => {
+export const ageGroupEventTitleMapper = (ageGroup) => {
 	switch (ageGroup) {
 		case Constants.DREKASKATAR:
 			return 'DREKASKÁTUM';
@@ -40,7 +51,7 @@ export const ageGroupEventTitleMapper = ageGroup => {
 		default:
 			return '';
 	}
-}
+};
 
 export const widthMapper = (length, count) => {
 	//Special case that we make the 3rd (0, 1, 2) width be 34% so we end up with 100%
@@ -48,7 +59,7 @@ export const widthMapper = (length, count) => {
 		return '34%';
 	}
 	if (length === 6 && count === 5) {
-		return '15%'
+		return '15%';
 	}
 	switch (length) {
 		case 1:
@@ -62,13 +73,13 @@ export const widthMapper = (length, count) => {
 		case 5:
 			return '20%';
 		case 6:
-			return '17%'
+			return '17%';
 		default:
 			return '0%';
 	}
 };
 
-export const monthMapper = monthNumber => {
+export const monthMapper = (monthNumber) => {
 	switch (monthNumber) {
 		case '01':
 			return 'janúar';
@@ -99,7 +110,7 @@ export const monthMapper = monthNumber => {
 	}
 };
 
-export const monthNumberMapper = monthNumber => {
+export const monthNumberMapper = (monthNumber) => {
 	switch (monthNumber) {
 		case 0:
 			return 'janúar';
@@ -130,8 +141,7 @@ export const monthNumberMapper = monthNumber => {
 	}
 };
 
-
-export const decodeHTMLEntites = str => {
+export const decodeHTMLEntites = (str) => {
 	var element = document.createElement('div');
 	if (str && typeof str === 'string') {
 		element.innerHTML = str;
@@ -139,4 +149,4 @@ export const decodeHTMLEntites = str => {
 		element.textContent = '';
 	}
 	return str;
-}
+};
