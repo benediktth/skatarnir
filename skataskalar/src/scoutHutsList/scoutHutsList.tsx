@@ -3,6 +3,7 @@ import * as StyledScoutHutsList from './scoutHutsList.styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHome, faBed, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import SliderFilter from './components/Slider/index';
+import { decodeHTMLEntites } from '../helpers';
 //import Searchbox from './components/searchBox';
 
 interface Props {
@@ -10,14 +11,13 @@ interface Props {
 }
 
 const sliderMinValue = 1;
-const constSliderMaxValue = 50;
+const constSliderMaxValue = 40;
 
 const ScoutHutsList: FC<Props> = ({ data }) => {
 
 	const [scoutHutData, setScoutHutData] = useState(data);
 	const [searchString, setSearchString] = useState("");
 	const [filterNumbers, setFilterNumbers] = useState([sliderMinValue, constSliderMaxValue]);
-	//const [higherFilter, setHigherFilter] = useState(50);
 
 	const handleSearchStringChange = (e: ChangeEvent<HTMLInputElement>) => {
 		// Change the input value
@@ -49,78 +49,91 @@ const ScoutHutsList: FC<Props> = ({ data }) => {
 		}));
 	}
 
+	/**
+	 * Handle number change when slider is used
+	 * @param values Array with top and bottom value
+	 */
 	const handleSliderChange = (values) => {
-		console.log(values);	
 		setFilterNumbers(values);
-		filterDataByBedCount(values[0] ,values[1]);
+		filterDataByBedCount(values[0], values[1]);
 	}
 
+	/**
+	 * When slider is used we filter the list by the values on the slider
+	 * Note: If there is no value for bed count (isl: svefnplass) the scout hut does not make it through filtering
+	 * Note: If the value for bed count is not a number the scout hut will not make it through filtering
+	 * @param lower Lower number on the slider
+	 * @param higher Higher number on the slider
+	 */
 	const filterDataByBedCount = (lower, higher) => {
-		if(lower === sliderMinValue && higher === constSliderMaxValue) {
+		// If the values are on the end of the slider we don't have to filter the list
+		if (lower <= sliderMinValue && higher === constSliderMaxValue) {
 			return;
 		}
+		// Filter the data by checking if bedcount is between lower and higher
 		setScoutHutData(data.filter(item => {
 			if (item.acf && item.acf.svefnplass) {
 				let bedCount = parseInt(item.acf.svefnplass);
-				console.log(lower, higher);
-				console.log(bedCount, bedCount >= lower);
 				return bedCount >= lower && bedCount <= higher;
 			}
 			return false;
 		}))
 	}
-	
-	
-	console.log(scoutHutData);
-	//console.log(scoutHutData[0].acf);
+
+	// Sort the scout huts by the name of the scout hut
 	scoutHutData.sort((a, b) => (a.title.rendered > b.title.rendered) ? 1 : ((b.title.rendered > a.title.rendered) ? -1 : 0));
 
+	// Check if there are any scout huts in the list
 	let noScoutHuts = scoutHutData.length < 1;
 
-	//TODO: add slider to this when it is finished
-	let filterIsOn = searchString.length > 0;
 
-	let filterInOnButNoHuts = <StyledScoutHutsList.Title>Því miður eru engir skálar sem uppfyla þín skilyrði</StyledScoutHutsList.Title>;
-	let noFilterAndNoHuts = <StyledScoutHutsList.Title>
+	// Error message if filtering filters out all the huts
+	let filterIsOnButNoHuts = <StyledScoutHutsList.Title>Því miður eru engir skálar sem uppfyla þín skilyrði</StyledScoutHutsList.Title>;
+
+	// If there are just no scout huts
+	let noHuts = <StyledScoutHutsList.Title>
 		Engir skálar fundust vinsamlega reynið síðar eða hafið samband við <a href="mailto:skatar@skatar.is?cc=brynjar@skatar.is&subject=Villa á skálasíðu">skatar@skatar.is</a>
 	</StyledScoutHutsList.Title>;
 	let errorMessage;
-	if (noScoutHuts) {
-		if (filterIsOn) {
-			errorMessage = filterInOnButNoHuts;
-		}
-		else {
-			errorMessage = noFilterAndNoHuts;
-		}
-
+	if (data.length < 1) {
+		// If data has no huts we return that error message
+		errorMessage = noHuts;
+	} else if (scoutHutData.length < 1) {
+		// If there where huts but they are all filtered out
+		errorMessage = filterIsOnButNoHuts;
 	}
 
-	
+
+
 	return (
 		<StyledScoutHutsList.SuperWrapper>
 			<StyledScoutHutsList.Wrapper>
 				<StyledScoutHutsList.Title>
 					Skálar
 				</StyledScoutHutsList.Title>
-				<StyledScoutHutsList.filterWrapper>
-					<label>
+				<StyledScoutHutsList.FilterWrapper>
+					<StyledScoutHutsList.FilterLabel>
 						Leita eftir nafni eða skátafélagi:
-						<StyledScoutHutsList.filterInput value={searchString} onChange={handleSearchStringChange} placeholder="Leita...">
-
-						</StyledScoutHutsList.filterInput>
-					</label>
-					<SliderFilter val={filterNumbers} onChange={handleSliderChange}></SliderFilter>
-				</StyledScoutHutsList.filterWrapper>
+						<StyledScoutHutsList.FilterInput value={searchString} onChange={handleSearchStringChange} placeholder="Leita...">
+						</StyledScoutHutsList.FilterInput>
+					</StyledScoutHutsList.FilterLabel>
+					<StyledScoutHutsList.FilterSliderSuperWrapper>
+						<StyledScoutHutsList.FilterSliderText>
+							Fjöldi rúmma:
+						</StyledScoutHutsList.FilterSliderText>
+						<StyledScoutHutsList.FilterSliderWrapper>
+							<SliderFilter val={filterNumbers} onChange={handleSliderChange}></SliderFilter>
+						</StyledScoutHutsList.FilterSliderWrapper>
+					</StyledScoutHutsList.FilterSliderSuperWrapper>
+				</StyledScoutHutsList.FilterWrapper>
+				<StyledScoutHutsList.BreakLine/>
 				<StyledScoutHutsList.ListWrapper>
 					{noScoutHuts ?
 						errorMessage
 						: ''
-						
 					}
 					{scoutHutData && !noScoutHuts &&
 						scoutHutData.map((item, index) => {
-							//TODO: show something when there are no huts that pass filtering
-
 							// Get the url to the post
 							let itemUrl = '';
 							if (item.link) {
@@ -144,9 +157,6 @@ const ScoutHutsList: FC<Props> = ({ data }) => {
 									imgUrl = item._embedded['wp:featuredmedia'][0].source_url;
 								}
 							}
-							console.log(itemUrl);
-							//console.log(item._embedded['wp:featuredmedia'][0].media_details.source_url, imgUrl);
-							//console.log(imgUrl);
 							//TODO: Show default image when we can't access image
 							/*// use default image if we don't find the image
 							if (imgUrl === '') {
@@ -154,59 +164,38 @@ const ScoutHutsList: FC<Props> = ({ data }) => {
 							}
 							*/
 
+							// Get the owner of the hut
 							let itemScoutGroup = '';
 							if (item.acf && item.acf.skatafelag) {
 								itemScoutGroup = item.acf.skatafelag;
 							}
 
+							// Get the name of the hut
 							let itemTitle = '';
 							if (item.title && item.title.rendered) {
-								//itemTitle = decodeHTMLEntites(item.title.rendered);
-								itemTitle = item.title.rendered.toUpperCase();
+								itemTitle = decodeHTMLEntites(item.title.rendered);
+								itemTitle = itemTitle.toUpperCase();
 							}
 
-
+							// Get number of bed in the hut
 							let itemBedCount = '';
 							if (item.acf && item.acf.svefnplass) {
 								itemBedCount = item.acf.svefnplass;
 							}
 
+							// Get the location of the hugs
 							let itemLocation = '';
 							if (item.acf && item.acf.stadsetning) {
 								itemLocation = item.acf.stadsetning;
 							}
-							/*
-														// Get the date of the post
-														let itemDate = '';
-														if (item.date) {
-															let date = new Date(item.date);
-															itemDate = date.getDate() + '. ' + monthNumberMapper(date.getMonth()) + ' ' + date.getFullYear();
-														}
-														*/
-							/*
-							They did not want this, should be removed in the future.
-							// Get the item excerpt
-							let itemExcerpt = '';
-							if (item.excerpt && item.excerpt.rendered) {
-								itemExcerpt = item.excerpt.rendered;
-								// Remove some HTLM tags that come with the post
-								itemExcerpt = itemExcerpt.replace('<p>', '');
-								itemExcerpt = itemExcerpt.replace('</p>', '');
-								itemExcerpt = itemExcerpt.replace('</ p>', '');
-								// Take only the first 115 letters
-								itemExcerpt = itemExcerpt.substring(0, 115);
-								itemExcerpt = itemExcerpt + ' ...';
-							}
-							*/
 
+							// Create the list for the information to show
 							let scoutGroupElement = <li><span className="fa-li"><FontAwesomeIcon icon={faHome} /></span>{itemScoutGroup}</li>;
 							let bedCountElement = <li><span className="fa-li"><FontAwesomeIcon icon={faBed} /></span>{itemBedCount}</li>;
 							let locationElement = <li><span className="fa-li"><FontAwesomeIcon icon={faMapMarkerAlt} /></span>{itemLocation}</li>;
 							return (
-
 								<StyledScoutHutsList.ScoutHutItem key={index}>
-
-									<StyledScoutHutsList.ClickableContainer href={'/#'}> {/*TODO: connect link to the item url href={itemUrl}>*/}
+									<StyledScoutHutsList.ClickableContainer href={itemUrl}>
 										<StyledScoutHutsList.PictureWrapper>
 											<StyledScoutHutsList.Picture src={imgUrl} />
 										</StyledScoutHutsList.PictureWrapper>

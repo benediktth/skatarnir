@@ -3,9 +3,9 @@ import { Slider, Rail, Handles, Tracks, Ticks } from 'react-compound-slider';
 import { Handle, Track, Tick } from './sliderComponents'; // example render components
 
 const sliderStyle: React.CSSProperties = {
-    margin: '5%',
+    margin: '1rem',
     position: 'relative',
-    width: '90%'
+    width: '70%'
 };
 
 const railStyle: React.CSSProperties = {
@@ -17,7 +17,7 @@ const railStyle: React.CSSProperties = {
     backgroundColor: 'rgb(155,155,155)'
 };
 
-const domain: number[] = [0, 50];
+const domain: number[] = [0, 40];
 
 interface Props {
     val: any;
@@ -31,7 +31,7 @@ class SliderFilter extends React.Component<Props> {
 
     }
     public state = {
-        values: this.props.val//[1, 50]
+        values: this.props.val
     };
 
     public onChange = (values: number[]) => {
@@ -88,7 +88,7 @@ class SliderFilter extends React.Component<Props> {
                             </div>
                         )}
                     </Tracks>
-                    <Ticks values={[1, 10, 20, 30, 40, 50]}>
+                    <Ticks values={[1, 10, 20, 30, 40]}>
                         {({ ticks }) => (
                             <div className="slider-ticks">
                                 {ticks.map(tick => (
