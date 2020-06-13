@@ -41,8 +41,8 @@ const App: FC<Props> = () => {
 
 	return (
 		<StyledApp.Wrapper ref={ref}>
-			{data && <FaernimerkjaContent data={data} pictureUrl={pictureUrl} />}
-			{data !== null || <StyledLoader />}
+			{data && pictureUrl && <FaernimerkjaContent data={data} pictureUrl={pictureUrl} />}
+			{(data !== null && pictureUrl !== '') || <StyledLoader />}
 		</StyledApp.Wrapper>
 	);
 };
