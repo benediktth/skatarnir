@@ -1,0 +1,67 @@
+{
+	"name": "gw-components",
+	"version": "0.1.0",
+	"keywords": [
+		"react",
+		"styled-components",
+		"navbar",
+		"typescript",
+		"horizontal-scroll"
+	],
+	"repository": "github:gwtuts/react-peekaboo-navbar",
+	"license": "MIT",
+	"author": "Garrett Weems <gwgraphicdesign@gmail.com> (https://glweems.com)",
+	"dependencies": {
+		"@fortawesome/fontawesome-svg-core": "^1.2.25",
+		"@fortawesome/free-regular-svg-icons": "^5.12.0",
+		"@fortawesome/free-solid-svg-icons": "^5.11.2",
+		"@fortawesome/react-fontawesome": "^0.1.7",
+		"@types/jest": "24.0.11",
+		"@types/node": "11.11.3",
+		"@types/react-dom": "16.8.2",
+		"axios": "^0.19.0",
+		"eslint-config-airbnb": "^18.0.1",
+		"eslint-config-prettier": "^6.4.0",
+		"eslint-config-react-app": "^5.0.2",
+		"eslint-loader": "^3.0.2",
+		"eslint-plugin-import": "^2.18.2",
+		"eslint-plugin-jsx-a11y": "^6.2.3",
+		"eslint-plugin-react": "^7.16.0",
+		"interweave": "^12.1.1",
+		"postcss-import": "^12.0.1",
+		"react": "^16.8.4",
+		"react-dom": "^16.8.4",
+		"react-scripts": "2.1.8",
+		"react-slick": "^0.25.2",
+		"reset-css": "^4.0.1",
+		"slick-carousel": "^1.8.1",
+		"styled-components": "^4.1.3",
+		"typescript": "3.3.3333"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+		"build": "react-scripts build && npm run copy-files-to-wp",
+		"test": "react-scripts test",
+		"eject": "react-scripts eject",
+		"now-build": "npm run build",
+		"copy-files-to-wp": "npm run create-wp-dir && npm run copy-main && npm run copy-2",
+		"create-wp-dir": "if not exist .\\build\\wp mkdir .\\build\\wp",
+		"copy-main": "cp build/static/js/main.*.chunk.js build/wp/main.chunk.js",
+		"copy-2": "cp build/static/js/2.*.chunk.js build/wp/2.chunk.js"
+	},
+	"eslintConfig": {
+		"extends": "react-app"
+	},
+	"browserslist": [
+		">0.2%",
+		"not dead",
+		"not ie <= 11",
+		"not op_mini all"
+	],
+	"devDependencies": {
+		"@types/react": "^16.9.9",
+		"@types/styled-components": "^4.1.12",
+		"renamer": "^1.1.4",
+		"tslint-config-prettier": "^1.18.0"
+	}
+}
