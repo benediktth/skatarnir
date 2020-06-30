@@ -54,7 +54,7 @@ const AgeGroups: FC<Props> = ({ ageGroups }) => {
 			429: 'Fálkaskátar',
 			430: 'Dróttskátar',
 			431: 'Rekkaskátar',
-			432: 'Róverskátar',
+			432: 'Róverskátar'
 		};
 		return mapperItems[ageGroup];
 	};
