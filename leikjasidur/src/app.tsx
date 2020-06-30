@@ -5,10 +5,11 @@ import * as StyledApp from './app.styles';
 import { postFix } from './constants';
 import LeikjasidaContent from './leikjasidaContent';
 import { StyledLoader } from './Loader';
+import content from './content.json';
 
 interface Props {}
 
-const url = process.env.NODE_ENV === 'development' ? 'https://testing.skatarnir.is' : '';
+// const url = process.env.NODE_ENV === 'development' ? 'https://testing.skatarnir.is' : '';
 
 const App: FC<Props> = () => {
 	const ref = useRef();
@@ -27,11 +28,15 @@ const App: FC<Props> = () => {
 
 	useEffect(() => {
 		if (postId === '') {
-			const parentRefId = findParentWithId(ref.current);
-			postId = parentRefId.split('-')[1];
-			Axios(postFix + postId).then((res) => {
-				setData(res.data);
-			});
+			// const parentRefId = findParentWithId(ref.current);
+			// postId = parentRefId.split('-')[1];
+			// Axios(postFix + postId).then((res) => {
+			// 	setData(res.data);
+			// });
+			postId = "101";
+			console.log(Axios);
+			console.log(postFix);
+			setData(content);
 		}
 	}, []);
 
