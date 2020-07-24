@@ -11,7 +11,7 @@ const LeikjasidaContent: FC<Props> = ({ data }) => {
 	console.log(data);
 	return (
 		<>
-			<h2>Her uppi er titillinn</h2>
+			<h2 style={{ fontSize: "50px", color: "#FFAF3C"}}>{data.title.toUpperCase()}</h2>
 			<StyledLeikjasidaContent.Wrapper>
 				<StyledLeikjasidaContent.FirstRowWrapper>
 					<ContentSection data={data} />

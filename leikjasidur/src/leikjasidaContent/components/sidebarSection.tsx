@@ -7,7 +7,7 @@ interface Props {
 
 const Wrapper = styled.div`
 	padding: 10px;
-	background-color: gray;
+	background-color: #d9d9d9;
 	width: 100%;
 `;
 const ageGroupColor = {
@@ -43,6 +43,20 @@ const AgeGroup = styled.div<ageGroupsProps>`
 	}
 `;
 
+const ImageAndTitle = styled.div`
+	margin-bottom: 10px;
+	display: flex;
+	h2 {
+		text-align: center;
+		margin: auto 0;
+		padding-top: 2px;
+	}
+
+	img {
+		width: 36px;
+		margin-right: 10px;
+	}
+`;
 const Section = styled.div`
 	margin-bottom: 10px;
 	&:last-child {
@@ -53,6 +67,11 @@ const Section = styled.div`
 		background-color: #FFAF3C;
 		padding: 20px;
 	}
+
+	h4 {
+		padding-left: 18px;
+	}
+
 `;
 
 
@@ -61,9 +80,9 @@ const SidebarSection: FC<Props> = ({ data }) => {
 	return (
 		<Wrapper>
 			<Section>
-				<h2 style={{ marginBottom: '10px' }}>Aldursbil:</h2>
+				<h2 style={{ marginBottom: '10px' }}>ALDURSBIL:</h2>
 				<AgeGroupWrapper>
-					{data.aldursbil.map(ageGroup => {
+					{data.aldursbil && data.aldursbil.map(ageGroup => {
 						return(
 							<AgeGroup key={ageGroup} ageGroup={ageGroup} />
 						)
@@ -71,30 +90,60 @@ const SidebarSection: FC<Props> = ({ data }) => {
 				</AgeGroupWrapper>
 			</Section>
 			<Section>
-				<h2 style={{ marginBottom: '10px', color: '#3c50ff' }}>Fjöldi:</h2>
-				<p>{data.fjoldi}</p>
+				<ImageAndTitle>
+					<img src="https://testing.skatarnir.is/wp-content/uploads/Fjöldi-icon.png" alt="test" />
+					<h2 style={{  color: '#3c50ff' }}>
+						FJÖLDI:
+					</h2>
+				</ImageAndTitle>
+				<h4>{data.fjoldi}</h4>
 			</Section>
 			<Section>
-				<h2 style={{ marginBottom: '10px', color: '#EB6363'}}>Tímalengd:</h2>
-				<p>{data.timalengd}</p>
+				<ImageAndTitle>
+					<img src="https://testing.skatarnir.is/wp-content/uploads/Tími-icon.png" alt="test" />
+					<h2 style={{  color: '#EB6363'}}>
+						TÍMALENGD:
+					</h2>
+				</ImageAndTitle>
+				<h4>{data.timalengd}</h4>
 			</Section>
 			<Section>
-				<h2 style={{ marginBottom: '10px', color: '#1BB89B' }}>Staðsetning:</h2>
-				<p>{data.stadsetning}</p>
+				<ImageAndTitle>
+					<img src="https://testing.skatarnir.is/wp-content/uploads/Stadsetning-icon.png" alt="test" />
+					<h2 style={{  color: '#1BB89B' }}>
+						STAÐSETNING:
+					</h2>
+				</ImageAndTitle>
+				<h4>{data.stadsetning}</h4>
 			</Section>
 			<Section>
-				<h2 style={{ marginBottom: '10px', color: '#FFAF3C' }}>Tegund leiks:</h2>
+				<ImageAndTitle>
+					<img src="https://testing.skatarnir.is/wp-content/uploads/Tegund-leiks-icon.png" alt="test" />
+					<h2 style={{  color: '#FFAF3C' }}>
+						TEGUND LEIKS:
+					</h2>
+				</ImageAndTitle>
 				{data.tegundLeiks.map(leikur => {
 					return(
-						<h2>{leikur}</h2>
+						<h4 key={leikur.nafn}>{leikur.nafn}</h4>
 					);
 				})}
 			</Section>
 			<Section>
-				<h2 style={{ marginBottom: '10px', color: '#CF88FF' }}>Höfundar:</h2>
+				<ImageAndTitle>
+					<img src="https://testing.skatarnir.is/wp-content/uploads/Höfundur-icon.png" alt="test" />
+					<h2 style={{  color: '#CF88FF' }}>
+						HÖFUNDAR:
+					</h2>
+				</ImageAndTitle>
+				{data.hofundar.map(hofundur => {
+					return(
+						<h4 key={hofundur.nafn}>{hofundur.nafn}</h4>
+					);
+				})}
 			</Section>
 			<Section>
-				<a href={data.adviceLink}><h1>Góð ráð um leikjastjórnun</h1></a>
+				<a target="_blank" href={data.godRad}><h2 style={{ marginTop: "0" }}>GÓÐ RÁÐ UM LEIKJASTJÓRNUN</h2></a>
 			</Section>
 		</Wrapper>
 	);

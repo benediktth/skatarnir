@@ -6,6 +6,7 @@ interface Props {
 }
 
 const Wrapper = styled.div`
+	width: 100%;
 	padding: 10px;
 	div {
 		position: relative;
@@ -21,6 +22,10 @@ const Wrapper = styled.div`
 		width: 100%;
 		height: 100%;
 	}
+
+	h2  {
+		color: #3c50ff;
+	}
 `;
 
 const Content = styled.p`
@@ -34,15 +39,15 @@ const ContentSection: FC<Props> = ({ data }) => {
 	}
 	return (
 		<Wrapper>
-			<h2>Saga</h2>
+			<h2>SAGA:</h2>
 			<Content>{data.saga}</Content>
-			<h2>Þú þarft</h2>
-			<Content>{data.tuTarft}</Content>
-			<h2>Leiðbeiningar</h2>
+			<h2>ÞÚ ÞARFT:</h2>
+			<Content>{data.tutarft}</Content>
+			 <h2>LEIÐBEININGAR:</h2>
 			<Content>{data.leidbeiningar}</Content>
-			<h2>Útfærslur</h2>
+			<h2>ÚTFÆRSLUR:</h2>
 			<Content>{data.utfaerslur}</Content>
-			<h2>Myndband</h2>
+			<h2>MYNDBAND:</h2>
 			<div dangerouslySetInnerHTML={video} />
 		</Wrapper>
 	);

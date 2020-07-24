@@ -5,7 +5,7 @@ import * as StyledApp from './app.styles';
 import { postFix } from './constants';
 import LeikjasidaContent from './leikjasidaContent';
 import { StyledLoader } from './Loader';
-import content from './content.json';
+// import content from './content.json';
 
 interface Props {}
 
@@ -28,15 +28,13 @@ const App: FC<Props> = () => {
 
 	useEffect(() => {
 		if (postId === '') {
-			// const parentRefId = findParentWithId(ref.current);
-			// postId = parentRefId.split('-')[1];
-			// Axios(postFix + postId).then((res) => {
-			// 	setData(res.data);
-			// });
-			postId = "101";
-			console.log(Axios);
-			console.log(postFix);
-			setData(content);
+			const parentRefId = findParentWithId(ref.current);
+			postId = parentRefId.split('-')[1];
+			Axios(postFix + postId).then((res) => {
+				console.log(res.data);
+				res.data.acf.title = res.data.title.rendered;
+				setData(res.data.acf);
+			});
 		}
 	}, []);
 
