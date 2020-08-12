@@ -52,10 +52,10 @@ const ExternalSites: FC<Props> = ({ externalWebsites }) => {
 				return (
 					<ContentWrapper key={index} href={website.link}>
 						<SubContentWrapper>
-							<img src={website.url} />
-							<h3 style={{ marginTop: '0' }}>{website.title}</h3>
+							<img src={website.vefsida.url} />
+							<h3 style={{ marginTop: '0' }}>{website.vefsida.title}</h3>
 							{/* <a href={website.link}>{website.description}</a> */}
-							<span>{website.description}</span>
+							<span>{website.vefsida.description}</span>
 						</SubContentWrapper>
 						{/* <ImageWrapper> */}
 						{/* <img src={website.url} /> */}

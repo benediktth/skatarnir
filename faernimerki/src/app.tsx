@@ -8,7 +8,7 @@ import { StyledLoader } from './Loader';
 
 interface Props {}
 
-const url = process.env.NODE_ENV === 'development' ? 'https://testing.skatarnir.is' : '';
+const url = process.env.NODE_ENV === 'development' ? 'https://skatarnir.is' : '';
 
 const App: FC<Props> = () => {
 	const ref = useRef();
@@ -32,8 +32,12 @@ const App: FC<Props> = () => {
 			postId = parentRefId.split('-')[1];
 			Axios(postFix + postId).then((res) => {
 				setData(res.data);
+				console.log(res.data);
 				Axios(url + '/wp-json/wp/v2/media/' + res.data.featured_media).then((res) => {
 					setPictureUrl(res.data.media_details.sizes.medium.source_url);
+				}).catch(err => {
+					console.log('fann ekki myndina', err);
+					setPictureUrl('https://skatarnir.is/wp-content/uploads/Logo_3_Orange@4x-uai-1440x296.png');
 				});
 			});
 		}

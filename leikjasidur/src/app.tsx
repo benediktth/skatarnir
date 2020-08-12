@@ -33,7 +33,7 @@ const App: FC<Props> = () => {
 			Axios(postFix + postId).then((res) => {
 				console.log(res.data);
 				res.data.acf.title = res.data.title.rendered;
-				setData(res.data.acf);
+				setData(res.data);
 			});
 		}
 	}, []);

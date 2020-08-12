@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
+import { stadsetning_leiks, leikir_category, tegund_leiks } from '../../constants';
 
 interface Props {
 	data: any;
@@ -9,6 +10,7 @@ const Wrapper = styled.div`
 	padding: 10px;
 	background-color: #d9d9d9;
 	width: 100%;
+	margin-top: 20px;
 `;
 const ageGroupColor = {
 	drekaskatar: '#FEE75F',
@@ -70,21 +72,47 @@ const Section = styled.div`
 
 	h4 {
 		padding-left: 18px;
+		margin-bottom: 10px;
+		margin-top: 0px;
+	}
+	h2 {
+		margin: auto 0;
+		padding-top: 2px;
 	}
 
 `;
 
 
 const SidebarSection: FC<Props> = ({ data }) => {
-	console.log(data);
+	const stadsetningar = data.stadsetning_leiks.map(id => {
+		const stadsetning = stadsetning_leiks.properties.find(x => x.id === id);
+		if (stadsetning !== null)
+			return stadsetning.name;
+		else
+			return null;
+	});
+	const aldursbil = data.leikir_category.map(id => {
+		const leikur = leikir_category.properties.find(x => x.id === id);
+		if (leikur !== null)
+			return leikur;
+		else
+			return null;
+	});
+	const tegundLeikja = data.tegund_leiks.map(id => {
+		const tegundLeiks = tegund_leiks.properties.find(x => x.id === id);
+		if (tegundLeiks !== null)
+			return tegundLeiks.name;
+		else
+			return null;
+	});
 	return (
 		<Wrapper>
 			<Section>
-				<h2 style={{ marginBottom: '10px' }}>ALDURSBIL:</h2>
+				<h2 style={{ marginBottom: '10px', color: '#404041' }}>ALDURSBIL:</h2>
 				<AgeGroupWrapper>
-					{data.aldursbil && data.aldursbil.map(ageGroup => {
+					{aldursbil && aldursbil.map(leikur => {
 						return(
-							<AgeGroup key={ageGroup} ageGroup={ageGroup} />
+							<AgeGroup key={leikur.slug} ageGroup={leikur.slug} />
 						)
 					})}
 				</AgeGroupWrapper>
@@ -96,7 +124,7 @@ const SidebarSection: FC<Props> = ({ data }) => {
 						FJÖLDI:
 					</h2>
 				</ImageAndTitle>
-				<h4>{data.fjoldi}</h4>
+				<h4>{data.acf.fjoldiFra} - {data.acf.fjoldiTil} skátar</h4>
 			</Section>
 			<Section>
 				<ImageAndTitle>
@@ -105,7 +133,7 @@ const SidebarSection: FC<Props> = ({ data }) => {
 						TÍMALENGD:
 					</h2>
 				</ImageAndTitle>
-				<h4>{data.timalengd}</h4>
+				<h4>{data.acf.timalengdFra} - {data.acf.timalengdTil} mínútur</h4>
 			</Section>
 			<Section>
 				<ImageAndTitle>
@@ -114,7 +142,11 @@ const SidebarSection: FC<Props> = ({ data }) => {
 						STAÐSETNING:
 					</h2>
 				</ImageAndTitle>
-				<h4>{data.stadsetning}</h4>
+				{stadsetningar.map(stadsetning => {
+					return (
+						<h4 key={stadsetning}>{stadsetning}</h4>
+					);
+				})}
 			</Section>
 			<Section>
 				<ImageAndTitle>
@@ -123,9 +155,9 @@ const SidebarSection: FC<Props> = ({ data }) => {
 						TEGUND LEIKS:
 					</h2>
 				</ImageAndTitle>
-				{data.tegundLeiks.map(leikur => {
+				{tegundLeikja.map(tegund => {
 					return(
-						<h4 key={leikur.nafn}>{leikur.nafn}</h4>
+						<h4 key={tegund}>{tegund}</h4>
 					);
 				})}
 			</Section>
@@ -136,15 +168,18 @@ const SidebarSection: FC<Props> = ({ data }) => {
 						HÖFUNDAR:
 					</h2>
 				</ImageAndTitle>
-				{data.hofundar.map(hofundur => {
+				{data.acf.hofundar.map(hofundur => {
 					return(
 						<h4 key={hofundur.nafn}>{hofundur.nafn}</h4>
 					);
 				})}
 			</Section>
-			<Section>
-				<a target="_blank" href={data.godRad}><h2 style={{ marginTop: "0" }}>GÓÐ RÁÐ UM LEIKJASTJÓRNUN</h2></a>
-			</Section>
+			{data.acf.godRad ?
+				<Section>
+					<a target="_blank" href={data.acf.godRad}><h2 style={{ marginTop: "0" }}>GÓÐ RÁÐ UM LEIKJASTJÓRNUN</h2></a>
+				</Section>
+				: null
+			}
 		</Wrapper>
 	);
 };

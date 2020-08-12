@@ -25,11 +25,12 @@ const Wrapper = styled.div`
 
 	h2  {
 		color: #3c50ff;
+		margin-top: 10px;
 	}
 `;
 
 const Content = styled.p`
-
+	margin: 0;
 `;
 
 const ContentSection: FC<Props> = ({ data }) => {
@@ -39,16 +40,16 @@ const ContentSection: FC<Props> = ({ data }) => {
 	}
 	return (
 		<Wrapper>
-			<h2>SAGA:</h2>
-			<Content>{data.saga}</Content>
+			{data.saga ? <h2>SAGA:</h2> : null}
+			{data.saga ? <Content>{data.saga}</Content> : null}
 			<h2>ÞÚ ÞARFT:</h2>
-			<Content>{data.tutarft}</Content>
+			<Content>{data.tuTarft}</Content>
 			 <h2>LEIÐBEININGAR:</h2>
 			<Content>{data.leidbeiningar}</Content>
-			<h2>ÚTFÆRSLUR:</h2>
-			<Content>{data.utfaerslur}</Content>
-			<h2>MYNDBAND:</h2>
-			<div dangerouslySetInnerHTML={video} />
+			{data.utfaerslur ? <h2>ÚTFÆRSLUR:</h2> : null}
+			{data.utfaerslur ? <Content>{data.utfaerslur}</Content> : null}
+			{data.myndband ? <h2>MYNDBAND:</h2> : null}
+			{data.myndband ? <div dangerouslySetInnerHTML={video} /> : null}
 		</Wrapper>
 	);
 };

@@ -30,9 +30,9 @@ const Documents: FC<Props> = ({ documents }) => {
 			{documents.map((document, index) => {
 				return (
 					<ContentWrapper key={index}>
-						<img src={document.icon}></img>
-						<a href={document.link} target="_blank">
-							{document.filename}
+						<img src={document.skra.icon}></img>
+						<a href={document.skra.link} target="_blank">
+							{document.skra.filename}
 						</a>
 					</ContentWrapper>
 				);

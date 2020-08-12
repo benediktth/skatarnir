@@ -15,30 +15,30 @@ interface Props {
 }
 
 const FaernimerkjaContent: FC<Props> = ({ data, pictureUrl }) => {
-	const externalWebsitesArray = [];
-	const filesArray = [];
-	const internalWebsiteArray = [];
-	let i = 1;
-	while (data.acf.hasOwnProperty('vefsida' + i)) {
-		if (data.acf['vefsida' + i]) {
-			externalWebsitesArray.push(data.acf['vefsida' + i]);
-		}
-		i++;
-	}
-	i = 1;
-	while (data.acf.hasOwnProperty('SkatarnirSida' + i)) {
-		if (data.acf['SkatarnirSida' + i]) {
-			internalWebsiteArray.push(data.acf['SkatarnirSida' + i]);
-		}
-		i++;
-	}
-	i = 1;
-	while (data.acf.hasOwnProperty('skra' + i)) {
-		if (data.acf['skra' + i]) {
-			filesArray.push(data.acf['skra' + i]);
-		}
-		i++;
-	}
+	// const externalWebsitesArray = [];
+	// const filesArray = [];
+	// const internalWebsiteArray = [];
+	// let i = 1;
+	// while (data.acf.hasOwnProperty('vefsida' + i)) {
+	// 	if (data.acf['vefsida' + i]) {
+	// 		externalWebsitesArray.push(data.acf['vefsida' + i]);
+	// 	}
+	// 	i++;
+	// }
+	// i = 1;
+	// while (data.acf.hasOwnProperty('SkatarnirSida' + i)) {
+	// 	if (data.acf['SkatarnirSida' + i]) {
+	// 		internalWebsiteArray.push(data.acf['SkatarnirSida' + i]);
+	// 	}
+	// 	i++;
+	// }
+	// i = 1;
+	// while (data.acf.hasOwnProperty('skra' + i)) {
+	// 	if (data.acf['skra' + i]) {
+	// 		filesArray.push(data.acf['skra' + i]);
+	// 	}
+	// 	i++;
+	// }
 	return (
 		<StyledFaernimerkjaContent.Wrapper>
 			<StyledFaernimerkjaContent.H1>{data.title.rendered}</StyledFaernimerkjaContent.H1>
@@ -49,7 +49,7 @@ const FaernimerkjaContent: FC<Props> = ({ data, pictureUrl }) => {
 				</StyledFaernimerkjaContent.PictureWrapper>
 				<StyledFaernimerkjaContent.ContentWrapper>
 					<Description description={data.acf.lysing} />
-					<Demands demands={data.acf.krofur} bulletin={data.acf.krofurPunktar} />
+					<Demands demands={data.acf.krofur} bulletin={data.acf.krofur_punktar} />
 				</StyledFaernimerkjaContent.ContentWrapper>
 			</StyledFaernimerkjaContent.FirstRowWrapper>
 			{/* <StyledFaernimerkjaContent.AgeGroupsWrapper>
@@ -57,10 +57,10 @@ const FaernimerkjaContent: FC<Props> = ({ data, pictureUrl }) => {
 			</StyledFaernimerkjaContent.AgeGroupsWrapper> */}
 			<StyledFaernimerkjaContent.SecondRowWrapper>
 				<StyledFaernimerkjaContent.DocumentsWrapper>
-					<Documents documents={filesArray} />
+					<Documents documents={data.acf.skrar} />
 				</StyledFaernimerkjaContent.DocumentsWrapper>
 				<StyledFaernimerkjaContent.ExternalSitesWrapper>
-					<ExternalSites externalWebsites={externalWebsitesArray} />
+					<ExternalSites externalWebsites={data.acf.vefsidur} />
 					{/* <InternalSites internalWebsites={internalWebsiteArray} /> */}
 				</StyledFaernimerkjaContent.ExternalSitesWrapper>
 			</StyledFaernimerkjaContent.SecondRowWrapper>
