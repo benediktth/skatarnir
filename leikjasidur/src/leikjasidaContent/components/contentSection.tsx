@@ -29,12 +29,12 @@ const Wrapper = styled.div`
 	}
 `;
 
-const Content = styled.p`
+const Content = styled.pre`
 	margin: 0;
 `;
 
 const ContentSection: FC<Props> = ({ data }) => {
-	console.log(data)
+	console.log(data);
 	let video = {
 		__html: data.myndband
 	}
@@ -44,7 +44,7 @@ const ContentSection: FC<Props> = ({ data }) => {
 			{data.saga ? <Content>{data.saga}</Content> : null}
 			<h2>ÞÚ ÞARFT:</h2>
 			<Content>{data.tuTarft}</Content>
-			 <h2>LEIÐBEININGAR:</h2>
+			<h2>LEIÐBEININGAR:</h2>
 			<Content>{data.leidbeiningar}</Content>
 			{data.utfaerslur ? <h2>ÚTFÆRSLUR:</h2> : null}
 			{data.utfaerslur ? <Content>{data.utfaerslur}</Content> : null}
