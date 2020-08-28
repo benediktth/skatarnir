@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import styled, { css } from 'styled-components';
-import { stadsetning_leiks, leikir_category, tegund_leiks } from '../../constants';
+// import { stadsetning_leiks, leikir_category, tegund_leiks } from '../../constants';
 
 interface Props {
 	data: any;
+	taxonomies: any;
 }
 
 const Wrapper = styled.div`
@@ -83,36 +84,36 @@ const Section = styled.div`
 `;
 
 
-const SidebarSection: FC<Props> = ({ data }) => {
-	const stadsetningar = data.stadsetning_leiks.map(id => {
-		const stadsetning = stadsetning_leiks.properties.find(x => x.id === id);
-		if (stadsetning !== null)
-			return stadsetning.name;
-		else
-			return null;
-	});
-	const aldursbil = data.leikir_category.map(id => {
-		const leikur = leikir_category.properties.find(x => x.id === id);
-		if (leikur !== null)
-			return leikur;
-		else
-			return null;
-	});
-	const tegundLeikja = data.tegund_leiks.map(id => {
-		const tegundLeiks = tegund_leiks.properties.find(x => x.id === id);
-		if (tegundLeiks !== null)
-			return tegundLeiks.name;
-		else
-			return null;
-	});
+const SidebarSection: FC<Props> = ({ data, taxonomies }) => {
+	// const stadsetningar = data.stadsetning_leiks.map(id => {
+	// 	const stadsetning = stadsetning_leiks.properties.find(x => x.id === id);
+	// 	if (stadsetning !== null)
+	// 		return stadsetning.name;
+	// 	else
+	// 		return null;
+	// });
+	// const aldursbil = data.leikir_category.map(id => {
+	// 	const leikur = leikir_category.properties.find(x => x.id === id);
+	// 	if (leikur !== null)
+	// 		return leikur;
+	// 	else
+	// 		return null;
+	// });
+	// const tegundLeikja = data.tegund_leiks.map(id => {
+	// 	const tegundLeiks = tegund_leiks.properties.find(x => x.id === id);
+	// 	if (tegundLeiks !== null)
+	// 		return tegundLeiks.name;
+	// 	else
+	// 		return null;
+	// });
 	return (
 		<Wrapper>
 			<Section>
 				<h2 style={{ marginBottom: '10px', color: '#404041' }}>ALDURSBIL:</h2>
 				<AgeGroupWrapper>
-					{aldursbil && aldursbil.map(leikur => {
+					{taxonomies.aldursbil && taxonomies.aldursbil.map(leikur => {
 						return(
-							<AgeGroup key={leikur.slug} ageGroup={leikur.slug} />
+							<AgeGroup key={leikur} ageGroup={leikur} />
 						)
 					})}
 				</AgeGroupWrapper>
@@ -142,7 +143,7 @@ const SidebarSection: FC<Props> = ({ data }) => {
 						STAÐSETNING:
 					</h2>
 				</ImageAndTitle>
-				{stadsetningar.map(stadsetning => {
+				{taxonomies.stadsetningar && taxonomies.stadsetningar.map(stadsetning => {
 					return (
 						<h4 key={stadsetning}>{stadsetning}</h4>
 					);
@@ -155,7 +156,7 @@ const SidebarSection: FC<Props> = ({ data }) => {
 						TEGUND LEIKS:
 					</h2>
 				</ImageAndTitle>
-				{tegundLeikja.map(tegund => {
+				{taxonomies.tegundLeikja && taxonomies.tegundLeikja.map(tegund => {
 					return(
 						<h4 key={tegund}>{tegund}</h4>
 					);
