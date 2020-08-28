@@ -24,16 +24,15 @@ const ContentWrapper = styled.div`
 `;
 
 const Documents: FC<Props> = ({ documents }) => {
-	console.log(documents);
 	return (
 		<Wrapper>
-			<h2 style={{ marginTop: '0' }}>Útgefið efni á rafrænu formi</h2>
+			<h2 style={{ marginTop: '0' }}>Stuðningsefni</h2>
 			{documents.map((document, index) => {
 				return (
 					<ContentWrapper key={index}>
-						<img src={document.icon}></img>
-						<a href={document.link} target="_blank">
-							{document.filename}
+						<img src={document.skra.icon}></img>
+						<a href={document.skra.link} target="_blank">
+							{document.skra.filename}
 						</a>
 					</ContentWrapper>
 				);

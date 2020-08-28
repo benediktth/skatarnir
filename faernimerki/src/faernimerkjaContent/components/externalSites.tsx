@@ -24,32 +24,42 @@ const ContentWrapper = styled.a`
 	padding: 18px;
 `;
 
-const ImageWrapper = styled.div`
-	max-width: 40%;
-	img {
-		width: 100%;
-	}
-`;
+// const ImageWrapper = styled.div`
+// 	max-width: 40%;
+// 	img {
+// 		width: 100%;
+// 	}
+// `;
 
 const SubContentWrapper = styled.div`
-	width: 60%;
+	img {
+		float: right;
+		width: 200px;
+	}
+	@media only screen and (max-width: 1028px) {
+		img {
+			width: 100%;
+			margin-bottom: 15px;
+		}
+	}
 `;
 
 const ExternalSites: FC<Props> = ({ externalWebsites }) => {
 	return (
 		<Wrapper>
-			<h2 style={{ marginTop: '0', textAlign: 'right'}}>Gagnlegar vefsíður:</h2>
+			<h2 style={{ marginTop: '0', textAlign: 'right' }}>Gagnlegar vefsíður:</h2>
 			{externalWebsites.map((website, index) => {
 				return (
 					<ContentWrapper key={index} href={website.link}>
 						<SubContentWrapper>
-							<h3 style={{ marginTop: '0' }}>{website.title}</h3>
+							<img src={website.vefsida.url} />
+							<h3 style={{ marginTop: '0' }}>{website.vefsida.title}</h3>
 							{/* <a href={website.link}>{website.description}</a> */}
-							<p>{website.description}</p>
+							<span>{website.vefsida.description}</span>
 						</SubContentWrapper>
-						<ImageWrapper>
-							<img src={website.url} />
-						</ImageWrapper>
+						{/* <ImageWrapper> */}
+						{/* <img src={website.url} /> */}
+						{/* </ImageWrapper> */}
 					</ContentWrapper>
 				);
 			})}
