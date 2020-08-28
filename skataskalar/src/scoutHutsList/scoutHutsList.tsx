@@ -119,7 +119,7 @@ const ScoutHutsList: FC<Props> = ({ data }) => {
 					</StyledScoutHutsList.FilterLabel>
 					<StyledScoutHutsList.FilterSliderSuperWrapper>
 						<StyledScoutHutsList.FilterSliderText>
-							Fjöldi rúmma:
+							Fjöldi rúma:
 						</StyledScoutHutsList.FilterSliderText>
 						<StyledScoutHutsList.FilterSliderWrapper>
 							<SliderFilter val={filterNumbers} onChange={handleSliderChange}></SliderFilter>
