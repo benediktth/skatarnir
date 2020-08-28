@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 interface Props {
 	demands: string;
-	bulletin: string[];
+	bulletin: any[];
 }
 
 const Wrapper = styled.div`
@@ -19,7 +19,7 @@ const Demands: FC<Props> = ({ demands, bulletin }) => {
 		<Wrapper>
 			<h2 style={{ marginTop: '0px', marginBottom: '10px' }}>Kröfur</h2>
 			<span>{demands}</span>
-			<ul>{bulletin.map((text, index) => (text.length > 0 ? <li key={index}>{text}</li> : null))}</ul>
+			<ul>{bulletin.map((text, index) => (<li key={index}>{text.krofu_punktur}</li>))}</ul>
 		</Wrapper>
 	);
 };

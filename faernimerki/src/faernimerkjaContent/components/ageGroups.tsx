@@ -50,11 +50,11 @@ const AgeGroupWrapper = styled.div`
 const AgeGroups: FC<Props> = ({ ageGroups }) => {
 	const ageGroupMapper = (ageGroup: number) => {
 		const mapperItems = {
-			428: 'Drekaskátar',
-			429: 'Fálkaskátar',
-			430: 'Dróttskátar',
-			431: 'Rekkaskátar',
-			432: 'Róverskátar'
+			428: 'DREKASKÁTAR',
+			429: 'FÁLKASKÁTAR',
+			430: 'DRÓTTSKÁTAR',
+			431: 'REKKASKÁTAR',
+			432: 'RÓVERSKÁTAR'
 		};
 		return mapperItems[ageGroup];
 	};

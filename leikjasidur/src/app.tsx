@@ -14,6 +14,7 @@ interface Props {}
 const App: FC<Props> = () => {
 	const ref = useRef();
 	const [data, setData] = useState(null);
+	const [taxonomiesArray, setTaxonomiesArray] = useState(null);
 	let postId: string = '';
 
 	const findParentWithId = (node: any) => {
@@ -34,14 +35,37 @@ const App: FC<Props> = () => {
 				console.log(res.data);
 				res.data.acf.title = res.data.title.rendered;
 				setData(res.data);
+
+				const requests = res.data._links['wp:term'].map(taxonomy => {
+					return Axios.get(taxonomy.href);
+				});
+				Axios.all(requests).then(Axios.spread((...responses) => {
+					const response1: any = responses[0];
+					const response2: any = responses[1];
+					const response3: any = responses[2];
+					let tegundLeikja = response1.data.map(tegund => {
+						return tegund.name;
+					})
+					let stadsetningar = response2.data.map(stadsetning => {
+						return stadsetning.name;
+					})
+					let aldursbil = response3.data.map(aldursbil => {
+						return aldursbil.slug;
+					})
+					setTaxonomiesArray({
+						tegundLeikja,
+						stadsetningar,
+						aldursbil
+					})
+				}))
 			});
 		}
 	}, []);
 
 	return (
 		<StyledApp.Wrapper ref={ref}>
-			{data && <LeikjasidaContent data={data} />}
-			{data !== null || <StyledLoader />}
+			{taxonomiesArray && <LeikjasidaContent data={data} taxonomies={taxonomiesArray} />}
+			{taxonomiesArray !== null || <StyledLoader />}
 		</StyledApp.Wrapper>
 	);
 };

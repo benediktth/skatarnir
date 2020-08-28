@@ -22,16 +22,12 @@ const ContentWrapper = styled.a`
 	border-radius: 16px;
 	margin-bottom: 10px;
 	padding: 18px;
+	cursor: pointer;
 `;
 
-// const ImageWrapper = styled.div`
-// 	max-width: 40%;
-// 	img {
-// 		width: 100%;
-// 	}
-// `;
 
 const SubContentWrapper = styled.div`
+	width: 100%;
 	img {
 		float: right;
 		width: 200px;
@@ -47,19 +43,15 @@ const SubContentWrapper = styled.div`
 const ExternalSites: FC<Props> = ({ externalWebsites }) => {
 	return (
 		<Wrapper>
-			<h2 style={{ marginTop: '0', textAlign: 'right' }}>Gagnlegar vefsíður:</h2>
+			<h2 style={{ marginTop: '0', textAlign: 'right' }}>Gagnlegar vefsíður</h2>
 			{externalWebsites.map((website, index) => {
 				return (
 					<ContentWrapper key={index} href={website.link}>
 						<SubContentWrapper>
 							<img src={website.vefsida.url} />
 							<h3 style={{ marginTop: '0' }}>{website.vefsida.title}</h3>
-							{/* <a href={website.link}>{website.description}</a> */}
 							<span>{website.vefsida.description}</span>
 						</SubContentWrapper>
-						{/* <ImageWrapper> */}
-						{/* <img src={website.url} /> */}
-						{/* </ImageWrapper> */}
 					</ContentWrapper>
 				);
 			})}

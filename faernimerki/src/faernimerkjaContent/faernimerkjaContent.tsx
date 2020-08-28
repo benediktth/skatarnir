@@ -41,7 +41,7 @@ const FaernimerkjaContent: FC<Props> = ({ data, pictureUrl }) => {
 	// }
 	return (
 		<StyledFaernimerkjaContent.Wrapper>
-			<StyledFaernimerkjaContent.H1>{data.title.rendered}</StyledFaernimerkjaContent.H1>
+			<StyledFaernimerkjaContent.H1>{data.title.rendered.toUpperCase()}</StyledFaernimerkjaContent.H1>
 			<StyledFaernimerkjaContent.FirstRowWrapper>
 				<StyledFaernimerkjaContent.PictureWrapper>
 					<PictureOfFaernimerki image={pictureUrl} />
