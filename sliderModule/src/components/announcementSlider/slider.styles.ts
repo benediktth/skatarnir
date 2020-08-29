@@ -37,6 +37,9 @@ export const Title = styled.h1`
 	@media (max-width: 768px) {
 		padding: 2rem 0;
 	}
+	@media (min-width: 960px) {
+		font-size: 50px !important;
+	}
 `;
 
 export const SliderItem = styled.div`
