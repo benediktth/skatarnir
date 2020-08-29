@@ -29,9 +29,15 @@ const Wrapper = styled.div`
 	}
 `;
 
-const Content = styled.pre`
+const Content = styled.p`
 	margin: 0;
 `;
+
+function replaceNewLine(text) {
+	return text.split('\n').map((item, i) => {
+		return <Content key={i}>{item}<br/></Content>;
+	});
+}
 
 const ContentSection: FC<Props> = ({ data }) => {
 	console.log(data);
@@ -43,11 +49,11 @@ const ContentSection: FC<Props> = ({ data }) => {
 			{data.saga ? <h2>SAGA:</h2> : null}
 			{data.saga ? <Content>{data.saga}</Content> : null}
 			<h2>ÞÚ ÞARFT:</h2>
-			<Content>{data.tuTarft}</Content>
-			<h2>LEIÐBEININGAR:</h2>
-			<Content>{data.leidbeiningar}</Content>
+			{replaceNewLine(data.tuTarft)}
+			 <h2>LEIÐBEININGAR:</h2>
+			{replaceNewLine(data.leidbeiningar)}
 			{data.utfaerslur ? <h2>ÚTFÆRSLUR:</h2> : null}
-			{data.utfaerslur ? <Content>{data.utfaerslur}</Content> : null}
+			{data.utfaerslur ? replaceNewLine(data.leidbeiningar) : null}
 			{data.myndband ? <h2>MYNDBAND:</h2> : null}
 			{data.myndband ? <div dangerouslySetInnerHTML={video} /> : null}
 		</Wrapper>
