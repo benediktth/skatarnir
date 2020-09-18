@@ -10,7 +10,7 @@ export const ageGroupColorMapper = ageGroup => {
 			return '#FEE75F';
 		case 'roverskatar':
 			return '#FFAF3C';
-		case 'fullordnir':
+		case 'eldriskatar':
 			return '#CF88FF';
 		default:
 			return '#000000';
