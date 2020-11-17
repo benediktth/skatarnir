@@ -47,13 +47,13 @@ const ContentSection: FC<Props> = ({ data }) => {
 	return (
 		<Wrapper>
 			{data.saga ? <h2>SAGA:</h2> : null}
-			{data.saga ? <Content>{data.saga}</Content> : null}
+			{data.saga ? replaceNewLine(data.saga) : null}
 			<h2>ÞÚ ÞARFT:</h2>
 			{replaceNewLine(data.tuTarft)}
 			 <h2>LEIÐBEININGAR:</h2>
 			{replaceNewLine(data.leidbeiningar)}
 			{data.utfaerslur ? <h2>ÚTFÆRSLUR:</h2> : null}
-			{data.utfaerslur ? replaceNewLine(data.leidbeiningar) : null}
+			{data.utfaerslur ? replaceNewLine(data.utfaerslur) : null}
 			{data.myndband ? <h2>MYNDBAND:</h2> : null}
 			{data.myndband ? <div dangerouslySetInnerHTML={video} /> : null}
 		</Wrapper>
