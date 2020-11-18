@@ -39,6 +39,22 @@ const FaernimerkjaContent: FC<Props> = ({ data, pictureUrl }) => {
 	// 	}
 	// 	i++;
 	// }
+	let documents = data.acf.skrar ?
+		<StyledFaernimerkjaContent.DocumentsWrapper>
+			<Documents documents={data.acf.skrar} />
+		</StyledFaernimerkjaContent.DocumentsWrapper>
+		: '';
+	let externalSites = data.acf.vefsidur ?
+		<StyledFaernimerkjaContent.ExternalSitesWrapper>
+			<ExternalSites externalWebsites={data.acf.vefsidur} />
+			{/* <InternalSites internalWebsites={internalWebsiteArray} /> */}
+		</StyledFaernimerkjaContent.ExternalSitesWrapper>
+		: '';
+	let video = data.acf.myndband ?
+		<Video videoUrl={data.acf.myndband} />
+		: '';
+
+
 	return (
 		<StyledFaernimerkjaContent.Wrapper>
 			<StyledFaernimerkjaContent.H1>{data.title.rendered.toUpperCase()}</StyledFaernimerkjaContent.H1>
@@ -56,15 +72,10 @@ const FaernimerkjaContent: FC<Props> = ({ data, pictureUrl }) => {
 				<AgeGroups ageGroups={data.faernimerki_category} />
 			</StyledFaernimerkjaContent.AgeGroupsWrapper> */}
 			<StyledFaernimerkjaContent.SecondRowWrapper>
-				<StyledFaernimerkjaContent.DocumentsWrapper>
-					<Documents documents={data.acf.skrar} />
-				</StyledFaernimerkjaContent.DocumentsWrapper>
-				<StyledFaernimerkjaContent.ExternalSitesWrapper>
-					<ExternalSites externalWebsites={data.acf.vefsidur} />
-					{/* <InternalSites internalWebsites={internalWebsiteArray} /> */}
-				</StyledFaernimerkjaContent.ExternalSitesWrapper>
+				{documents}
+				{externalSites}
 			</StyledFaernimerkjaContent.SecondRowWrapper>
-			<Video videoUrl={data.acf.myndband} />
+			{video}
 		</StyledFaernimerkjaContent.Wrapper>
 	);
 };

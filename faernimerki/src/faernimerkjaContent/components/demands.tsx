@@ -19,7 +19,7 @@ const Demands: FC<Props> = ({ demands, bulletin }) => {
 		<Wrapper>
 			<h2 style={{ marginTop: '0px', marginBottom: '10px' }}>Kröfur</h2>
 			<span>{demands}</span>
-			<ul>{bulletin.map((text, index) => (<li key={index}>{text.krofu_punktur}</li>))}</ul>
+			{ bulletin ? <ul>{bulletin.map((text, index) => (<li key={index}>{text.krofu_punktur}</li>))}</ul> : '' }
 		</Wrapper>
 	);
 };
