@@ -80,7 +80,18 @@ const Section = styled.div`
 		margin: auto 0;
 		padding-top: 2px;
 	}
-
+	@media only screen and (max-width: 377px) {
+		img {
+			width: 25px;
+			object-fit: contain;
+		}
+		h2 {
+			font-size: 23px;
+		}
+		h4 {
+			font-size: 18px;
+		}	
+	}
 `;
 
 
