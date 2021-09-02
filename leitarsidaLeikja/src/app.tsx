@@ -3,18 +3,18 @@ import React, { FC, useEffect, useRef, useState } from 'react';
 import 'reset-css';
 import * as StyledApp from './app.styles';
 import { postFix } from './constants';
-import FaernimerkjaContent from './faernimerkjaContent';
-import { StyledLoader } from './Loader';
+// import FaernimerkjaContent from './faernimerkjaContent';
+import { ITaxonomy } from './interface/ILeikjaData';
+// import { StyledLoader } from './Loader';
 
 interface Props {}
 
-const url = process.env.NODE_ENV === 'development' ? 'https://skatarnir.is' : '';
+// const url = process.env.NODE_ENV === 'development' ? 'https://skatarnir.is' : '';
+// const baseurl = 'https://skatarnir.is/wp-json/wp/v2/';
 
 const App: FC<Props> = () => {
 	const ref = useRef();
-	const [data, setData] = useState(null);
-	const [pictureUrl, setPictureUrl] = useState('');
-	let postId: string = '';
+	const [leikjaData, setLeikjaData]: [ITaxonomy[], (x: ITaxonomy[]) => any] = useState(null);
 
 	const findParentWithId = (node: any) => {
 		if (node === null) {
@@ -27,26 +27,32 @@ const App: FC<Props> = () => {
 	};
 
 	useEffect(() => {
-		if (postId === '') {
-			const parentRefId = findParentWithId(ref.current);
-			postId = parentRefId.split('-')[1];
-			Axios(postFix + postId).then((res) => {
-				setData(res.data);
-				console.log(res.data);
-				Axios(url + '/wp-json/wp/v2/media/' + res.data.featured_media).then((res) => {
-					setPictureUrl(res.data.media_details.sizes.medium.source_url);
-				}).catch(err => {
-					console.log('fann ekki myndina', err);
-					setPictureUrl('https://skatarnir.is/wp-content/uploads/Logo_3_Orange@4x-uai-1440x296.png');
-				});
+		Axios(postFix + '/taxonomies').then((res) => {
+			var leikirTaxonomies = [];
+			for (const [key] of Object.entries(res.data)) {
+				if (res.data[key].types.includes("leikir"))
+					leikirTaxonomies.push(res.data[key]);
+			}
+			var requests = [];
+			leikirTaxonomies.forEach((x: ITaxonomy) => {
+				requests.push(Axios.get(postFix + `/${x.slug}`));
 			});
-		}
+			Axios.all(requests).then(Axios.spread((...responses) => {
+				responses.forEach(x => {
+					var taxon = leikirTaxonomies.find(y => y.slug === x.data[0].taxonomy);
+					leikirTaxonomies.find(z => z.slug === taxon.slug).allTypes = x.data;
+				});
+				setLeikjaData(leikirTaxonomies);
+			})).catch(errors => {
+				console.log(errors);
+			})
+		});
 	}, []);
+	console.log(leikjaData);
 
 	return (
 		<StyledApp.Wrapper ref={ref}>
-			{data && pictureUrl && <FaernimerkjaContent data={data} pictureUrl={pictureUrl} />}
-			{(data !== null && pictureUrl !== '') || <StyledLoader />}
+			
 		</StyledApp.Wrapper>
 	);
 };
