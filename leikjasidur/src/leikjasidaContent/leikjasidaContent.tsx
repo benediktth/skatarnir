@@ -11,7 +11,7 @@ interface Props {
 const LeikjasidaContent: FC<Props> = ({ data, taxonomies }) => {
 	return (
 		<>
-			<h2 style={{ fontSize: "50px", color: "#404041"}}>{data.acf.title.toUpperCase()}</h2>
+			<h2 style={{ fontSize: "50px", color: "#404041", "word-break": "break-word" }}>{data.acf.title.toUpperCase()}</h2>
 			<StyledLeikjasidaContent.Wrapper>
 				<StyledLeikjasidaContent.FirstRowWrapper>
 					<ContentSection data={data.acf} />

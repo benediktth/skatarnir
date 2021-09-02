@@ -37,3 +37,8 @@ add_filter('rest_prepare_skalar', function($response) {
     $response->data['acf'] = get_fields($response->data['id']);
     return $response;
 });
+
+add_filter('rest_prepare_leikir', function($response) {
+    $response->data['acf'] = get_fields($response->data['id']);
+    return $response;
+});

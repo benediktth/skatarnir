@@ -32,28 +32,37 @@ const Wrapper = styled.div`
 const Content = styled.p`
 	margin: 0;
 `;
+/**
+ * Show html elements like <a></a> and also make sure new line work
+ * @param text 
+ */
+function showHTMLElements(text) {
+	// Replace all the new lines to new lines
+	text = text.replaceAll('\r\n', '<br/>');
+	text = text.replaceAll('\n', '<br/>');
 
-function replaceNewLine(text) {
-	return text.split('\n').map((item, i) => {
-		return <Content key={i}>{item}<br/></Content>;
-	});
+	// Make sure we can see the html elements
+	let stringWithElements = {
+		__html: text
+	}
+	return <Content dangerouslySetInnerHTML={stringWithElements}></Content>;
 }
 
 const ContentSection: FC<Props> = ({ data }) => {
-	console.log(data);
+	console.log('data', data);
 	let video = {
 		__html: data.myndband
 	}
 	return (
 		<Wrapper>
 			{data.saga ? <h2>SAGA:</h2> : null}
-			{data.saga ? <Content>{data.saga}</Content> : null}
+			{data.saga ? showHTMLElements(data.saga) : null}
 			<h2>ÞÚ ÞARFT:</h2>
-			{replaceNewLine(data.tuTarft)}
+			{showHTMLElements(data.tuTarft)}
 			 <h2>LEIÐBEININGAR:</h2>
-			{replaceNewLine(data.leidbeiningar)}
+			{showHTMLElements(data.leidbeiningar)}
 			{data.utfaerslur ? <h2>ÚTFÆRSLUR:</h2> : null}
-			{data.utfaerslur ? replaceNewLine(data.leidbeiningar) : null}
+			{data.utfaerslur ? showHTMLElements(data.utfaerslur) : null}
 			{data.myndband ? <h2>MYNDBAND:</h2> : null}
 			{data.myndband ? <div dangerouslySetInnerHTML={video} /> : null}
 		</Wrapper>
