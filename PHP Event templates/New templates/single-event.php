@@ -31,13 +31,13 @@ $map = tribe_get_embedded_map()
 			margin-bottom: 2rem;
 		}
 		.meta-wrapper {
-			width: 35%;
+			width: 30%;
 		}
 		.tribe-events-single-section {
 			width: 100%;
 		}
 		.pictureAndTextWrapper {
-			width: 80%;
+			width: 70%;
 			padding: 2rem 2rem 0 0;
 		}
 		.pictureAndTextWrapper img {
