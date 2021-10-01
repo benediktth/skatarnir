@@ -53,7 +53,7 @@ tribe_get_template_part( 'modules/meta/details' );
 <?php if ( !get_field('engin_skraning') ) : ?>
 	<?php if ( empty( get_field('skraning') ) ) : ?>
 		<div class="tribe-events-meta-group " id="register">
-			<a href="https://skatar.felog.is" id="register-button" target="_blank">Skráning</a>
+			<a href="https://www.sportabler.com/shop/skatarnir" id="register-button" target="_blank">Skráning</a>
 		</div>
 	<?php endif; ?>
 	<?php if ( !empty( get_field('skraning') ) ) : ?>
