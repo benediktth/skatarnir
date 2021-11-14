@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
 import axios from 'axios';
 import React, { FC, useState } from 'react';
@@ -139,28 +139,10 @@ const AnnouncementSlider: FC<{ hide: boolean }> = ({ hide }) => {
 							}
 							*/
 
-							// Get the posts author
-							let itemAuthor = '';
-							// Check if there came a hofundur(icelandic for author), else we try to get the default author
-							// We need to make sure that the code below is in function.php in the current wp theme
-							/*
-								register_rest_field( 'post', 'hofundur', array(
-									'get_callback' => function ( $data ) {
-									return get_post_meta( $data['id'], 'hofundur', true );
-								}, ));
-							*/
-
-							if (item.hofundur) {
-								itemAuthor = item.hofundur;
-							}
-							else if (item._embedded && item._embedded.author && item._embedded.author[0] && item._embedded.author[0].name) {
-								itemAuthor = item._embedded.author[0].name;
-							}
-
+						
 							// Typescript refuses to let me use regular icons so we have to ignore it
 							//@ts-ignore
 							let date = <li><span className="fa-li"><FontAwesomeIcon icon={faClock} /></span>{itemDate}</li>;
-							let author = <li><span className="fa-li"><FontAwesomeIcon icon={faUser} /></span>{itemAuthor}</li>;
 
 							return (
 								<StyledSlider.SliderItem key={index}>
@@ -173,7 +155,6 @@ const AnnouncementSlider: FC<{ hide: boolean }> = ({ hide }) => {
 												<StyledSlider.EventTitle>{itemTitle}</StyledSlider.EventTitle>
 												<StyledSlider.ItemList className="fa-ul">
 													{date}
-													{author}
 												</StyledSlider.ItemList>
 											</StyledSlider.TextWrapper>
 										</StyledSlider.ClickableContainer>
