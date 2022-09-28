@@ -55,6 +55,8 @@ $website = tribe_get_event_website_link();
 <style>
 	#events-meta {
 		width: 100%;
+		display: flex;
+		flex-direction: column;
 	}
 	#keyInfo {
 		background-color: #3C50FF;
@@ -252,7 +254,7 @@ $website = tribe_get_event_website_link();
 			/**
 			 * Show the categories so that the urls are the age group sites
 			 */
-			
+
 			// Get the categories
 			$cats = get_the_terms(get_the_id(), Tribe__Events__Main::TAXONOMY);
 			echo '<dt class="tribe-events-event-categories-label">Aldurshópar:</dt>';

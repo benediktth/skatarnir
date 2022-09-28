@@ -23,6 +23,8 @@ $set_venue_apart = apply_filters( 'tribe_events_single_event_the_meta_group_venu
 	<style>
 		#adjustContent{
 			margin: 0;
+			display: flex;
+			flex-direction: column;
 		}
 		#adjustContent h2 {
 			font-size: 20px;
@@ -69,7 +71,8 @@ tribe_get_template_part( 'modules/meta/details' );
 
 <style>
 	.tribe-events-event-meta .column, .tribe-events-event-meta .tribe-events-meta-group {
-		display: inherit;
+		display: flex;
+		flex-direction: column;
 		float: inherit;
 		width: 100%;
 	}
